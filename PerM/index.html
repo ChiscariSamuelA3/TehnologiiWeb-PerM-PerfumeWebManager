@@ -4,29 +4,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="style.css" type="text/css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
       <title>PerM</title>
    </head>
 
    <body>
-      <ul class="navbar">
+      <header>
+        <div class="logo">Parfum.ro</div>
+        <input type="checkbox" name="" id="expand">
+        <div class="search-box">
+            <form action="">
+                <input type="text" name="" placeholder="Search...">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Favorite</a></li>
+            <li><a href="#">Shopping Cart</a></li>
+        </ul>
+        <div class="menu">
+            <label for="expand">
+                <div class="fa fa-bars"></div>
+            </label>
+        </div>
 
-         <li><a class="active" href="/">Home</a></li>
-         <li><a href="/about">About</a></li>
-         <li> <a> Account </a>
-            <ul>
-                <li > <a href="login.html"> Login </a></li>
-                <li > <a href="register.html"> Register </a></li>
-            </ul>
-         </li>
-
-      </ul>
-      
-      <h1 class = "page-title"> Perfume Web Manager </h1>
-      <h2 class = "page-subtitle">Acest site contine o gama larga de parfumuri. <br> Produsele sunt afisate in functie de preferintele utilizatorului</h2>
-
-      <div class="footer">
-         <p class="footer-text">PerM - Perfume Web Manager</p>
-      </div>
+    </header>  
    </body>
 
 </html>

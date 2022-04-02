@@ -1,51 +1,119 @@
-body {
-    background-color: rgb(61, 200, 191);
-}
-
-.navbar {
-    list-style: none;
+*{
     margin: 0;
     padding: 0;
-    background-color: aqua;
+    box-sizing: border-box;
 }
 
-.navbar li {
-    display: inline-block;
+body{
+    background: rgb(139, 241, 139);
 }
 
-.navbar li a {
-    color: mediumblue;
+/**contine logo, search-box, meniu(link-uri)**/
+header {
+   display: flex;
+   width: 100%;
+   height: 60px;
+   justify-content: space-between;
+   align-items: center;
+   position: fixed;
+   background: rgb(173, 181, 252);
+   box-shadow: 0 0 30px;
+}
+
+/**optiune meniu vertical -> vizibila doar cand dimensiunile ferestrei devin prea mici**/
+header .menu {
+    display: none;
+}
+
+#expand {
+    display: none;
+}
+
+header .logo{
+    flex: 1;
+    color:rgb(56, 33, 187);
+    margin-left: 100px; 
+}
+
+/** search box-ul are 2 componente: input si button **/
+header .search-box {
+    flex: 1;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+}
+
+.search-box button {
+    color: rgb(243, 155, 155);
+    background: rgba(31, 92, 163, 0.644);
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    right: 0;
+}
+
+header ul {
+    display: flex;
+    flex: 3;
+    justify-content: space-around;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
     text-decoration: none;
-    padding: 5px 20px;
+    padding: 5px 5px;
     font-family: "Roboto", sans-serif;
 }
 
-.page-title {
-    font-size: 40px;
-    font-family: sans-serif;
-    text-align: center;
-    color:brown;
+header ul li a:hover {
+    border-bottom: 2px solid rgb(16, 94, 14);
 }
 
-.page-subtitle {
-    font-size: 30px;
-    font-family: times;
-    text-align: center;
-    color:rgb(100, 41, 41);
-}
 
-.footer {
-	position: fixed;
-	left: 0;
-    right: 0;
-	bottom: 0;
-	background-color: rgb(40, 79, 145);
-    opacity: 0.5;
-}
+/**Daca fereastra <= 800px, reformatare**/
+@media(max-width:800px) {
+    .search-box button{
+        position: absolute;
+    }
+    header ul{
+        position: fixed;
+        width: 25%;
+        height: 100vh;
+        top: 60px;
+        left: 100%;
+        text-align: center;
+        flex-direction: column;
+        background-color: rgb(150, 150, 219);
+        transition: all .5s;
+    }
 
-.footer-text {
-    font-size: 15px;
-    font-family: times;
-    text-align: center;
-    color:rgb(24, 0, 46);
+    header ul li {
+        display: block;
+    }
+
+    header ul li a {
+        font-size: 20px;
+        color: white;
+    }
+
+    header .menu {
+        display: block;
+        margin: 5px 5px;
+    }
+    
+    #expand:checked~ul{
+        left: 75%;
+    }
 }
