@@ -78,7 +78,10 @@ header ul li a {
 }
 
 header ul li a:hover {
-    border-bottom: 2px solid rgb(16, 94, 14);
+    border-bottom: 4px solid rgb(16, 94, 14);
+    background-color: rgb(193, 152, 209);
+    color: white;
+    border-radius: 20px;
 }
 
 
@@ -96,6 +99,7 @@ header ul li a:hover {
         text-align: center;
         flex-direction: column;
         background-color: rgb(150, 150, 219);
+        opacity: 0.5;
         transition: all .5s;
     }
 
@@ -106,6 +110,7 @@ header ul li a:hover {
     header ul li a {
         font-size: 20px;
         color: white;
+        
     }
 
     header .menu {
