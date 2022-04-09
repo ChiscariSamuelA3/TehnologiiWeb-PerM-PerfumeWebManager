@@ -83,7 +83,7 @@ header ul li {
 
 header ul li a {
     text-decoration: none;
-    padding: 5px 5px;
+    padding: 8px 8px;
     font-family: 'Segoe UI';
     color: aliceblue;
     font-size: 20px;
@@ -93,26 +93,56 @@ header ul li a {
     border-bottom-right-radius: 20px;
 }
 
-header ul li a:last-of-type  {
+header ul li a.dynamic-a:last-of-type  {
     display: none;
 }
 
 header ul li a:hover {
     border-bottom: 4px solid rgb(203, 203, 203);
-    
     color: black;
     border-radius: 15px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
 }
 
+ul.dropdown{
+    display: none;
+    position: absolute;
+    top: 0;
+}
 
-/**Daca fereastra <= 800px, reformatare**/
-@media(max-width:800px) {
+ul.dropdown li {
+    text-align: center;
+    margin: 10px 10px;
+}
+
+/*Display the dropdown*/
+#account-li:hover ul.dropdown {
+    display: block;
+    background-color: rgba(33, 66, 55, 1);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 4px solid white;
+    border-top: none;
+}
+
+#account-li:hover a.dynamic-a{
+    border-bottom: none;
+    color: black;
+}
+
+#account-li:hover a{
+    border-bottom: none;
+}
+
+/**Daca fereastra <= 820px, reformatare**/
+@media(max-width:820px) {
+
     .search-box button {
         position: absolute;
     }
 
+    /*Meniu orizontal -> Meniu vertical*/
     header ul {
         position: fixed;
         width: 15%;
@@ -136,14 +166,16 @@ header ul li a:hover {
         font-family: 'Segoe UI';
     }
 
-    header ul li a:first-of-type {
+    /*Account, Favorite si Shopping Cart sunt inlocuite de iconitele specifice*/
+    header ul li a.dynamic-a:first-of-type {
         display: none;
     }
 
-    header ul li a:last-of-type {
+    header ul li a.dynamic-a:last-of-type {
         display: block;
     }
-
+    
+    /*Activare Meniu vertical, odata ce butonul este checked*/
     header .menu {
         display: block;
         margin: 5px 5px;
@@ -285,7 +317,7 @@ header ul li a:hover {
 }
 
 .product-labels {
-    background-color: rgb(12, 5, 128);
+    background-color: rgba(12, 5, 128, 0.4);
     display: inline-flex;
     color: rgb(255, 145, 0);
     font-size: 12px;
@@ -334,7 +366,7 @@ header ul li a:hover {
     border-radius: 10px;
     text-decoration: none;
     color: white;
-    padding: 2px 2px;
+    padding: 4px 4px;
 }
 
 .product-buttons .button-cart:hover{
@@ -346,7 +378,7 @@ header ul li a:hover {
     border-radius: 10px;
     text-decoration: none;
     color: white;
-    padding: 2px 2px;
+    padding: 4px 4px;
 }
 
 .product-buttons .button-favorite:hover{
