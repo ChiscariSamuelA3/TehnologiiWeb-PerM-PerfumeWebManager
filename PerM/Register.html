@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">PARFUM.RO</div>
+        <!-- search-box -->
+        <input type="checkbox" id="expand">
+        <div class="search-box">
+            <form>
+                <input type="text" placeholder="Search...">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <!-- nav links -->
+        <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Favorite</a></li>
+            <li><a href="#">Shopping Cart</a></li>
+        </ul>
+        <!-- expand vertical menu-->
+        <div class="menu">
+            <label for="expand">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+    </header>
+    <div class="container">
+        <div class="title">Create an Account</div>
+        <form action="/register" method="POST">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input type="text" placeholder="Enter your username" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="text" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm password</span>
+                    <input type="text" placeholder="Confirm your password" required>
+                </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+                    <label for="dot-3">
+                        <span class="dot three"></span>
+                        <span class="gender">Prefer not to say</span>
+                    </label>
+                </div> 
+            </div>
+        </form>
+        <div class="button">
+            <input type="submit" value="Register">
+        </div>
+    </div>
+    <!-- <div class="menu2">
+        <label for="expand2">
+            <i class="fa fa-bars"></i>
+        </label> -->
+    </div>
+</body>
+
+</html>

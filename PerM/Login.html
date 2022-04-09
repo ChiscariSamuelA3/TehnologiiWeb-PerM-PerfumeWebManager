@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">PARFUM.RO</div>
+        <!-- search-box -->
+        <input type="checkbox" id="expand">
+        <div class="search-box">
+            <form>
+                <input type="text" placeholder="Search...">
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <!-- nav links -->
+        <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Favorite</a></li>
+            <li><a href="#">Shopping Cart</a></li>
+        </ul>
+        <!-- expand vertical menu-->
+        <div class="menu">
+            <label for="expand">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+    </header>
+    <div class="container-login">
+        <div class="title-login">Log in</div>
+        <form action="/login" method="POST">
+            <div class="user-details-login">
+                <div class="input-box-login">
+                    <span class="details-login">Username</span>
+                    <input type="text" placeholder="Enter your username" required>
+                </div>
+                <div class="input-box-login">
+                    <span class="details-login">Password</span>
+                    <input type="text" placeholder="Enter your password" required>
+                </div>
+            </div>
+        </form>
+        <div class="button-login">
+            <input type="submit" value="Login">
+        </div>
+    </div>
+</body>
+
+</html>

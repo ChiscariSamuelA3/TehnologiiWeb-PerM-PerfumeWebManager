@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    box-shadow: 0 0 30px;
+    background-color: rgb(33, 66, 55);
+}
+
+header .menu {
+    display: none;
+}
+
+header .logo {
+    flex: 1;
+    color: rgb(255, 255, 255);
+    margin-left: 100px;
+    font-size: 30px;
+}
+
+#expand, #expand2 {
+    display: none;
+}
+
+header .search-box {
+    flex: 1;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    font-family: 'Gill Sans';
+    font-size: 15px;
+}
+
+.search-box button {
+    color: black;
+    background: rgba(55, 70, 87, 0.644);
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    right: 0;
+}
+
+header ul {
+    display: flex;
+    flex: 3;
+    justify-content: space-around;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 5px 5px;
+    font-family: 'Segoe UI';
+    color: aliceblue;
+    font-size: 20px;
+    border-bottom: 4px solid rgb(3, 48, 2);
+    transition: all .2s;
+}
+
+header ul li a:hover {
+    border-bottom: 4px solid rgb(3, 48, 2);
+    background-color: rgb(122, 122, 129);
+    color: black;
+    border-radius: 15px;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 35%;
+    width: 50%;
+    padding: 20px 20px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.container .title::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+
+}
+
+.container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+form .user-details .input-box {
+    margin: 30px 10px 10px 0;
+    width: calc(100% / 2 - 10px);
+}
+
+.user-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+    border-color: #9b59b6;
+}
+
+form .gender-details .gender-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .gender-details .category {
+    display: flex;
+    width: 80%;
+    margin: 14px 0;
+    justify-content: space-between;
+}
+
+.gender-details .category label {
+    display: flex;
+    align-items: center;
+}
+
+.gender-details .category .dot {
+    height: 16px;
+    width: 16px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 5px solid transparent;
+}
+
+#dot-1:checked~.category .one,
+#dot-2:checked~.category .two,
+#dot-3:checked~.category .three {
+    border-color: #d9d9d9;
+    background-color: #9b59b6;
+
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+div .button {
+    position: relative;
+    display: block;
+    width: 50%;
+    top:20px;
+    height: 45px;
+    margin: 12px 0;
+}
+
+div .button input {
+    display: block;
+    text-align: center;
+    height: 50%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size:16px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .button input:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+
+}
+
+/* Login */
+.container-login {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 35%;
+    width: 50%;
+    padding: 20px 20px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.container-login .title-login {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.container-login .title-login::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+
+}
+
+.container-login form .user-details-login {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+form .user-details-login .input-box-login {
+    display: block;
+    width: 100%;
+    margin: 10px;
+}
+
+.user-details-login .input-box-login .details {
+    display: block;
+    position: relative;
+    left: 100px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details-login .input-box-login input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details-login .input-box-login input:focus,
+.user-details-login .input-box-login input:valid {
+    border-color: #9b59b6;
+}
+
+div .button-login {
+    position: relative;
+    display: block;
+    width: 50%;
+    top:20px;
+    height: 45px;
+    margin: 12px 0;
+}
+
+div .button-login input {
+    display: block;
+    text-align: center;
+    height: 50%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size:16px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+div .button-login input:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+
+}
+
+@media(max-width : 1000px)
+{
+    .container{
+        max-width: 100%;
+    }
+
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .gender-details .category{
+        width: 100%;
+    } 
+    .container form .user-details{
+        max-height: 100px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+        width: 0;
+    }
+    .search-box button {
+        position: absolute;
+    }
+
+    header ul {
+        position: fixed;
+        width: 20%;
+        height: 50vh;
+        top: 70px;
+        left: 100%;
+        text-align: center;
+        flex-direction: column;
+        background-color: rgb(138, 138, 138);
+        opacity: 0.5;
+        transition: all .5s;
+    }
+
+    header ul li {
+        display: block;
+    }
+
+    header ul li a {
+        font-size: 20px;
+        color: white;
+        font-family: 'Segoe UI';
+    }
+
+    header ul li:nth-last-of-type(2) {
+        display: none;
+    }
+
+    header ul li:last-of-type {
+        display: block;
+    }
+
+    header .menu {
+        display: block;
+        margin: 5px 5px;
+    }
+
+    #expand:checked~ul {
+        left: 80%;
+    }
+
+    .sidebar-container {
+        max-width: 100px;
+    }
+    
+   
+
+}
