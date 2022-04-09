@@ -26,11 +26,7 @@ header {
 }
 
 /**optiune meniu vertical -> vizibila doar cand dimensiunile ferestrei devin prea mici**/
-header .menu {
-    display: none;
-}
-
-.sidebar-container .menu2 {
+header .menu, .menu2 {
     display: none;
 }
 
@@ -38,12 +34,12 @@ header .menu {
     display: none;
 }
 
-
 header .logo {
     flex: 1;
     color: rgb(255, 255, 255);
-    margin-left: 100px;
+    margin-left: 50px;
     font-size: 30px;
+    margin-right: 20px;
 }
 
 /** search box-ul are 2 componente: input si button **/
@@ -57,9 +53,10 @@ header .search-box {
     height: 30px;
     border-radius: 20px;
     border: none;
-    text-align: center;
+    text-align: left;
     font-family: 'Gill Sans';
     font-size: 15px;
+    padding-left: 20px;
 }
 
 .search-box button {
@@ -92,18 +89,21 @@ header ul li a {
     font-size: 20px;
     border-bottom: 4px solid rgb(3, 48, 2);
     transition: all .2s;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-header ul li:last-of-type  {
+header ul li a:last-of-type  {
     display: none;
 }
 
-
 header ul li a:hover {
-    border-bottom: 4px solid rgb(3, 48, 2);
-    background-color: rgb(122, 122, 129);
+    border-bottom: 4px solid rgb(203, 203, 203);
+    
     color: black;
     border-radius: 15px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 
@@ -115,8 +115,8 @@ header ul li a:hover {
 
     header ul {
         position: fixed;
-        width: 20%;
-        height: 50vh;
+        width: 15%;
+        height: 40vh;
         top: 70px;
         left: 100%;
         text-align: center;
@@ -136,11 +136,11 @@ header ul li a:hover {
         font-family: 'Segoe UI';
     }
 
-    header ul li:nth-last-of-type(2) {
+    header ul li a:first-of-type {
         display: none;
     }
 
-    header ul li:last-of-type {
+    header ul li a:last-of-type {
         display: block;
     }
 
@@ -150,14 +150,8 @@ header ul li a:hover {
     }
 
     #expand:checked~ul {
-        left: 80%;
+        left: 85%;
     }
-
-    .sidebar-container {
-        max-width: 100px;
-    }
-
-    
 }
 
 .sidebar-container {
@@ -199,20 +193,26 @@ header ul li a:hover {
     border-radius: 15px;
 }
 
-.products-title h2:last-of-type {
-    display: none;
+@media(max-width:1024px) {
+    .menu2 {
+        display: block;
+        margin: 10px 10px;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 71px;
+        max-width: 100px;
+        left: -100px;
+    }
 }
 
-@media(max-width: 1000px) {
-    .sidebar-container .sidebar {
-        display: none;
-    }
-   
-    .sidebar-container .menu2 {
-        display: block;
-        margin: 5px 5px;
-    }
+.products a {
+    text-decoration: none;
+}
 
+.products-title h2:last-of-type {
+    display: none;
 }
 
 .products-container {
@@ -257,8 +257,7 @@ header ul li a:hover {
     width: 256px;
     text-align: center;
     margin: 25px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 50px;
 }
 
@@ -267,6 +266,7 @@ header ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .product-image img {
@@ -274,13 +274,23 @@ header ul li a:hover {
     height: auto;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
+    cursor: pointer;
 }
 
-.product-card:hover .product-image img{
+.product-card:hover .product-image img {
     width: 90%;
     height: auto;
     border-radius: 10px;
     transition: all .2s;
+}
+
+.product-labels {
+    background-color: rgb(12, 5, 128);
+    display: inline-flex;
+    color: rgb(255, 145, 0);
+    font-size: 12px;
+    align-items: center;
+    cursor: pointer;
 }
 
 @media(max-width: 900px) {
@@ -316,6 +326,7 @@ header ul li a:hover {
     text-transform: uppercase;
     font-weight: bold;
     margin: 5px 5px;
+    cursor: pointer;
 }
 
 .product-buttons .button-cart {
@@ -326,12 +337,20 @@ header ul li a:hover {
     padding: 2px 2px;
 }
 
+.product-buttons .button-cart:hover{
+    background-color: rgba(34, 34, 255, 0.5);
+}
+
 .product-buttons .button-favorite{
     background-color: rgba(255, 89, 89, 0.5);
     border-radius: 10px;
     text-decoration: none;
     color: white;
     padding: 2px 2px;
+}
+
+.product-buttons .button-favorite:hover{
+    background-color: rgba(216, 0, 0, 0.5);
 }
 
 .product-stars {
