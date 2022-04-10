@@ -216,35 +216,64 @@ ul.dropdown li {
     font-family: sans-serif;
 }
 
-.sidebar .filters .filter {
+.panel-filter {
+    overflow: hidden;
+    text-align: left;
+    margin-left: 25px;
+    padding: 5px 5px;
+}
+
+.filter {
     display: block;
+    border: none;
+    background-color: inherit;
     padding: 10px;
-    margin: 5px 5px;
-    text-decoration: none;
-    color: white;
-    transition: all .2s;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 20px;
+    cursor: pointer;
+    color: white;  
     border-bottom: 2px solid rgb(3, 48, 2);
 }
 
-.sidebar .filters .filter:hover {
+.filter-newline {
+    display: none;
+}
+
+.filter:hover {
     cursor: pointer;
     color: black;
     border-radius: 15px;
 }
 
 @media(max-width:1024px) {
-    .menu2 {
-        display: block;
-        margin: 10px 10px;
+   
+    .sidebar {
+        opacity: 0.8;
+        position: fixed;
+        top: 70px;
+        max-width: 100px;
     }
 
-    .sidebar {
-        position: fixed;
-        top: 71px;
-        max-width: 100px;
-        left: -100px;
+    .filter {
+        font-size: 15px;
+        padding: 5px;
     }
+
+    .filter-label {
+        display: none;
+    }
+
+    .filter-newline {
+        display: block;
+    }
+
+    .panel-filter {
+        text-align: center;
+        margin-left: 0;
+        padding: 5px 5px;
+    }
+
 }
 
 .products a {
