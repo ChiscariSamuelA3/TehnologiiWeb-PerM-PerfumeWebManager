@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-
 </head>
 
 <body>
     <header>
-        <div class="logo">PARFUM.RO</div>
+        <div class="logo">
+            <a href="index.html">PARFUM.RO</a>
+        </div>
         <!-- search-box -->
         <input type="checkbox" id="expand">
         <div class="search-box">
@@ -41,20 +42,22 @@
         <form action="/login" method="POST">
             <div class="user-details-login">
                 <div class="input-box-login">
-                    <span class="details-login">Username</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <label for="logname" class="details-login">Username</label>
+                    <input type="text" id="logname" placeholder="Enter your username" required>
                 </div>
                 <div class="input-box-login">
-                    <span class="details-login">Password</span>
-                    <input type="password" placeholder="Enter your password" required>
+                    <label for="logpass" class="details-login">Password</label>
+                    <input type="password" id="logpass" placeholder="Enter your password" required>
                 </div>
             </div>
-        </form>
-        <div class="register">
-            <a href="Register.html">Don't have an account?</a>
+            <div class="button-login">
+                <input type="submit" value="Login">
             </div>
-        <div class="button-login">
-            <input type="submit" value="Login">
+        </form>
+        
+        <div class="register">
+            <p>Don't have an account?</p>
+            <a href="Register.html">Go to Register</a>
         </div>
     </div>
 </body>

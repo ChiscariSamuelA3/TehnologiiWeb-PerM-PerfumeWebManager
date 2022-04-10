@@ -11,7 +11,9 @@
 
 <body>
     <header>
-        <div class="logo">PARFUM.RO</div>
+        <div class="logo">
+            <a href="index.html">PARFUM.RO</a>
+        </div>
         <!-- search-box -->
         <input type="checkbox" id="expand">
         <div class="search-box">
@@ -35,25 +37,25 @@
             </label>
         </div>
     </header>
-    <div class="container">
+    <div class="container-register">
         <div class="title">Create an Account</div>
         <form action="/register" method="POST">
             <div class="user-details">
                 <div class="input-box">
-                    <span class="details">Username</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <label for="regname" class="details">Username</label>
+                    <input type="text" id="regname" placeholder="Enter your username" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="text" placeholder="Enter your password" required>
+                    <label for="regpass1" class="details">Password</label>
+                    <input type="password" id="regpass1" placeholder="Enter your password" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <label for="regmail" class="details">Email</label>
+                    <input type="text" id="regmail" placeholder="Enter your email" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">Confirm password</span>
-                    <input type="password" placeholder="Confirm your password" required>
+                    <label for="regpass2" class="details">Confirm password</label>
+                    <input type="password" id="regpass2" placeholder="Confirm your password" required>
                 </div>
             </div>
             <div class="gender-details">
@@ -76,19 +78,18 @@
                     </label>
                 </div> 
             </div>
-        </form>
-        <div class="login">
-            <a href="Login.html">Go to Login</a>
+            <div class="button-register">
+                <input type="submit" value="Register">
             </div>
-        <div class="button">
-            <input type="submit" value="Register">
+        </form>
+        
+
+        <div class="login">
+            <p>Already have an account?</p>
+            <a href="Login.html">Go to Login</a>
         </div>
     </div>
-    <!-- <div class="menu2">
-        <label for="expand2">
-            <i class="fa fa-bars"></i>
-        </label> -->
-    </div>
+    
 </body>
 
 </html>
