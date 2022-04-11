@@ -121,11 +121,15 @@ ul.dropdown{
 
 ul.dropdown li {
     text-align: center;
-    margin: 10px 10px;
+    padding: 5px 5px;
+}
+
+.account-y {
+    display: none;
 }
 
 /*Display the dropdown*/
-#account-li:hover ul.dropdown {
+#account-x:hover ul.dropdown {
     display: block;
     background-color: rgba(33, 66, 55, 1);
     border-bottom-left-radius: 20px;
@@ -134,12 +138,12 @@ ul.dropdown li {
     border-top: none;
 }
 
-#account-li:hover a.dynamic-a{
+#account-x:hover a.dynamic-acc{
     border-bottom: none;
     color: black;
 }
 
-#account-li:hover a{
+#account-x:hover a{
     border-bottom: none;
 }
 
@@ -182,6 +186,14 @@ ul.dropdown li {
     header ul li a.dynamic-a:last-of-type {
         display: block;
     }
+
+    #account-x {
+        display: none;
+    }
+
+    .account-y {
+        display: block;
+    }
     
     /*Activare Meniu vertical, odata ce butonul este checked*/
     header .menu {
@@ -208,7 +220,7 @@ ul.dropdown li {
     text-align: center;
     max-width: 200px;
     background-color: rgb(49, 80, 70);
-    box-shadow: 0 0 20px;
+    
 }
 
 .sidebar h2 {
@@ -274,6 +286,8 @@ ul.dropdown li {
         padding: 5px 5px;
     }
 
+   
+
 }
 
 .products a {
@@ -288,6 +302,12 @@ ul.dropdown li {
     width: 70%;
     min-height: 100vh;
     margin: 0 auto;
+}
+
+@media(max-width:1000px) {
+    .products-container {
+        width: 60%;
+    }
 }
 
 .products {
