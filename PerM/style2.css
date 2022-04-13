@@ -424,11 +424,13 @@ ul{
 
 .row{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
+    margin: auto;
 }
 
 .footer{
     background-color: #24262b;
+    text-align: center;
     padding:70px 0; 
 }
 .footer-col{
