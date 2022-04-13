@@ -1,394 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
     <title>PerM</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--navbar-->
     <header>
-        <div class="menu2">
-            <label for="expand2">
-                <i class="fa fa-bars"></i>
-            </label>
-        </div>
-        
-        <div class="logo">
-            <a href="index.html">PARFUM.RO</a>
-        </div>
-        <!-- search-box -->
-        <input type="checkbox" id="expand">
-        <div class="search-box">
-            <form>
-                <input type="text" placeholder="Search ...">
-                <button type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
-        </div>
-        <!-- nav links -->
-        <ul>
-            <li id="account-x">
-                <a href="#" class="dynamic-acc">
-                    Account
-                    <i class="fa fa-user"></i>
-                </a>
-                <ul class="dropdown">
-                    <li><a href="Login.html">Login</a></li>
-                    <li><a href="Register.html">Register</a></li>
-                </ul>
-            </li>
+      <div class="menu2">
+        <label for="expand2">
+          <i class="fa fa-bars"></i>
+        </label>
+      </div>
 
-            <li class="account-y">
-                <a href="Login.html" class="dynamic-a">
-                    <i class="fas fa-sign-in-alt"></i>
-                </a>
-    
-                <a href="Login.html" class="dynamic-a">
-                    <i class="fas fa-sign-in-alt">IN</i>
-                </a>
-            </li>
+      <div class="logo">
+        <a href="index.html">PARFUM.RO</a>
+      </div>
+      <!-- search-box -->
+      <input type="checkbox" id="expand" />
+      <div class="search-box">
+        <form>
+          <input type="text" placeholder="Search ..." />
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <!-- nav links -->
+      <ul>
+        <li id="account-x">
+          <a href="#" class="dynamic-acc">
+            Account
+            <i class="fa fa-user"></i>
+          </a>
+          <ul class="dropdown">
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Register.html">Register</a></li>
+          </ul>
+        </li>
 
-            <li class="account-y">
-                <a href="Register.html" class="dynamic-a">
-                    <i class="fas fa-sign-in-alt"></i>
-                </a>
-    
-                <a href="Register.html" class="dynamic-a">
-                    <i class="fas fa-sign-in-alt">UP</i>
-                </a>
-            </li>
-            
-            <li>
-                <a href="#" class="dynamic-a">
-                    Favorite
-                    <i class="fa fa-star"></i>
-                </a>
-                <a href="#" class="dynamic-a">
-                    <i class="fa fa-star"></i>
-                </a>
-            </li>
+        <li class="account-y">
+          <a href="Login.html" class="text">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
 
-            <li>
-                <a href="#" class="dynamic-a">
-                    Shopping Cart
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
-                <a href="#" class="dynamic-a">
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
-            </li>
+          <a href="Login.html" class="icon">
+            <i class="fas fa-sign-in-alt">&nbsp;IN</i>
+          </a>
+        </li>
 
-        </ul>
-        <!-- expand vertical menu-->
-        <div class="menu">
-            <label for="expand">
-                <i class="fa fa-bars"></i>
-            </label>
-        </div>
+        <li class="account-y">
+          <a href="Register.html" class="text">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
 
+          <a href="Register.html" class="icon">
+            <i class="fas fa-sign-in-alt">&nbsp;UP</i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="text">
+            Favorite
+            <i class="fa fa-star"></i>
+          </a>
+          <a href="#" class="icon">
+            <i class="fa fa-star"></i>
+          </a>
+        </li>
+
+        <li class="cart">
+          <a href="cart.html" class="text">
+            Shopping Cart
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+          <a href="cart.html" class="icon">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- expand vertical menu-->
+      <div class="menu">
+        <label for="expand">
+          <i class="fa fa-bars"></i>
+        </label>
+      </div>
     </header>
-    
+
     <!-- filters sidebar wrapper -->
     <div class="sidebar-container">
-        <input type="checkbox" id="expand2">
-        <aside class="sidebar">
-            <h2>Filters</h2>
-            <div class="filters">
-                <button class="filter">Brand</button>
-                <ul class="panel-filter">
-                    <li>
-                        <input type="checkbox" id="chanel">
-                        <p class="filter-newline">Chanel<br></p>
-                        <label for="chanel" class="filter-label">Chanel</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="sauvage">
-                        <p class="filter-newline">Sauvage<br></p>
-                        <label for="sauvage" class="filter-label">Sauvage</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="prada">
-                        <p class="filter-newline">Prada<br></p>
-                        <label for="prada" class="filter-label">Prada</label>
-                    </li>
-                </ul>
+      <input type="checkbox" id="expand2" />
+      <aside class="sidebar">
+        <h2>Filters</h2>
+        <div class="filters">
+          <button class="filter">Brand</button>
+          <ul class="panel-filter">
+            <li>
+              <input type="checkbox" id="chanel" />
+              <p class="filter-newline">Chanel<br /></p>
+              <label for="chanel" class="filter-label">Chanel</label>
+            </li>
+            <li>
+              <input type="checkbox" id="sauvage" />
+              <p class="filter-newline">Sauvage<br /></p>
+              <label for="sauvage" class="filter-label">Sauvage</label>
+            </li>
+            <li>
+              <input type="checkbox" id="prada" />
+              <p class="filter-newline">Prada<br /></p>
+              <label for="prada" class="filter-label">Prada</label>
+            </li>
+          </ul>
 
-                <button class="filter">Price</button>
-                <ul class="panel-filter">
-                    <li>
-                        <input type="checkbox" id="price1">
-                        <p class="filter-newline">100 - 200<br></p>
-                        <label for="price1" class="filter-label">100 - 200</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="price2">
-                        <p class="filter-newline">200 - 300<br></p>
-                        <label for="price2" class="filter-label">200 - 300</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="price3">
-                        <p class="filter-newline">300 - 500</p>
-                        <label for="price3" class="filter-label">300 - 500</label>
-                    </li>
-                </ul>
+          <button class="filter">Price</button>
+          <ul class="panel-filter">
+            <li>
+              <input type="checkbox" id="price1" />
+              <p class="filter-newline">100 - 200<br /></p>
+              <label for="price1" class="filter-label">100 - 200</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price2" />
+              <p class="filter-newline">200 - 300<br /></p>
+              <label for="price2" class="filter-label">200 - 300</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price3" />
+              <p class="filter-newline">300 - 500</p>
+              <label for="price3" class="filter-label">300 - 500</label>
+            </li>
+          </ul>
 
-                <button class="filter">Sex</button>
-                <ul class="panel-filter">
-                    <li>
-                        <input type="checkbox" id="men">
-                        <p class="filter-newline">Men<br></p>
-                        <label for="men" class="filter-label">Men</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="women">
-                        <p class="filter-newline">Women<br></p>
-                        <label for="women" class="filter-label">Women</label>
-                    </li>
-                </ul>
+          <button class="filter">Sex</button>
+          <ul class="panel-filter">
+            <li>
+              <input type="checkbox" id="men" />
+              <p class="filter-newline">Men<br /></p>
+              <label for="men" class="filter-label">Men</label>
+            </li>
+            <li>
+              <input type="checkbox" id="women" />
+              <p class="filter-newline">Women<br /></p>
+              <label for="women" class="filter-label">Women</label>
+            </li>
+          </ul>
 
-                <button class="filter">Season</button>
-                <ul class="panel-filter">
-                    <li>
-                        <input type="checkbox" id="spring">
-                        <p class="filter-newline">Spring<br></p>
-                        <label for="spring" class="filter-label">Spring</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="summer">
-                        <p class="filter-newline">Summer<br></p>
-                        <label for="summer" class="filter-label">Summer</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="fall">
-                        <p class="filter-newline">Fall<br></p>
-                        <label for="fall" class="filter-label">Fall</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="winter">
-                        <p class="filter-newline">Winter<br></p>
-                        <label for="winter" class="filter-label">Winter</label>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+          <button class="filter">Season</button>
+          <ul class="panel-filter">
+            <li>
+              <input type="checkbox" id="spring" />
+              <p class="filter-newline">Spring<br /></p>
+              <label for="spring" class="filter-label">Spring</label>
+            </li>
+            <li>
+              <input type="checkbox" id="summer" />
+              <p class="filter-newline">Summer<br /></p>
+              <label for="summer" class="filter-label">Summer</label>
+            </li>
+            <li>
+              <input type="checkbox" id="fall" />
+              <p class="filter-newline">Fall<br /></p>
+              <label for="fall" class="filter-label">Fall</label>
+            </li>
+            <li>
+              <input type="checkbox" id="winter" />
+              <p class="filter-newline">Winter<br /></p>
+              <label for="winter" class="filter-label">Winter</label>
+            </li>
+          </ul>
+        </div>
+      </aside>
     </div>
 
     <!--product catalog-->
     <div class="products-container">
-        <div class="products-title">
-            <h2>Perfume Catalog</h2>
-            <h2>Perfumes</h2>
+      <div class="products-title">
+        <h2>Perfume Catalog</h2>
+        <h2>Perfumes</h2>
+      </div>
+      <div class="products">
+        <div class="product-card" id="parfum1">
+          <a href="http://google.com">
+            <div class="product-image">
+              <img src="images/parfum1.jpg" alt="parfum-alt"/>
+            </div>
+          </a>
+
+          <div class="product-labels">
+            <h2>#Iarna &nbsp;</h2>
+            <h2>#Barbati &nbsp;</h2>
+            <h2>#Levantica &nbsp;</h2>
+          </div>
+
+          <div class="product-info">
+            <h2>Perfume 1</h2>
+            <p>
+              <span>50 ron</span>
+            </p>
+            <div class="product-buttons">
+              <button id="cart1" class="button-cart" name="addcart">
+                Add to Cart<br/>
+              </button>
+              <br/><button class="button-favorite" name="addfav">
+                Add to Favorite
+              </button>
+            </div>
+            <div class="product-stars">
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star-half"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="products">
-            <div class="product-card" id="parfum1">
-                <a href="http://google.com">
-                <div class="product-image">
-                    <img src="images/parfum1.jpg" alt="parfum-alt">
-                </div>
-                </a>
 
-                <div class="product-labels">
-                    <h2>#Iarna &nbsp; </h2>
-                    <h2>#Barbati &nbsp; </h2>
-                    <h2>#Levantica &nbsp; </h2>
-                </div>
+        <div class="product-card" id="parfum2">
+          <a href="http://google.com">
+            <div class="product-image">
+              <img src="images/parfum2.jpg" alt="parfum-alt" />
+            </div>
+          </a>
+          <div class="product-labels">
+            <h2>#Iarna &nbsp;</h2>
+            <h2>#Barbati &nbsp;</h2>
+            <h2>#Levantica &nbsp;</h2>
+          </div>
 
-                <div class="product-info">
-                    <h2>Perfume 1</h2>
-                    <p>
-                        <span>50 ron</span>
-                    </p>
-                    <div class="product-buttons">
-                        <a href="" class="button-cart">Add to Cart<br></a>
-                        <br><a href="" class="button-favorite">Add to Favorite</a>
-                    </div>
-                    <div class="product-stars">
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star-half"></i></a>
-                    </div>
-                </div>
+          <div class="product-info">
+            <h2>Perfume 2</h2>
+            <p>
+              <span>70 ron</span>
+            </p>
+            <div class="product-buttons">
+              <button  id="cart2" class="button-cart" name="addcart">
+                Add to Cart<br/>
+              </button>
+              <br/><button class="button-favorite" name="addfav">
+                Add to Favorite
+              </button>
             </div>
+            <div class="product-stars">
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="parfum3">
+          <a href="http://google.com">
+            <div class="product-image">
+              <img src="images/parfum3.jpg" alt="parfum-alt" />
+            </div>
+          </a>
+          <div class="product-labels">
+            <h2>#Iarna &nbsp;</h2>
+            <h2>#Barbati &nbsp;</h2>
+            <h2>#Levantica &nbsp;</h2>
+          </div>
+          <div class="product-info">
+            <h2>Perfume 3</h2>
+            <p>
+              <span>60 ron</span>
+            </p>
+            <div class="product-buttons">
+              <button  id="cart3" class="button-cart" name="addcart">
+                Add to Cart<br />
+              </button>
+              <br /><button class="button-favorite" name="addfav">
+                Add to Favorite
+              </button>
+            </div>
+            <div class="product-stars">
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+            </div>
+          </div>
+        </div>
 
-            <div class="product-card" id="parfum2">
-                <a href="http://google.com">
-                <div class="product-image">
-                    <img src="images/parfum2.jpg" alt="parfum-alt">
-                </div>
-                </a>
-                <div class="product-labels">
-                    <h2>#Iarna &nbsp; </h2>
-                    <h2>#Barbati &nbsp; </h2>
-                    <h2>#Levantica &nbsp; </h2>
-                </div>
+        <div class="product-card" id="parfum4">
+          <a href="http://google.com">
+            <div class="product-image">
+              <img src="images/parfum4.jpg" alt="parfum-alt" />
+            </div>
+          </a>
+          <div class="product-labels">
+            <h2>#Iarna &nbsp;</h2>
+            <h2>#Barbati &nbsp;</h2>
+            <h2>#Levantica &nbsp;</h2>
+          </div>
+          <div class="product-info">
+            <h2>Perfume 4</h2>
+            <p>
+              <span>60 ron</span>
+            </p>
+            <div class="product-buttons">
+              <button  id="cart4" class="button-cart" name="addcart">
+                Add to Cart<br />
+              </button>
+              <br /><button class="button-favorite" name="addaddfav">
+                Add to Favorite
+              </button>
+            </div>
+            <div class="product-stars">
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" id="parfum5">
+          <a href="http://google.com">
+            <div class="product-image">
+              <img src="images/parfum5.jpg" alt="parfum-alt" />
+            </div>
+          </a>
+          <div class="product-labels">
+            <h2>#Iarna &nbsp;</h2>
+            <h2>#Barbati &nbsp;</h2>
+            <h2>#Levantica &nbsp;</h2>
+          </div>
+          <div class="product-info">
+            <h2>Perfume 5</h2>
+            <p>
+              <span>60 ron</span>
+            </p>
+            <div class="product-buttons">
+              <button  id="cart5" class="button-cart" name="addcart">
+                Add to Cart<br />
+              </button>
+              <br /><button class="button-favorite" name="addfav">
+                Add to Favorite
+              </button>
+            </div>
+            <div class="product-stars">
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+            </div>
+          </div>
+        </div>
 
-                <div class="product-info">
-                    <h2>Perfume 2</h2>
-                    <p>
-                        <span>70 ron</span>
-                    </p>
-                    <div class="product-buttons">
-                        <a href="" class="button-cart">Add to Cart<br></a>
-                        <br><a href="" class="button-favorite">Add to Favorite</a>
-                    </div>
-                    <div class="product-stars">
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                    </div>
-                </div>
+        <div class="product-card" id="parfum6">
+          <a href="http://google.com">
+            <div class="product-image">
+              <img src="images/parfum6.jpg" alt="parfum-alt" />
             </div>
-            <div class="product-card" id="parfum3">
-                <a href="http://google.com">
-                <div class="product-image">
-                    <img src="images/parfum3.jpg" alt="parfum-alt">
-                </div>
-                </a>
-                <div class="product-labels">
-                    <h2>#Iarna &nbsp; </h2>
-                    <h2>#Barbati &nbsp; </h2>
-                    <h2>#Levantica &nbsp; </h2>
-                </div>
-                <div class="product-info">
-                    <h2>Perfume 3</h2>
-                    <p>
-                        <span>60 ron</span>
-                    </p>
-                    <div class="product-buttons">
-                        <a href="" class="button-cart">Add to Cart<br></a>
-                        <br><a href="" class="button-favorite">Add to Favorite</a>
-                    </div>
-                    <div class="product-stars">
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                    </div>
-                </div>
+          </a>
+          <div class="product-labels">
+            <h2>#Iarna &nbsp;</h2>
+            <h2>#Barbati &nbsp;</h2>
+            <h2>#Levantica &nbsp;</h2>
+          </div>
+          <div class="product-info">
+            <h2>Perfume 6</h2>
+            <p>
+              <span>60 ron</span>
+            </p>
+            <div class="product-buttons">
+              <button  id="cart6" class="button-cart" name="addcart">Add to Cart<br/>
+              </button>
+              <br/><button class="button-favorite" name="addfav">Add to Favorite
+              </button>
             </div>
-            <div class="product-card" id="parfum4">
-                <a href="http://google.com">
-                <div class="product-image">
-                    <img src="images/parfum4.jpg" alt="parfum-alt">
-                </div>
-                </a>
-                <div class="product-labels">
-                    <h2>#Iarna &nbsp; </h2>
-                    <h2>#Barbati &nbsp; </h2>
-                    <h2>#Levantica &nbsp; </h2>
-                </div>
-                <div class="product-info">
-                    <h2>Perfume 4</h2>
-                    <p>
-                        <span>60 ron</span>
-                    </p>
-                    <div class="product-buttons">
-                        <a href="" class="button-cart">Add to Cart<br></a>
-                        <br><a href="" class="button-favorite">Add to Favorite</a>
-                    </div>
-                    <div class="product-stars">
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                    </div>
-                </div>
+            <div class="product-stars">
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
+              <a href=""><i class="fa fa-star"></i></a>
             </div>
-            <div class="product-card" id="parfum5">
-                <a href="http://google.com">
-                <div class="product-image">
-                    <img src="images/parfum5.jpg" alt="parfum-alt">
-                </div>
-                </a>
-                <div class="product-labels">
-                    <h2>#Iarna &nbsp; </h2>
-                    <h2>#Barbati &nbsp; </h2>
-                    <h2>#Levantica &nbsp; </h2>
-                </div>
-                <div class="product-info">
-                    <h2>Perfume 5</h2>
-                    <p>
-                        <span>60 ron</span>
-                    </p>
-                    <div class="product-buttons">
-                        <a href="" class="button-cart">Add to Cart<br></a>
-                        <br><a href="" class="button-favorite">Add to Favorite</a>
-                    </div>
-                    <div class="product-stars">
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card" id="parfum6">
-                <a href="http://google.com">
-                <div class="product-image">
-                    <img src="images/parfum6.jpg" alt="parfum-alt">
-                </div>
-                </a>
-                <div class="product-labels">
-                    <h2>#Iarna &nbsp; </h2>
-                    <h2>#Barbati &nbsp; </h2>
-                    <h2>#Levantica &nbsp; </h2>
-                </div>
-                <div class="product-info">
-                    <h2>Perfume 6</h2>
-                    <p>
-                        <span>60 ron</span>
-                    </p>
-                    <div class="product-buttons">
-                        <a href="" class="button-cart">Add to Cart<br></a>
-                        <br><a href="" class="button-favorite">Add to Favorite</a>
-                    </div>
-                    <div class="product-stars">
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                        <a href=""><i class="fa fa-star"></i></a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container-footer"></div>
-        <div class="row">
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Our services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Affiliate Program</a></li>
-
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Get Help</h4>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Order Status</a></li>
-                    <li><a href="#">Payment Options</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Follow us</h4>
-                <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter "></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            </div>
-        </div>
-    </footer>
-    
 </body>
-
 </html>
