@@ -278,6 +278,10 @@ ul.dropdown li {
     max-width: 100px;
   }
 
+  .sidebar h2 {
+    display: none;
+  }
+
   .filter {
     font-size: 15px;
     padding: 5px;
@@ -456,4 +460,73 @@ ul.dropdown li {
   color: yellow;
 }
 
-/*cart section*/
+
+
+
+/* Footer */
+
+.footer{
+  background-color: #24262b;
+  text-align: center;
+  padding: 30px 30px; 
+}
+
+.container-footer{
+  max-width: 1100px;
+  margin: auto;
+}
+
+.container-footer .row{
+  display: flex;
+  flex-wrap: wrap;    
+  margin: auto;
+  align-items: center;
+}
+
+.footer-col{
+  width:25%;
+  padding: 0 15px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-col ul{
+  list-style: none;
+}
+
+.footer-col h4{
+  font-size: 16px;
+  color:#ffffff;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col ul li
+{
+  margin-bottom: 10px;
+}
+.footer-col ul li a
+{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 30;
+  color: #bbbbbb;
+  display: block;
+  transition:all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+  color:#ffffff;
+  padding-left: 10px;
+}
+
+@media(max-width: 565px){
+  .footer-col{
+      width:50%;
+      margin-bottom: 30px;
+  }
+}
