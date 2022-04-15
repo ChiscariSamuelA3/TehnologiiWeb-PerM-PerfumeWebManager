@@ -90,22 +90,22 @@
     </header>
 
     <!--Shopping Cart-->
-    <div id="cart-container">
-      <p id="cart-title">PerM Cart</p>
-      <div id="empty-cart">
-        <h1>Your Cart is Empty...</h1>
+    <div id="fav-container">
+      <p id="fav-title">PerM Favorite</p>
+      <div id="empty-fav">
+        <h1>Your Favorite List is Empty...</h1>
       </div>
-      <div id="cart-with-items">
-        <div class="cart-colums">
+      <div id="fav-with-items">
+        <div class="fav-colums">
           <h3>Products</h3>
           <h3>Name</h3>
-          <h3>Quantity</h3>
-          <h3>Total</h3>
+          <h3>Price</h3>
+          <h3>Cart</h3>
           <h3>Remove</h3>
         </div>
 
         <!--dummy add-to-cart item-->
-        <div class="item-body" id="item1">
+        <div class="item-body" id="favorite1">
           <div class="product-img">
             <a href="http://google.com">
                 <img src="images/parfum1.jpg" alt="parfum-alt" />
@@ -114,43 +114,37 @@
           <div class="product-name">
             <h3>Perfume1</h3>
           </div>
-          <div class="product-quantity">
-            <h3>1</h3>
-          </div>
-          <div class="product-total">
+          <div class="product-price">
             <h3>50 Ron</h3>
           </div>
-          <div class="product-remove">
-            <i class="fa fa-trash"></i>
-          </div>
-        </div>
-
-        <div class="item-body" id="item2">
-          <div class="product-img">
-            <a href="http://google.com">
-                <img src="images/parfum2.jpg" alt="parfum-alt" />
-            </a>
-          </div>
-          <div class="product-name">
-            <h3>Perfume2</h3>
-          </div>
-          <div class="product-quantity">
-            <h3>1</h3>
-          </div>
-          <div class="product-total">
-            <h3>70 Ron</h3>
+          <div class="product-add">
+            <i class="fa fa-shopping-cart"></i>
           </div>
           <div class="product-remove">
             <i class="fa fa-trash"></i>
           </div>
         </div>
 
-        <div id="total">
-          <h3 id="total-items">Quantity: 2</h3>
-          <h3 id="total-amount">Amount: 120 </h3>
-          <br><button class="purchase">Purchase</button>   
+        <div class="item-body" id="favorite2">
+            <div class="product-img">
+                <a href="http://google.com">
+                    <img src="images/parfum2.jpg" alt="parfum-alt" />
+                </a>
+              </div>
+              <div class="product-name">
+                <h3>Perfume2</h3>
+              </div>
+              <div class="product-price">
+                <h3>70 Ron</h3>
+              </div>
+              <div class="product-add">
+                <i class="fa fa-shopping-cart"></i>
+              </div>
+              <div class="product-remove">
+                <i class="fa fa-trash"></i>
+              </div>
         </div>
-        
+        <br>
       </div>
     </div>
 
