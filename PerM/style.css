@@ -316,7 +316,11 @@ ul.dropdown li {
 
 .products-container {
   width: 70%;
-  min-height: 100vh;
+   /*
+    container < min-height -> min-height applied
+    header: 70px, footer: 220px
+  */
+  min-height: calc(100vh - 70px - 220px);
   margin: 0 auto;
 }
 
@@ -465,6 +469,11 @@ ul.dropdown li {
 #cart-container, #fav-container {
   margin-top: 30px;
   background-color: rgba(7, 37, 11, 0.5);
+  /*
+    container < min-height -> min-height applied
+    header: 70px, footer: 220px
+  */
+  min-height: calc(100vh - 70px - 220px);
 }
 
 #cart-title, #fav-title {
@@ -515,10 +524,6 @@ ul.dropdown li {
   width: 40%;
 }
 
-.product-img:hover{
-  width: 42%;
-}
-
 .product-img img {
   width: 100%;
   border-radius: 10px;
@@ -530,7 +535,7 @@ ul.dropdown li {
 }
 
 #total {
-  margin-top: 40px;
+  
   padding: 10px 20px;
   display:grid;
   justify-content: center;
