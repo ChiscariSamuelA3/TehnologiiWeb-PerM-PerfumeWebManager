@@ -42,28 +42,28 @@
             <i class="fa fa-user"></i>
           </a>
           <ul class="dropdown">
-            <li><a href="Login.html">Login</a></li>
-            <li><a href="Register.html">Register</a></li>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Logout</a></li>
           </ul>
         </li>
 
         <li class="account-y">
-          <a href="Login.html" class="text">
-            <i class="fas fa-sign-in-alt"></i>
+          <a href="#" class="text">
+            <i class="fa fa-user-cog"></i>
           </a>
 
-          <a href="Login.html" class="icon">
-            <i class="fas fa-sign-in-alt">&nbsp;IN</i>
+          <a href="#" class="icon">
+            <i class="fa fa-user-cog"></i>
           </a>
         </li>
 
         <li class="account-y">
-          <a href="Register.html" class="text">
-            <i class="fas fa-sign-in-alt"></i>
+          <a href="#" class="text">
+            <i class="fa fa-power-off"></i>
           </a>
 
-          <a href="Register.html" class="icon">
-            <i class="fas fa-sign-in-alt">&nbsp;UP</i>
+          <a href="#" class="icon">
+            <i class="fa fa-user-times"></i>
           </a>
         </li>
 
@@ -95,6 +95,7 @@
       </div>
     </header>
 
+    <!--Shopping Cart-->
     <div id="cart-container">
       <p id="cart-title">PerM Cart</p>
       <div id="empty-cart">
@@ -103,21 +104,85 @@
       <div id="cart-with-items">
         <div class="cart-colums">
           <h3>Products</h3>
-          <h3>Products Name</h3>
-          <h3>Total</h3>
+          <h3>Name</h3>
           <h3>Quantity</h3>
+          <h3>Total</h3>
           <h3>Remove</h3>
         </div>
-        <div id="item-body">
 
+        <!--dummy add-to-cart item-->
+        <div class="item-body" id="item1">
+          <div class="product-img">
+            <a href="http://google.com">
+                <img src="images/parfum1.jpg" alt="parfum-alt" />
+            </a>
+          </div>
+          <div class="product-name">
+            <h3>Perfume1</h3>
+          </div>
+          <div class="product-quantity">
+            <h3>1</h3>
+          </div>
+          <div class="product-total">
+            <h3>50 Ron</h3>
+          </div>
+          <div class="product-remove">
+            <i class="fa fa-trash"></i>
+          </div>
         </div>
+
+        <div class="item-body" id="item2">
+          <div class="product-img">
+            <a href="http://google.com">
+                <img src="images/parfum2.jpg" alt="parfum-alt" />
+            </a>
+          </div>
+          <div class="product-name">
+            <h3>Perfume2</h3>
+          </div>
+          <div class="product-quantity">
+            <h3>1</h3>
+          </div>
+          <div class="product-total">
+            <h3>70 Ron</h3>
+          </div>
+          <div class="product-remove">
+            <i class="fa fa-trash"></i>
+          </div>
+        </div>
+
         <div id="total">
-          <h3 id="total-items"></h3>
-          <h2 id="total-amount"></h2>
-          <h3 id="you-saved"></h3>
+          <h3 id="total-items">Quantity: 2</h3>
+          <h3 id="total-amount">Amount: 120 </h3>
+          <br><button class="purchase">Purchase</button>   
         </div>
+        
       </div>
     </div>
 
+    <footer class="footer">
+      <div class="container-footer">
+      <div class="row">
+          <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                  <li><a href="Login.html">Login</a></li>
+                  <li><a href="Register.html">Register</a></li>
+                  <li><a href="index.html">Catalog</a></li>
+                  <li><a href="#">Favorite</a></li>
+                  <li><a href="cart.html">Cart</a></li>
+
+              </ul>
+          </div>
+          <div class="footer-col">
+              <h4>About Us</h4>
+              <ul>
+                  <li><a href="/Scholary HTML/index.html">Scholary Html</a></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+      
+  </footer>
   </body>
 </html>
