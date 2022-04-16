@@ -467,7 +467,8 @@ ul.dropdown li {
 /*Shopping Cart and Favorite*/
 
 #cart-container, #fav-container {
-  margin-top: 30px;
+  margin: 30px 30px;
+  border-radius: 30px;
   background-color: rgba(7, 37, 11, 0.5);
   /*
     container < min-height -> min-height applied
