@@ -5,94 +5,90 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>PerM</title>
 </head>
 
 <body>
-    <header>
-        <div class="menu2">
-          <label for="expand2">
-            <i class="fa fa-bars"></i>
-          </label>
-        </div>
-  
-        <div class="logo">
-          <a href="index.html">PARFUM.RO</a>
-        </div>
-        <!-- search-box -->
-        <input type="checkbox" id="expand" />
-        <div class="search-box">
-          <form>
-            <input type="text" placeholder="Search ..." />
-            <button type="submit">
-              <i class="fa fa-search"></i>
-            </button>
-          </form>
-        </div>
-        <!-- nav links -->
-        <ul>
-          <li id="account-x">
-            <a href="#" class="dynamic-acc">
-              Account
-              <i class="fa fa-user"></i>
-            </a>
-            <ul class="dropdown">
-              <li><a href="Login.html">Login</a></li>
-              <li><a href="Register.html">Register</a></li>
-            </ul>
-          </li>
-  
-          <li class="account-y">
-            <a href="Login.html" class="text">
-              <i class="fas fa-sign-in-alt"></i>
-            </a>
-  
-            <a href="Login.html" class="icon">
-              <i class="fas fa-sign-in-alt">&nbsp;IN</i>
-            </a>
-          </li>
-  
-          <li class="account-y">
-            <a href="Register.html" class="text">
-              <i class="fas fa-sign-in-alt"></i>
-            </a>
-  
-            <a href="Register.html" class="icon">
-              <i class="fas fa-sign-in-alt">&nbsp;UP</i>
-            </a>
-          </li>
-  
-          <li>
-            <a href="favorite.html" class="text">
-              Preferences
-              <i class="fa fa-star"></i>
-            </a>
-            <a href="favorite.html" class="icon">
-              <i class="fa fa-star"></i>
-            </a>
-          </li>
-  
-          <li class="cart">
-            <a href="cart.html" class="text">
-              Shopping Cart
-              <i class="fa fa-shopping-cart"></i>
-            </a>
-            <a href="cart.html" class="icon">
-              <i class="fa fa-shopping-cart"></i>
-            </a>
-          </li>
+  <header>
+    <div class="logo">
+      <a href="index.html">PARFUM.RO</a>
+    </div>
+    <!-- search-box -->
+    <input type="checkbox" id="expand" />
+    <div class="search-box">
+      <form>
+        <input type="text" placeholder="Search ..." />
+        <button type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+    <!-- nav links -->
+    <ul>
+      <li id="account-x">
+        <a href="#" class="dynamic-acc">
+          Account
+          <i class="fa fa-user"></i>
+        </a>
+        <ul class="dropdown">
+          <li><a href="Profile.html">My Profile</a></li>
+          <li><a href="index.html">Logout</a></li>
         </ul>
-        <!-- expand vertical menu-->
-        <div class="menu">
-          <label for="expand">
-            <i class="fa fa-bars"></i>
-          </label>
-        </div>
-      </header>
-  
-    <div class="wrapper">
+      </li>
+
+      <li class="account-y">
+        <a href="Profile.html" class="text">
+          <i class="fa fa-user-cog"></i>
+        </a>
+
+        <a href="Profile.html" class="icon">
+          <i class="fa fa-user-cog"></i>
+        </a>
+      </li>
+
+      <li class="account-y">
+        <a href="index.html" class="text">
+          <i class="fa fa-user-times"></i>
+        </a>
+
+        <a href="index.html" class="icon">
+          <i class="fa fa-user-times"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="favorite.html" class="text">
+          Preference
+          <i class="fa fa-star"></i>
+        </a>
+        <a href="favorite.html" class="icon">
+          <i class="fa fa-star"></i>
+        </a>
+      </li>
+
+      <li class="cart">
+        <a href="cart.html" class="text">
+          Shopping Cart
+          <i class="fa fa-shopping-cart"></i>
+        </a>
+        <a href="cart.html" class="icon">
+          <i class="fa fa-shopping-cart"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- expand vertical menu-->
+    <div class="menu">
+      <label for="expand">
+        <i class="fa fa-bars"></i>
+      </label>
+    </div>
+  </header>
+   
+  <!--User Profile-->
+  <div class="wrapper">
         <div class="right">
             <div class="info">
                 <h3>Information</h3>
@@ -145,7 +141,32 @@
                 </div>
             </div>
         </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container-footer">
+    <div class="row">
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="Profile.html">My Profile</a></li>
+                <li><a href="index.html">Logout</a></li>
+                <li><a href="index.html">Catalog</a></li>
+                <li><a href="favorite.html">Preference</a></li>
+                <li><a href="cart.html">Cart</a></li>
+
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
+            </ul>
+        </div>
     </div>
+  </div>
+    
+  </footer>
    
 </body>
 
