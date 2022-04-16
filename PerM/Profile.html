@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>Register</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style2.css" type="text/css">
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <title>PerM</title>
 </head>
 
 <body>
@@ -90,59 +91,67 @@
           </label>
         </div>
       </header>
-    <div class="container-register">
-        <div class="title">Create an Account</div>
-        <form action="/register" method="POST">
-            <div class="user-details">
-                <div class="input-box">
-                    <label for="regname" class="details">Username</label>
-                    <input type="text" id="regname" placeholder="Enter your username" required>
-                </div>
-                <div class="input-box">
-                    <label for="regpass1" class="details">Password</label>
-                    <input type="password" id="regpass1" placeholder="Enter your password" required>
-                </div>
-                <div class="input-box">
-                    <label for="regmail" class="details">Email</label>
-                    <input type="text" id="regmail" placeholder="Enter your email" required>
-                </div>
-                <div class="input-box">
-                    <label for="regpass2" class="details">Confirm password</label>
-                    <input type="password" id="regpass2" placeholder="Confirm your password" required>
+  
+    <div class="wrapper">
+        <div class="left">
+            <img src="profile-pic.png" alt="user" width="100">
+            <h4>Username</h4>
+            <p>Dev</p>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div class="info_data">
+                    <div class="data">
+                        <h4>Email</h4>
+                        <p>example@gmail.com</p>
+                    </div>
+                    <div class="data">
+                        <h4>Phone</h4>
+                        <p>0001-321-399312</p>
+                    </div>
                 </div>
             </div>
-            <div class="gender-details">
-                <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <input type="radio" name="gender" id="dot-3">
-                <span class="gender-title">Gender</span>
-                <div class="category">
-                    <label for="dot-1">
-                        <span class="dot one"></span>
-                        <span class="gender">Male</span>
-                    </label>
-                    <label for="dot-2">
-                        <span class="dot two"></span>
-                        <span class="gender">Female</span>
-                    </label>
-                    <label for="dot-3">
-                        <span class="dot three"></span>
-                        <span class="gender">Prefer not to say</span>
-                    </label>
-                </div> 
+            <div class="preferences">
+                <h3>Preferences</h3>
+                <div class="preferences_data">
+                    <div class="data">
+                        <h4>Gender</h4>
+                        <div class="select">
+                            <select name="gender" id="gender">
+                                <option value="State1">Male</option>
+                                <option value="State2">Female</option>
+                                <option value="State3">Both</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <h4>Season</h4>
+                        <div class="select">
+                            <select name="Season" id="season">
+                                <option value="State1">Spring</option>
+                                <option value="State2">Summer</option>
+                                <option value="State3">Autumn</option>
+                                <option value="State3">Winter</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="data">
+                        <h4>Fruit</h4>
+                        <div class="select">
+                            <select name="fruit" id="fruit">
+                                <option value="State1">Fruit1</option>
+                                <option value="State2">Fruit2</option>
+                                <option value="State3">Fruit3</option>
+                                <option value="State3">Fruit4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="button-register">
-                <input type="submit" value="Register">
-            </div>
-        </form>
-        
-
-        <div class="login">
-            <p>Already have an account?</p>
-            <a href="Login.html">Go to Login</a>
         </div>
     </div>
-    
+   
 </body>
 
 </html>
