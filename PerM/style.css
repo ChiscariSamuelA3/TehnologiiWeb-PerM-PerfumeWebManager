@@ -534,7 +534,7 @@ ul.dropdown li {
   grid-template-columns: repeat(5,1fr);
 }
 
-.item--favorite {
+.item--preffered {
   grid-template-columns: repeat(6,1fr);
 }
 
@@ -542,7 +542,7 @@ ul.dropdown li {
   background-color: rgba(189, 183, 6, 0.3);
 }
 
-.item--preffered {
+.item--favorite {
   background-color: rgba(4, 91, 128, 0.3);
 }
 
