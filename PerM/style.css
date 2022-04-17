@@ -316,7 +316,7 @@ ul.dropdown li {
 
 .products-container {
   width: 70%;
-   /*
+  /*
     container < min-height -> min-height applied
     header: 70px, footer: 220px
   */
@@ -389,7 +389,7 @@ ul.dropdown li {
 .product-labels {
   background-color: rgba(12, 5, 128, 0.4);
   display: inline-flex;
-  color: #FF9100;
+  color: #ff9100;
   font-size: 12px;
   align-items: center;
   cursor: pointer;
@@ -431,7 +431,7 @@ ul.dropdown li {
 }
 
 .product-buttons .button-cart {
-  background-color: #6B6BF8;
+  background-color: #6b6bf8;
   border-radius: 10px;
   text-decoration: none;
   color: white;
@@ -444,7 +444,7 @@ ul.dropdown li {
 }
 
 .product-buttons .button-favorite {
-  background-color: #FF5959;
+  background-color: #ff5959;
   border-radius: 10px;
   text-decoration: none;
   color: white;
@@ -466,7 +466,8 @@ ul.dropdown li {
 
 /*Shopping Cart and Favorite*/
 
-#cart-container, #fav-container {
+#cart-container,
+#fav-container {
   margin: 30px 30px;
   border-radius: 30px;
   background-color: rgba(7, 37, 11, 0.5);
@@ -477,20 +478,22 @@ ul.dropdown li {
   min-height: calc(100vh - 70px - 220px);
 }
 
-#cart-title, #fav-title {
+#cart-title,
+#fav-title {
   text-align: center;
   font-size: 35px;
   font-family: sans-serif;
   font-weight: bold;
-  color:#ffffff;
+  color: #ffffff;
   padding: 10px 10px;
 }
 
-#empty-cart, #empty-fav {
+#empty-cart,
+#empty-fav {
   display: none;
   padding: 50px 50px;
   text-align: center;
-  color:#ffffff;
+  color: #ffffff;
   background-color: rgba(94, 34, 53, 0.8);
   width: 50%;
   border-radius: 40px;
@@ -499,7 +502,8 @@ ul.dropdown li {
   margin-right: auto;
 }
 
-#cart-with-items, #fav-with-items {
+#cart-with-items,
+#fav-with-items {
   margin-top: 10px;
 }
 
@@ -507,7 +511,7 @@ ul.dropdown li {
 
 .colums {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-items: center;
   color: white;
   background-color: rgba(94, 34, 53, 0.8);
@@ -515,11 +519,11 @@ ul.dropdown li {
 }
 
 .colums--cart {
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .colums--fav {
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .item {
@@ -532,11 +536,11 @@ ul.dropdown li {
 
 .item--cart {
   background-color: rgba(35, 119, 46, 0.3);
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .item--preffered {
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .item--suggested {
@@ -557,14 +561,14 @@ ul.dropdown li {
   cursor: pointer;
 }
 
-.item__remove, .item__add {
+.item__remove,
+.item__add {
   cursor: pointer;
 }
 
 #total {
-  
   padding: 10px 20px;
-  display:grid;
+  display: grid;
   justify-content: center;
 }
 
@@ -582,11 +586,11 @@ ul.dropdown li {
   border: none;
   padding: 4px 4px;
   cursor: pointer;
-  background-color: #FF9100;
+  background-color: #ff9100;
 }
 
 .purchase:hover {
-  background-color: #FF5959;
+  background-color: #ff5959;
 }
 
 @media (max-width: 1000px) {
@@ -597,50 +601,48 @@ ul.dropdown li {
 
 /* Footer */
 
-.footer{
+.footer {
   background-color: #24262b;
   text-align: center;
-  padding: 30px 30px; 
+  padding: 30px 30px;
 }
 
-.container-footer{
+.container-footer {
   max-width: 1100px;
   margin: auto;
 }
 
-.container-footer .row{
+.container-footer .row {
   display: flex;
-  flex-wrap: wrap;    
+  flex-wrap: wrap;
   margin: auto;
   align-items: center;
 }
 
-.footer-col{
-  width:25%;
-  padding: 0 15px; 
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.footer-col ul{
+.footer-col ul {
   list-style: none;
 }
 
-.footer-col h4{
+.footer-col h4 {
   font-size: 16px;
-  color:#ffffff;
+  color: #ffffff;
   text-transform: capitalize;
   margin-bottom: 30px;
   font-weight: 500;
   position: relative;
 }
 
-.footer-col ul li
-{
+.footer-col ul li {
   margin-bottom: 10px;
 }
-.footer-col ul li a
-{
+.footer-col ul li a {
   font-size: 16px;
   text-transform: capitalize;
   color: #ffffff;
@@ -648,17 +650,17 @@ ul.dropdown li {
   font-weight: 30;
   color: #bbbbbb;
   display: block;
-  transition:all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.footer-col ul li a:hover{
-  color:#ffffff;
+.footer-col ul li a:hover {
+  color: #ffffff;
   padding-left: 10px;
 }
 
-@media(max-width: 565px){
-  .footer-col{
-      width:50%;
-      margin-bottom: 30px;
+@media (max-width: 565px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
   }
 }

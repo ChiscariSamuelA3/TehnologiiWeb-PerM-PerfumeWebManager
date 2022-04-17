@@ -25,7 +25,6 @@ let addButton = document.getElementsByClassName("button-cart");
 
 for (let b of addButton) {
   b.onclick = (e) => {
-
     /*
     in meniul orizontal (text)
     si cel vertical (icon)
@@ -41,5 +40,4 @@ for (let b of addButton) {
     b.setAttribute("value", 1 + parseInt(b.getAttribute("value") || 0));
     console.log(b.getAttribute("value"));
   };
-
 }
