@@ -13,17 +13,13 @@
 
   <body prefix="schema: http://schema.org">
     <header>
-      <div class="banner">
-        <img
-          src="scholarly-html.svg"
-          width="227"
-          height="50"
-          alt="Scholarly HTML logo"
-        />
-        <div class="status">Community Draft</div>
-      </div>
       <h1>Perfume Web Manager</h1>
     </header>
+
+    <div role="contentinfo">
+      <dt>Autori</dt>
+      <dd>Chiscari Samuel &amp; Coman Eduard &amp; Ghorbani Darius</dd>
+    </div>
 
     <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
       <h2>Abstract</h2>
@@ -141,13 +137,48 @@
       </p>
     </section>
 
-    <section id="autori">
-      <h2>Autori</h2>
-      <p>
-        Chiscari Samuel<br />
-        Coman Eduard<br />
-        Ghorbani Darius
-      </p>
+    <section id="biblio-references">
+      <h2>Referinte</h2>
+      <dl>
+        <dt id="ref-HTML">HTML</dt>
+        <dd
+          property="schema:citation"
+          typeof="schema:WebPage"
+          resource="https://en.wikipedia.org/wiki/HTML"
+        >
+          <cite property="schema:name">
+            <a href="https://en.wikipedia.org/wiki/HTML"
+              >HTML Specifications</a
+            > </cite
+          >.
+        </dd>
+      </dl>
+      <dl>
+        <dt id="ref-CSS">CSS</dt>
+        <dd
+          property="schema:citation"
+          typeof="schema:WebPage"
+          resource="https://en.wikipedia.org/wiki/CSS"
+        >
+          <cite property="schema:name">
+            <a href="https://en.wikipedia.org/wiki/CSS"
+              >CSS Specifications</a
+            > </cite
+          >.
+        </dd>
+      </dl>
+      <dl>
+        <dt id="ref-other">Other</dt>
+        <dd
+          property="schema:citation"
+          typeof="schema:WebPage"
+          resource="https://www.w3schools.com/"
+        >
+          <cite property="schema:name">
+            <a href="https://www.w3schools.com/">Other Specifications</a> </cite
+          >.
+        </dd>
+      </dl>
     </section>
   </body>
 </html>
