@@ -22,16 +22,24 @@ console.log(cart_icon);
 
 const mapIdCount = new Map();
 let addButton = document.getElementsByClassName("button-cart");
+
 for (let b of addButton) {
   b.onclick = (e) => {
+
+    /*
+    in meniul orizontal (text)
+    si cel vertical (icon)
+    este actualizat numarul de produse adaugate in cos
+    */
     let count_text = Number(cart_text.getAttribute("product-count") || 0);
     let count_icon = Number(cart_icon.getAttribute("product-count") || 0);
     cart_text.setAttribute("product-count", count_text + 1);
     cart_icon.setAttribute("product-count", count_icon + 1);
-    mapIdCount.set(b.id, count_text + 1);
-    console.log(b.id);
-    console.log(count_text + 1);
-    
-  };
-}
 
+    /*button value
+    retine cate produse de un anumit tip au fost adaugate in cos*/
+    b.setAttribute("value", 1 + parseInt(b.getAttribute("value") || 0));
+    console.log(b.getAttribute("value"));
+  };
+
+}

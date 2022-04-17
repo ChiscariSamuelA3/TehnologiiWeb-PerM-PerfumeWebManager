@@ -89,23 +89,50 @@
       </div>
     </header>
 
-    <!--Shopping Cart-->
-    <div id="cart-container">
-      <p id="cart-title">PerM Cart</p>
-      <div id="empty-cart">
-        <h1>Your Cart is Empty...</h1>
+    <!--Favorites list-->
+    <div id="fav-container">
+      <p id="fav-title">Suggested and Favorite Products</p>
+      <div id="empty-fav">
+        <h1>Your Preferences List is Empty...</h1>
       </div>
-      <div id="cart-with-items">
-        <div class="colums colums--cart">
+      <div id="fav-with-items">
+        <div class="colums colums--fav">
+          <h3>Type</h3>
           <h3>Products</h3>
           <h3>Name</h3>
-          <h3>Quantity</h3>
-          <h3>Total</h3>
+          <h3>Price</h3>
+          <h3>Cart</h3>
           <h3>Remove</h3>
         </div>
 
-        <!--dummy add-to-cart item-->
-        <div class="item item--cart" id="item1">
+        <!--Suggested and preffered products-->
+        <div class="item item--preffered item--suggested" id="suggestion1">
+          <div class="item__type">
+            <h3>Suggestion</h3>
+          </div>
+          <div class="item__img">
+            <a href="http://google.com">
+                <img src="images/parfum3.jpg" alt="parfum-alt" />
+            </a>
+          </div>
+          <div class="item__name">
+            <h3>Perfume3</h3>
+          </div>
+          <div class="item__price">
+            <h3>60 Ron</h3>
+          </div>
+          <div class="item__add">
+            <i class="fa fa-shopping-cart"></i>
+          </div>
+          <div class="item__remove">
+            <i class="fa fa-trash"></i>
+          </div>
+        </div>
+
+        <div class="item item--preffered item--favorite" id="favorite1">
+          <div class="item__type">
+            <h3>Favorite</h3>
+          </div>
           <div class="item__img">
             <a href="http://google.com">
                 <img src="images/parfum1.jpg" alt="parfum-alt" />
@@ -114,43 +141,40 @@
           <div class="item__name">
             <h3>Perfume1</h3>
           </div>
-          <div class="item__quantity">
-            <h3>1</h3>
-          </div>
-          <div class="item__total">
+          <div class="item__price">
             <h3>50 Ron</h3>
           </div>
+          <div class="item__add">
+            <i class="fa fa-shopping-cart"></i>
+          </div>
           <div class="item__remove">
             <i class="fa fa-trash"></i>
           </div>
         </div>
 
-        <div class="item item--cart" id="item2">
+        <div class="item item--preffered item--favorite" id="favorite2">
+          <div class="item__type">
+            <h3>Favorite</h3>
+          </div>  
           <div class="item__img">
-            <a href="http://google.com">
-                <img src="images/parfum2.jpg" alt="parfum-alt" />
-            </a>
-          </div>
-          <div class="item__name">
-            <h3>Perfume2</h3>
-          </div>
-          <div class="item__quantity">
-            <h3>1</h3>
-          </div>
-          <div class="item__total">
-            <h3>70 Ron</h3>
-          </div>
-          <div class="item__remove">
-            <i class="fa fa-trash"></i>
-          </div>
+                <a href="http://google.com">
+                    <img src="images/parfum2.jpg" alt="parfum-alt" />
+                </a>
+              </div>
+              <div class="item__name">
+                <h3>Perfume2</h3>
+              </div>
+              <div class="item__price">
+                <h3>70 Ron</h3>
+              </div>
+              <div class="item__add">
+                <i class="fa fa-shopping-cart"></i>
+              </div>
+              <div class="item__remove">
+                <i class="fa fa-trash"></i>
+              </div>
         </div>
-
-        <div id="total">
-          <h3 id="total-items">Quantity: 2</h3>
-          <h3 id="total-amount">Amount: 120 </h3>
-          <br><button class="purchase">Purchase</button>   
-        </div>
-        
+        <br>
       </div>
     </div>
 
@@ -177,6 +201,6 @@
       </div>
     </div>
       
-    </footer>
+  </footer>
   </body>
 </html>
