@@ -202,11 +202,7 @@ ul {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     -webkit-box-pack: start;
     justify-content: flex-start;
     -webkit-justify-content: flex-start;
@@ -344,9 +340,6 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
@@ -442,7 +435,6 @@ h6 {
 .products-item__img img {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
     object-fit: cover
 }
 
@@ -454,10 +446,6 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column
 }
 
@@ -490,8 +478,6 @@ h6 {
 .slick-arrow {
     position: absolute;
     top: 45.5%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     left: 58px;
     background: #faf9ff;
@@ -502,13 +488,7 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
     transition: all .3s linear
 }
@@ -560,9 +540,6 @@ h6 {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
@@ -613,13 +590,7 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
     background: #faf9ff;
     border: 1px solid #eee
@@ -688,7 +659,6 @@ h6 {
 .product-slider__main img {
     width: 100%;
     height: 570px;
-    -o-object-fit: cover;
     object-fit: cover
 }
 
@@ -721,7 +691,6 @@ h6 {
 .product-slider__nav-item img {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
     object-fit: cover
 }
 
@@ -789,9 +758,6 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
@@ -895,9 +861,6 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
@@ -906,18 +869,13 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
 .review-item__author img {
     width: 40px;
     height: 40px;
-    -webkit-border-radius: 50%;
     border-radius: 50%;
-    -o-object-fit: cover;
     object-fit: cover;
     margin-right: 30px
 }
@@ -933,8 +891,6 @@ h6 {
     position: absolute;
     right: -21px;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     content: "";
     width: 1px;
@@ -952,8 +908,6 @@ h6 {
     position: absolute;
     right: -29px;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     content: "";
     width: 1px;
@@ -977,9 +931,6 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
@@ -990,13 +941,7 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
     width: 40px;
     height: 40px;
@@ -1043,9 +988,6 @@ h6 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center
 }
 
@@ -1081,13 +1023,6 @@ input[type=search]::-ms-reveal {
     display: none;
     width: 0;
     height: 0
-}
-
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-    display: none
 }
 
 @media screen and (min-width:1600px) {
@@ -1154,10 +1089,6 @@ input[type=search]::-webkit-search-results-decoration {
         padding-top: 110px
     }
     .product-content {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
         flex-direction: column
     }
     .product-slider {
@@ -1168,10 +1099,6 @@ input[type=search]::-webkit-search-results-decoration {
         margin-top: 40px
     }
     .product-reviews {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
         flex-direction: column
     }
     .product-detail__items {
@@ -1242,14 +1169,7 @@ input[type=search]::-webkit-search-results-decoration {
         padding-bottom: 60px
     }
     .contacts-info__content {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
         flex-direction: column;
-        -webkit-box-align: start;
-        -webkit-align-items: flex-start;
-        -ms-flex-align: start;
         align-items: flex-start
     }
     .contacts-info__text {
@@ -1263,9 +1183,6 @@ input[type=search]::-webkit-search-results-decoration {
         margin-top: 0
     }
     .btn-icon {
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
         justify-content: center
     }
     .product {
@@ -1284,14 +1201,7 @@ input[type=search]::-webkit-search-results-decoration {
     }
     .product-info .contacts-info__social {
         margin-top: 20px;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
         flex-direction: column;
-        -webkit-box-align: start;
-        -webkit-align-items: flex-start;
-        -ms-flex-align: start;
         align-items: flex-start
     }
     .product-info .contacts-info__social span {
@@ -1303,10 +1213,6 @@ input[type=search]::-webkit-search-results-decoration {
     .product-options {
         margin-top: 25px;
         padding-top: 20px;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
         flex-direction: column
     }
     .product-info__quantity-title {
@@ -1314,8 +1220,6 @@ input[type=search]::-webkit-search-results-decoration {
     }
     .product-buttons {
         margin-top: 40px;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap
     }
     .product-buttons .btn {
@@ -1329,8 +1233,6 @@ input[type=search]::-webkit-search-results-decoration {
         margin-bottom: 15px
     }
     .review-item__head {
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
         flex-wrap: wrap
     }
     .review-item__author {
@@ -1351,9 +1253,6 @@ input[type=search]::-webkit-search-results-decoration {
         margin-top: 0;
         text-align: right;
         width: 100%;
-        -webkit-box-pack: end;
-        -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
         justify-content: flex-end;
         display: -webkit-box;
         display: -webkit-flex;
