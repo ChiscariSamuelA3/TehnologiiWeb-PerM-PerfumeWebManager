@@ -1,0 +1,38 @@
+{
+  "name": "tehnologiiweb-perm-perfumewebmanager",
+  "version": "1.0.0",
+  "description": "Perfume Web Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "node testing/testrun.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChiscariSamuelA3/TehnologiiWeb-PerM-PerfumeWebManager.git"
+  },
+  "keywords": [
+    "perfume"
+  ],
+  "author": "SDE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChiscariSamuelA3/TehnologiiWeb-PerM-PerfumeWebManager/issues"
+  },
+  "homepage": "https://github.com/ChiscariSamuelA3/TehnologiiWeb-PerM-PerfumeWebManager#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookies": "^0.8.0",
+    "dotenv": "^16.0.1",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.6.0",
+    "mongodb-schema": "^9.0.0",
+    "url": "^0.11.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

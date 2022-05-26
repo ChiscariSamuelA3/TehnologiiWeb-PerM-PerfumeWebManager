@@ -1,0 +1,14 @@
+[
+    {
+        "_id": {
+            "$oid": "628f5536d525d5fa5f140cb6"
+        },
+        "name": "perfume3",
+        "gender": "male",
+        "season": "spring",
+        "smell": "smell3",
+        "price": {
+            "$numberInt": "85"
+        }
+    }
+]
