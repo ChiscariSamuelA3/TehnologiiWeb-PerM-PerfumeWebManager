@@ -20,6 +20,18 @@ class Product {
         const db = getDb()
         return db.collection('products').find().toArray()
     }
+
+    static findById(id) {
+        const db = getDb()
+        return db.collection('products').find({_id: new mongodb.ObjectId(id)}).toArray()
+    }
+
+    static remove(id) {
+        const db = getDb()
+
+        db.collection('products').deleteOne({_id: new mongodb.ObjectId(id)})
+    }
+
 }
 
 module.exports = Product

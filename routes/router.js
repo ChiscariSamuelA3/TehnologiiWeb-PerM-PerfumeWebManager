@@ -6,8 +6,16 @@ async function router(req, res) {
         console.log("[router] get-products api")
         productsRoute(req, res)
     }
+    else if(req.url.match(/\/get-product\/([0-9a-z]+)/)) {
+        console.log("[router] get-product api")
+        productsRoute(req, res)
+    }
     else if(req.url === '/add-product') {
         console.log("[router] save-product api")
+        productsRoute(req, res)
+    }
+    else if(req.url.match(/\/delete-product\/([0-9a-z]+)/)) {
+        console.log("[router] delete-product api")
         productsRoute(req, res)
     }
     else {
