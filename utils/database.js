@@ -8,7 +8,8 @@ let _database
 
 const mongodbConnect = (callback) => {
     mongoClient
-        .connect(process.env.CONNECTIONSTRING)
+        .connect(
+        `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB}?${process.env.DB_OPTIONS}`)
         .then(client => {
             _database = client.db('perm')
             console.log("[database] Connected to mongodb database!")
