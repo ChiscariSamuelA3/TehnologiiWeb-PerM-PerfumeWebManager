@@ -82,8 +82,8 @@ fetch("/get-products", {
 
 }).then(response => {
   // Converting received data to JSON
-  console.log(response)
-  response.text();
+  
+  return response.json();
 }).then(json => {
 
   // Create a variable to store HTML
@@ -98,8 +98,16 @@ fetch("/get-products", {
   //       </tr>` 
 
   //  })
+  for(var i = 0, len = json.length; i < len; ++i) {
+    var product = json[i];
+    li += `
+      <tr>
+        <td>${product.name}</td>
+        <td>${product.smell}</td>
+      </tr>`
+  }
 
-  //  document.getElementById("products").innerHTML = li
+   document.getElementById("products").innerHTML = li
 }).catch(err => {
   console.log(err)
 })
