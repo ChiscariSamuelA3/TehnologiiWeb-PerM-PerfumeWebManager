@@ -28,8 +28,8 @@ function productsRoute(req, res) {
 
         updateProduct(req, res, id, quantity)
     }
-    else if(req.url.match(/([0-9a-zA-Z]*.[a-z]*)/) && req.method === 'GET') {
-        fileRouter(req, res)(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)
+    else if(req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/) && req.method === 'GET') {
+        fileRouter(req, res)
     }
     else {
         res.writeHead(404, {'Content-Type': 'text/html'})
