@@ -19,6 +19,9 @@ async function fileHandling(req, res) {
             contentType = 'text/css'
             break
         case '.js':
+            if(!(filePath.match('script.js'))) {
+                filePath = path.join('scripts', req.url)
+            }
             contentType = 'text/javascript'
             break
         case '.json':
@@ -36,6 +39,7 @@ async function fileHandling(req, res) {
     
     // read file
     fs.readFile(filePath, (err, content) => {
+        console.log(` ${filePath}  aici`)
         if(err) {
             if(err.code == 'ENOENT') {
                 // page not found

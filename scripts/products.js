@@ -74,13 +74,11 @@
 //   }
 
 // open html => use url
-fetch("http://localhost:5500/get-products", {
+fetch("/get-products", {
   method: 'GET',
   headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin':'*'
-  },
-  mode: 'no-cors'
+    'Content-Type': 'application/json'
+  }
 
 }).then(response => {
   // Converting received data to JSON
@@ -90,7 +88,7 @@ fetch("http://localhost:5500/get-products", {
 
   // Create a variable to store HTML
   let li = `<tr><th>Name</th><th>Smell</th></tr>`
- 
+  console.log(json)
   // Loop through each data and add a table row
   // json.foreach(product => {
   //    li += `
