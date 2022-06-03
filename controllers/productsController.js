@@ -7,7 +7,7 @@ async function getProducts(req, res) {
   console.log("HEREEEEE")
   try {
     const products = await Product.findAll();
-    res.writeHead(200, { "Content-Type": "application/json",'Access-Control-Allow-Origin': '*', "Access-Control-Allow-Methods": '*' ,"Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With" });
+    res.writeHead(200, { "Content-Type": "application/json"});
     res.end(JSON.stringify(products));
   } catch (err) {
     console.log(err);
