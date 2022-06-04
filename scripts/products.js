@@ -1,77 +1,34 @@
-// const apiUrl = 'http://localhost:5500'
-
-// async function fetchProducts() {
-//   try {
-//     const response = await fetch(`${apiUrl}/get-products`, {
-//         mode: 'no-cors' // 'cors' by default
-//       })
-
-//     console.log(response)
-
-//     if (!response.ok) {
-//       throw new Error(`Faild to fetch products: ${response.status}`);
-//     }
-
-//     return await response.json();
-//   } catch (err) {
-//     console.log(err);
+// // open html => use url
+// fetch("/get-products", {
+//   method: 'GET',
+//   headers: {
+//     'Content-Type': 'application/json'
 //   }
-// }
 
-// function listsProducts(productContainerId) {
-//     const productContainer = document.getElementById(productContainerId)
-
-//     if(!productContainer) {
-//         return
-//     }
-
-//     fetchProducts().then(products => {
-//         if(!products) {
-//             productContainer.innerHTML = 'No products fetched'
-//             return
-//         }
-
-//         for(const product of products) {
-//             //productContainer.appendChild(productElement(product))
-//             productElement(product)
-//         }
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
-
-// }
-
-// function productElement(product) {
-//     console.log(product)
-
-// }
-
-// async function fetchProducts() {
-//   const body = {}
-
-//   await fetch('/get-products', {
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json"
-//     }  
-//   }).then(res => {
-//     if(res.status === 200) {
-//       console.log("AICII")
-//     }
-//   })
-// }
-
-// function listsProducts(productContainerId) {
-//       const productContainer = document.getElementById(productContainerId)
+// }).then(response => {
+//   // Converting received data to JSON
   
-//       if(!productContainer) {
-//           return
-//       }
+//   return response.json();
+// }).then(json => {
+
+//   // Create a variable to store HTML
+//   let li = `<tr><th>Name</th><th>Smell</th></tr>`
+//   console.log(json)
   
-//       fetchProducts()
-  
+//   // Loop through each data and add a table row
+//   for(var i = 0, len = json.length; i < len; ++i) {
+//     var product = json[i];
+//     li += `
+//       <tr>
+//         <td>${product.name}</td>
+//         <td>${product.smell}</td>
+//       </tr>`
 //   }
+
+//    document.getElementById("products").innerHTML = li
+// }).catch(err => {
+//   console.log(err)
+// })
 
 // open html => use url
 fetch("/get-products", {
@@ -87,27 +44,24 @@ fetch("/get-products", {
 }).then(json => {
 
   // Create a variable to store HTML
-  let li = `<tr><th>Name</th><th>Smell</th></tr>`
+  
   console.log(json)
+  
   // Loop through each data and add a table row
-  // json.foreach(product => {
-  //    li += `
-  //       <tr>
-  //         <td>${product.name}</td>
-  //         <td>${product.smell}</td>
-  //       </tr>` 
-
-  //  })
   for(var i = 0, len = json.length; i < len; ++i) {
     var product = json[i];
-    li += `
-      <tr>
-        <td>${product.name}</td>
-        <td>${product.smell}</td>
-      </tr>`
-  }
+    let labels = `
+      <h2>#${product.season}&nbsp;</h2>
+      <h2>#${product.gender}&nbsp;</h2>
+      <h2>#${product.smell}&nbsp;</h2>
+      `
+      document.getElementsByClassName('product-labels')[i].innerHTML = labels
 
-   document.getElementById("products").innerHTML = li
+      labels = `<img src="${product.imageurl}" style="width:255px;height:250px;" alt="parfum-alt" />`
+
+      document.getElementsByClassName('product-image')[i].innerHTML = labels
+    }
+   
 }).catch(err => {
   console.log(err)
 })
