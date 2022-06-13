@@ -4,7 +4,7 @@ const { getPostData } = require("../utils/utils");
 
 // get products GET /get-products
 async function getProducts(req, res) {
-  console.log("HEREEEEE")
+
   try {
     const products = await Product.findAll();
     res.writeHead(200, { "Content-Type": "application/json"});

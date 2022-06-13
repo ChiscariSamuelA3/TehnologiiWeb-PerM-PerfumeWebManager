@@ -4,7 +4,6 @@ const { fileRouter } = require('./filesRoute')
 function productsRoute(req, res) {
     
     if(req.url === '/get-products' && req.method === 'GET') {
-        console.log('DADA')
         getProducts(req, res)
     }
     else if(req.url.match(/\/get-product\/([0-9a-z]+)/) && req.method === 'GET') {

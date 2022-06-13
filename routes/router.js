@@ -3,7 +3,7 @@ const {usersRoute} = require('./usersRoute')
 
 
 async function router(req, res) {
-    console.log(req.url)
+   
     if(req.url === '/get-products') {
         console.log("[router] get-products api")
         productsRoute(req, res)
