@@ -39,7 +39,6 @@ async function fileHandling(req, res) {
     
     // read file
     fs.readFile(filePath, (err, content) => {
-        console.log(` ${filePath}  aici`)
         if(err) {
             if(err.code == 'ENOENT') {
                 // page not found
