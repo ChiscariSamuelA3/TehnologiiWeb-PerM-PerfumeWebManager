@@ -398,9 +398,10 @@ select {
 
 .content {
   width: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  min-height: calc(100vh - 50px - 220px);
+  display: grid;
+  position:relative;
+  margin-top: 50px;
   text-align: center;
   color: black;
 }
@@ -412,6 +413,8 @@ select {
 
 .content p {
   margin: 20px auto;
+  font-size: 30px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 100;
   line-height: 25px;
 }
@@ -429,18 +432,5 @@ select {
   position:relative;
   display: block;
   text-decoration: none;
-  
-  margin:auto;
-
-}
-span{
-  background: #009688;
-  height: 100%;
-  width: 0;
-  border-radius: 25px;
-  position:absolute;
-  left:0;
-  bottom: 0;
-  z-index: -1;
-  transition: 0.5s;
+  margin:25px auto;
 }
