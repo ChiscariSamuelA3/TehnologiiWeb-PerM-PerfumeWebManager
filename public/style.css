@@ -360,6 +360,7 @@ ul.dropdown li {
   width: 256px;
   text-align: center;
   margin: 25px;
+  padding-bottom: 15px;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 50px;
 }
@@ -382,8 +383,14 @@ ul.dropdown li {
 .product-card:hover .product-image img {
   width: 90%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 70px;
   transition: all 0.2s;
+}
+
+.product-card:hover {
+  border-radius: 60px;
+  transition: all 0.2s;
+  background-color: rgba(21, 31, 75, 0.493);
 }
 
 .product-labels {

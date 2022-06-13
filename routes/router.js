@@ -3,6 +3,7 @@ const {usersRoute} = require('./usersRoute')
 
 
 async function router(req, res) {
+   
     if(req.url === '/get-products') {
         console.log("[router] get-products api")
         productsRoute(req, res)
@@ -17,6 +18,14 @@ async function router(req, res) {
     }
     else if(req.url.match(/\/delete-product\/([0-9a-z]+)/)) {
         console.log("[router] delete-product api")
+        productsRoute(req, res)
+    }
+    else if(req.url.match(req.url.match(/\/update-product/))) {
+        console.log("[router] update-product api")
+        productsRoute(req, res)
+    }
+    else if(req.url.match(/\//) || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)) {
+        console.log("[router] public route")
         productsRoute(req, res)
     }
     else if(req.url === '/get-users') {
