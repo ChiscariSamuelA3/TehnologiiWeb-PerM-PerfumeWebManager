@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <title>PerM</title>
+  </head>
+
+  <body>
+    <!--navbar-->
+    <header>
+      <div class="logo">
+        <a href="index.html">PARFUM.RO</a>
+      </div>
+      <!-- search-box -->
+      <input type="checkbox" id="expand" />
+      <div class="search-box">
+        <form>
+          <input type="text" placeholder="Search ..." />
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <!-- nav links -->
+      <ul>
+        <li id="account-x">
+            <a href="#" class="dynamic-acc">
+              Account
+              <i class="fa fa-user"></i>
+            </a>
+            <ul class="dropdown">
+              <li><a href="Profile.html">My Profile</a></li>
+              <li><a href="index.html">Logout</a></li>
+            </ul>
+        </li>
+  
+        <li class="account-y">
+            <a href="Profile.html" class="text">
+              <i class="fa fa-user-cog"></i>
+            </a>
+  
+            <a href="Profile.html" class="icon">
+              <i class="fa fa-user-cog"></i>
+            </a>
+        </li>
+  
+        <li class="account-y">
+            <a href="index.html" class="text">
+              <i class="fa fa-user-times"></i>
+            </a>
+  
+            <a href="index.html" class="icon">
+              <i class="fa fa-user-times"></i>
+            </a>
+        </li>
+
+        <li>
+          <a href="favorite.html" class="text">
+            Preference
+            <i class="fa fa-star"></i>
+          </a>
+          <a href="favorite.html" class="icon">
+            <i class="fa fa-star"></i>
+          </a>
+        </li>
+
+        <li class="cart">
+          <a href="cart.html" class="text">
+            Shopping Cart
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+          <a href="cart.html" class="icon">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- expand vertical menu-->
+      <div class="menu">
+        <label for="expand">
+          <i class="fa fa-bars"></i>
+        </label>
+      </div>
+    </header>
+
+    <!-- filters sidebar wrapper -->
+    <div class="sidebar-container">
+      <aside class="sidebar">
+        <h2>Filters</h2>
+        <div class="filters">
+          <button class="filter">Brand</button>
+          <ul class="panel-filter">
+            <li>
+              <input type="checkbox" id="chanel" />
+              <p class="filter-newline">Chanel<br /></p>
+              <label for="chanel" class="filter-label">Chanel</label>
+            </li>
+            <li>
+              <input type="checkbox" id="sauvage" />
+              <p class="filter-newline">Sauvage<br /></p>
+              <label for="sauvage" class="filter-label">Sauvage</label>
+            </li>
+            <li>
+              <input type="checkbox" id="prada" />
+              <p class="filter-newline">Prada<br /></p>
+              <label for="prada" class="filter-label">Prada</label>
+            </li>
+          </ul>
+
+          <button class="filter">Price</button>
+          <ul class="panel-filter">
+            <li>
+              <input type="checkbox" id="price1" />
+              <p class="filter-newline">100 - 200<br /></p>
+              <label for="price1" class="filter-label">100 - 200</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price2" />
+              <p class="filter-newline">200 - 300<br /></p>
+              <label for="price2" class="filter-label">200 - 300</label>
+            </li>
+            <li>
+              <input type="checkbox" id="price3" />
+              <p class="filter-newline">300 - 500</p>
+              <label for="price3" class="filter-label">300 - 500</label>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <!--product catalog-->
+    <div class="products-container">
+      <div class="products-title">
+        <h2>Perfume Catalog</h2>
+        <h2>Perfumes</h2>
+      </div>
+      <div class="products" id="all-products">
+        <div id="reper"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="Login.html">Login</a></li>
+              <li><a href="Register.html">Register</a></li>
+              <li><a href="index.html">Catalog</a></li>
+              <li><a href="favorite.html">Favorite</a></li>
+              <li><a href="cart.html">Cart</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Link JavaScript file -->
+    <script src="../scripts/products.js"></script>
+  </body>
+</html>

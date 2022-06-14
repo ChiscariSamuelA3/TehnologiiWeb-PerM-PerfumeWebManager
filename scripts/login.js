@@ -23,7 +23,9 @@ async function loginUser(event) {
     }).then(res => {
         return res.json()
     }).then(json => {
-        console.log(`http://localhost:5500${json.route}`)
+
+        console.log("[login]", json.information)//token...
+
         window.location.href = json.route
         window.alert(json.message)
     })
