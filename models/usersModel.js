@@ -21,18 +21,18 @@ class User {
 
     static findById(id) {
         const db = getDb()
-        return db.collection('users').find({_id: new mongodb.ObjectId(id)}).toArray()
+        return db.collection('users').find({ _id: new mongodb.ObjectId(id) }).toArray()
     }
 
     static findByUsername(name) {
         const db = getDb()
-        return db.collection('users').find({username: name}).toArray()
+        return db.collection('users').find({ username: name }).toArray()
     }
 
     static remove(id) {
         const db = getDb()
 
-        db.collection('users').deleteOne({_id: new mongodb.ObjectId(id)})
+        db.collection('users').deleteOne({ _id: new mongodb.ObjectId(id) })
     }
 
     static validatePasswordFormat(password) {
