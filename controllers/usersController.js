@@ -37,7 +37,7 @@ async function getUser(req, res, id) {
   }
 }
 
-// create user POST /add-user
+// register user POST /add-user
 async function saveUser(req, res) {
   console.log("[saveUser]")
   try {
@@ -65,8 +65,6 @@ async function saveUser(req, res) {
       else {
         let hashPassword = bcrypt.hashSync(password1, parseInt(process.env.BCRYPT_SALT))
 
-        console.log("HASH", hashPassword)
-
         const user = new User(username, hashPassword, email);
         user.save();
 
@@ -79,6 +77,44 @@ async function saveUser(req, res) {
       res.writeHead(200, { "Content-Type": "application/json" });
      
       res.end(JSON.stringify({route: "/Register.html", message: "Username already exists!"}));
+
+    }
+    
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
+// login user POST /login-user
+async function loginUser(req, res) {
+  try {
+    const body = await getPostData(req);
+
+    const { username, password } = JSON.parse(body);
+
+    const loginUser = await User.findByUsername(username);
+
+    if (loginUser.length) {
+      //check passwords
+      if(bcrypt.compareSync(password, loginUser[0]['password'])) {
+        console.log("[pass-controller]", password)
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({route: "/", message: "Login successful!"}));
+      }
+      else {
+        res.writeHead(403, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({route: "/Login.html", message: "Wrong password!"}));
+      }
+      
+    } else {
+      console.log("[user-controller] Wrong username!")
+      res.writeHead(403, { "Content-Type": "application/json" });
+     
+      res.end(JSON.stringify({route: "/Login.html", message: "Wrong username!"}));
 
     }
     
@@ -115,5 +151,6 @@ module.exports = {
   getUsers,
   getUser,
   saveUser,
-  deleteUser,
+  loginUser,
+  deleteUser
 };
