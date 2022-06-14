@@ -1,4 +1,4 @@
-const {getUsers, getUser, saveUser, deleteUser} = require('../controllers/usersController')
+const {getUsers, getUser, saveUser, loginUser, deleteUser} = require('../controllers/usersController')
 
 function usersRoute(req, res) {
     if(req.url === '/get-users' && req.method === 'GET') {
@@ -10,8 +10,11 @@ function usersRoute(req, res) {
 
         getUser(req, res, id)
     }
-    else if(req.url === '/add-user' && req.method === 'POST') {
+    else if(req.url === '/add-user' && req.method === 'POST') { // register
         saveUser(req, res)
+    }
+    else if(req.url === '/login-user' && req.method === 'POST') {
+        loginUser(req, res)
     }
     else if(req.url.match(/\/delete-user\/([0-9a-z]+)/) && req.method === 'DELETE') {
         
