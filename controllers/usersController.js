@@ -1,6 +1,7 @@
 const User = require("../models/usersModel");
 const { getPostData } = require("../utils/utils");
 const bcrypt = require ('bcrypt');
+const jwt = require('jsonwebtoken');
 
 // get users GET /get-users
 async function getUsers(req, res) {
@@ -74,7 +75,7 @@ async function saveUser(req, res) {
       
     } else {
       console.log("[user-controller] Username (%s) already exists!", username)
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(409, { "Content-Type": "application/json" });
      
       res.end(JSON.stringify({route: "/Register.html", message: "Username already exists!"}));
 
@@ -100,10 +101,15 @@ async function loginUser(req, res) {
     if (loginUser.length) {
       //check passwords
       if(bcrypt.compareSync(password, loginUser[0]['password'])) {
-        console.log("[pass-controller]", password)
+
+        const token = jwt.sign({
+          data: {id: loginUser[0]['_id'], email: loginUser[0]['email'], username: loginUser[0]['username']}
+        }, process.env.JWT_SECRET, {expiresIn: '1h'})
+
+
 
         res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({route: "/", message: "Login successful!"}));
+        res.end(JSON.stringify({route: "/", message: "Login successful!", information: token}));
       }
       else {
         res.writeHead(403, { "Content-Type": "application/json" });
