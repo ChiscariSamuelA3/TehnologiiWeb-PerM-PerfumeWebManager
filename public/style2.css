@@ -18,6 +18,8 @@
       header: 70px, footer: 220px
      */
   min-height: calc(100vh - 70px - 220px);
+  background-image: url("images/bk4.jpg");
+  
 }
 
 .container-register .title {
@@ -37,6 +39,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-left: 35px;
 }
 
 form .user-details .input-box {
@@ -152,6 +155,9 @@ div .button-register input:hover {
       header: 70px, footer: 220px
      */
   min-height: calc(100vh - 70px - 220px);
+  background-image: url("images/bk4.jpg");
+ 
+  
 }
 
 .container-login .title-login {
@@ -401,14 +407,16 @@ select {
   min-height: calc(100vh - 50px - 220px);
   display: grid;
   position:relative;
-  margin-top: 50px;
+  
   text-align: center;
   color: black;
+  background-image: url("images/bk4.jpg");
 }
 
 .content h1 {
   font-size: 70px;
   margin-top: 80px;
+  
 }
 
 .content p {
@@ -433,4 +441,5 @@ select {
   display: block;
   text-decoration: none;
   margin:25px auto;
+  background-color: rgba(87, 92, 89, 0.9);
 }

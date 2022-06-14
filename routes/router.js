@@ -1,10 +1,10 @@
 const {productsRoute} = require('./productsRoute')
 const {usersRoute} = require('./usersRoute')
-
+const {cartRoute} = require('./cartRoute')
 
 async function router(req, res) {
    
-    if(req.url === '/get-products') {
+    if(req.url === '/get-products') { // products
         console.log("[router] get-products api")
         productsRoute(req, res)
     }
@@ -24,11 +24,31 @@ async function router(req, res) {
         console.log("[router] update-product api")
         productsRoute(req, res)
     }
-    else if(req.url.match(/\//) || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)) {
-        console.log("[router] public route")
+    else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)) {
+        console.log("[router] public route", req.url)
         productsRoute(req, res)
     }
-    else if(req.url === '/get-users') {
+    else if(req.url.match(/\/get-carts\/([0-9a-z]+)/)) { // carts
+        console.log("[router] get-carts api")
+        cartRoute(req, res)
+    }
+    else if(req.url.match(/\/get-cart\/([0-9a-z]+)\/([0-9a-z]+)/)) {
+        console.log("[router] get-cart api")
+        cartRoute(req, res)
+    }
+    else if(req.url === '/add-cart') {
+        console.log("[router] save-cart api")
+        cartRoute(req, res)
+    }
+    else if(req.url.match(/\/delete-cart\/([0-9a-z]+)/)) {
+        console.log("[router] delete-cart api")
+        cartRoute(req, res)
+    }
+    else if(req.url.match(req.url.match(/\/update-cart/))) {
+        console.log("[router] update-cart api")
+        cartRoute(req, res)
+    }
+    else if(req.url === '/get-users') { // users
         console.log("[router] get-users api")
         usersRoute(req, res)
     }
