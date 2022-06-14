@@ -27,7 +27,7 @@ function productsRoute(req, res) {
 
         updateProduct(req, res, id, quantity)
     }
-    else if(req.url.match(/\//) || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/) && req.method === 'GET') {
+    else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/) && req.method === 'GET') {
         fileRouter(req, res)
     }
     else {

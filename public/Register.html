@@ -90,7 +90,7 @@
 
     <div class="container-register">
       <div class="title">Create an Account</div>
-      <form action="/register" method="POST">
+      <form id="register-form" action="/" method="POST">
         <div class="user-details">
           <div class="input-box">
             <label for="regname" class="details">Username</label>
@@ -113,7 +113,7 @@
           <div class="input-box">
             <label for="regmail" class="details">Email</label>
             <input
-              type="text"
+              type="email"
               id="regmail"
               placeholder="Enter your email"
               required
@@ -145,7 +145,7 @@
             </label>
             <label for="dot-3">
               <span class="dot three"></span>
-              <span class="gender">Prefer not to say</span>
+              <span class="gender">Other</span>
             </label>
           </div>
         </div>
@@ -182,5 +182,8 @@
         </div>
       </div>
     </footer>
+
+     <!-- Link JavaScript file -->
+     <script src="../scripts/register.js"></script>
   </body>
 </html>
