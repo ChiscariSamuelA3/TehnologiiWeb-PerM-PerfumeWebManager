@@ -119,8 +119,6 @@ async function loginUser(req, res) {
           data: {id: loginUser[0]['_id'], email: loginUser[0]['email'], username: loginUser[0]['username']}
         }, process.env.JWT_SECRET, {expiresIn: '1h'})
 
-
-
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify({route: "/index.html", message: "Login successful!", information: token}));
       }
