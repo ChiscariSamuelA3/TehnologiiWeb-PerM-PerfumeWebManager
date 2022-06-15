@@ -443,3 +443,122 @@ select {
   margin:25px auto;
   background-color: rgba(87, 92, 89, 0.9);
 }
+
+/* 
+ *******
+ Payment  
+ *******
+ */
+.container-address {
+  display: flex;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 20px 20px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  min-height: calc(100vh - 70px - 220px);
+}
+
+.container-address .title-address {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.container-address .title-address::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 30px;
+}
+
+.container-address form .user-details-address {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form .user-details-address .input-box-address {
+  display: block;
+  width: 100%;
+  margin: 10px;
+}
+
+.user-details-address .input-box-address .details {
+  display: block;
+  position: relative;
+  left: 100px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details-address .input-box-address input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details-address .input-box-address input:focus,
+.user-details-address .input-box-address input:valid {
+  border-color: #9b59b6;
+}
+
+div .button-address {
+  position: relative;
+  display: block;
+  margin: 20px 60px;
+}
+
+div .button-address input {
+  display: block;
+  text-align: center;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  padding: 5px 5px;
+}
+
+div .button-address input:hover {
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  cursor: pointer;
+}
+
+.go-to-cart a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.go-to-cart p {
+  position:relative;
+  margin-left: 120px;
+}
+.go-to-cart a input:hover {
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  cursor: pointer;
+}
+
