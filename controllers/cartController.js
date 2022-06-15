@@ -1,14 +1,56 @@
 const Cart = require("../models/cartModel");
-
 const { getPostData } = require("../utils/utils");
+const jwt = require("jsonwebtoken");
 
 // get carts GET /get-carts/{userId}
 async function getCarts(req, res, userId) {
-
   try {
     const carts = await Cart.findAll(userId);
     res.writeHead(200, { "Content-Type": "application/json"});
     res.end(JSON.stringify(carts));
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
+// get carts GET /get-api-carts
+async function getApiCarts(req, res) {
+  try {
+    // userId sa il iau din token-ul din cookie...
+
+    let value = ""
+    let token = ""
+    const cookieHeader = req.headers?.cookie
+    
+    if(cookieHeader) {
+      cookieHeader.split(`;`).forEach(cookie => {
+        let [name, ...rest] = cookie.split(`=`)
+        if(name === "jwt") {
+          value = rest.join(`=`).trim()
+          if(value) {
+            token =  decodeURIComponent(value)
+          }
+        }
+      });
+    }
+    
+    if(value === "") {
+      res.writeHead(401, { "Content-Type": "application/json"});
+      res.end(JSON.stringify({ route: "/Login.html", message: "You must login to view the cart page!" }));
+    }
+    else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
+      const userId = decodedToken['data']['id']
+
+      // userId-ul utilizatorului care este logat in sesiunea curenta
+      const carts = await Cart.findAll(userId);
+      res.writeHead(200, { "Content-Type": "application/json"});
+      res.end(JSON.stringify(carts));
+    }
   } catch (err) {
     console.log(err);
 
@@ -101,6 +143,7 @@ async function updateCart(req, res, userId, id, quantity) {
 
 module.exports = {
   getCarts,
+  getApiCarts,
   getCart,
   saveCart,
   deleteCart,

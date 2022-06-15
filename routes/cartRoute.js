@@ -1,4 +1,4 @@
-const {getCarts, getCart, saveCart, deleteCart, updateCart} = require('../controllers/cartController')
+const {getCarts, getApiCarts, getCart, saveCart, deleteCart, updateCart} = require('../controllers/cartController')
 
 function cartRoute(req, res) {
     
@@ -7,6 +7,9 @@ function cartRoute(req, res) {
         const userId = req.url.split('/')[2]
 
         getCarts(req, res, userId)
+    }
+    else if(req.url === '/get-api-carts' && req.method === 'GET') {
+        getApiCarts(req, res)
     }
     else if(req.url.match(/\/get-cart\/([0-9a-z]+)\/([0-9a-z]+)/) && req.method === 'GET') {
         

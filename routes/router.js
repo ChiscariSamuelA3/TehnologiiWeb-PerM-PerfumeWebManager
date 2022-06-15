@@ -25,6 +25,9 @@ async function router(req, res) {
     } else if (req.url.match(/\/get-carts\/([0-9a-z]+)/)) { // carts
         console.log("[router] get-carts api")
         cartRoute(req, res)
+    } else if(req.url === '/get-api-carts') {
+        console.log("[router] get-api-carts")
+        cartRoute(req, res)
     } else if (req.url.match(/\/get-cart\/([0-9a-z]+)\/([0-9a-z]+)/)) {
         console.log("[router] get-cart api")
         cartRoute(req, res)
