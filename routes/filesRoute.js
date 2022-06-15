@@ -4,7 +4,7 @@ async function fileRouter(req, res) {
     req.url = req.url.split("/").pop()
     
     if(!req.url) {
-        req.url = "index.html"
+        req.url = "Homepage.html"
     }
 
     fileHandling(req, res)
