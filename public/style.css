@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url("images/bk.jpg");
+  background-image: url("images/perfume.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -331,7 +331,7 @@ ul.dropdown li {
   justify-content: center;
   align-items: center;
   margin: auto;
-  background-color: rgba(25, 92, 55, 0.5);
+  background-color: rgba(25, 92, 55, 0.7);
 }
 
 .products-container .products-title {
@@ -477,7 +477,7 @@ ul.dropdown li {
 #fav-container {
   margin: 30px 30px;
   border-radius: 30px;
-  background-color: rgba(7, 37, 11, 0.5);
+  background-color: rgba(19, 68, 25, 0.5);
   /*
     container < min-height -> min-height applied
     header: 70px, footer: 220px
