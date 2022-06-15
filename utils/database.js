@@ -4,12 +4,16 @@ dotenv.config()
 const mongodb = require('mongodb')
 const mongoClient = mongodb.MongoClient
 
+const Config = require("./config");
+
 let _database
 
 const mongodbConnect = (callback) => {
+    const config = new Config();
+
     mongoClient
         .connect(
-        `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB}?${process.env.DB_OPTIONS}`)
+        `mongodb+srv://${config['db_username']}:${config['db_password']}@${config['db_host']}/${config['db']}?${config['db_options']}`)
         .then(client => {
             _database = client.db('perm')
             console.log("[database] Connected to mongodb database!")
