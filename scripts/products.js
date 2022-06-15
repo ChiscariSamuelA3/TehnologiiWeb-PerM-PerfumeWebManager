@@ -81,20 +81,7 @@ function addProduct(product) {
 
 
   const currentDiv = document.getElementById("reper")
-  insertAfter(divCard, currentDiv)
-
-  // let labels = `
-  // <h2>#${product.season}&nbsp;</h2>
-  // <h2>#${product.gender}&nbsp;</h2>
-  // <h2>#${product.smell}&nbsp;</h2>
-  // `
-  // document.getElementsByClassName('product-labels')[i].innerHTML = labels
-  
-
-  //labels = `<img src="${product.imageurl}" style="width:255px;height:250px;" alt="parfum-alt" />`
-
-  //document.getElementsByClassName('product-image')[i].innerHTML = labels
-  
+  insertAfter(divCard, currentDiv)  
 }
 
 
