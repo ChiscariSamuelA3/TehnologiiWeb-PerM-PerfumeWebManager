@@ -1,7 +1,7 @@
 const User = require("../models/usersModel");
 const { getPostData } = require("../utils/utils");
-const bcrypt = require ('bcrypt');
-const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 // get users GET /get-users
 async function getUsers(req, res) {
@@ -40,58 +40,98 @@ async function getUser(req, res, id) {
 
 // register user POST /add-user
 async function saveUser(req, res) {
-  console.log("[saveUser]")
+  console.log("[saveUser]");
   try {
     const body = await getPostData(req);
 
     const { username, password1, email, password2 } = JSON.parse(body);
-    console.log("[user-controller]", username, password1, email, password2)
+    console.log("[user-controller]", username, password1, email, password2);
 
-    if(User.validateUsernameFormat(username) === null) {
-      console.log("[user-controller] Username format is invalid. Don't use special characters such as $, ! or {}!")
+    if (User.validateUsernameFormat(username) === null) {
+      console.log(
+        "[user-controller] Username format is invalid. Don't use special characters such as $, ! or {}!"
+      );
       res.writeHead(200, { "Content-Type": "application/json" });
-     
-      res.end(JSON.stringify({route: "/Register.html", message: "Username format is invalid. Don't use special characters such as $, ! or {}!"}));
-    }
-    else {
+
+      res.end(
+        JSON.stringify({
+          route: "/Register.html",
+          message:
+            "Username format is invalid. Don't use special characters such as $, ! or {}!",
+        })
+      );
+    } else {
       const findUser = await User.findByUsername(username);
 
       if (!findUser.length) {
-      
-        if(User.validateEmailFormat(email) === null) {
-          console.log("[user-controller] Email must not contain special characters such as $, ! or {}!")
+        if (User.validateEmailFormat(email) === null) {
+          console.log(
+            "[user-controller] Email must not contain special characters such as $, ! or {}!"
+          );
           res.writeHead(200, { "Content-Type": "application/json" });
-       
-          res.end(JSON.stringify({route: "/Register.html", message: "Email must not contain special characters such as $, ! or { }"}));
-        }
-        else if(User.validatePasswordFormat(password1) === null) {
-          console.log("[user-controller] Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!")
+
+          res.end(
+            JSON.stringify({
+              route: "/Register.html",
+              message:
+                "Email must not contain special characters such as $, ! or { }",
+            })
+          );
+        } else if (User.validatePasswordFormat(password1) === null) {
+          console.log(
+            "[user-controller] Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!"
+          );
           res.writeHead(200, { "Content-Type": "application/json" });
-       
-          res.end(JSON.stringify({route: "/Register.html", message: "Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!"}));
-        }
-        else if(password1 !== password2) {
-          console.log("[user-controller] Please make sure your passwords match!")
+
+          res.end(
+            JSON.stringify({
+              route: "/Register.html",
+              message:
+                "Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!",
+            })
+          );
+        } else if (password1 !== password2) {
+          console.log(
+            "[user-controller] Please make sure your passwords match!"
+          );
           res.writeHead(200, { "Content-Type": "application/json" });
-       
-          res.end(JSON.stringify({route: "/Register.html", message: "Please make sure your passwords match!"}));
-        }
-        else {
-          let hashPassword = bcrypt.hashSync(password1, parseInt(process.env.BCRYPT_SALT))
-  
+
+          res.end(
+            JSON.stringify({
+              route: "/Register.html",
+              message: "Please make sure your passwords match!",
+            })
+          );
+        } else {
+          let hashPassword = bcrypt.hashSync(
+            password1,
+            parseInt(process.env.BCRYPT_SALT)
+          );
+
           const user = new User(username, hashPassword, email);
           user.save();
-  
+
           res.writeHead(201, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({route: "/Login.html", message: "Your account has been created successfully!"}));
+          res.end(
+            JSON.stringify({
+              route: "/Login.html",
+              message: "Your account has been created successfully!",
+            })
+          );
         }
-        
       } else {
-        console.log("[user-controller] Username (%s) already exists!", username)
+        console.log(
+          "[user-controller] Username (%s) already exists!",
+          username
+        );
         res.writeHead(409, { "Content-Type": "application/json" });
-       
-        res.end(JSON.stringify({route: "/Register.html", message: "Username already exists!"}));
-  
+
+        res.end(
+          JSON.stringify({
+            route: "/Register.html",
+            message: "Username already exists!",
+          })
+        );
       }
     }
   } catch (err) {
@@ -109,32 +149,75 @@ async function loginUser(req, res) {
 
     const { username, password } = JSON.parse(body);
 
-    const loginUser = await User.findByUsername(username);
+    if (User.validateUsernameFormat(username) === null) {
+      console.log(
+        "[user-controller] Username format is invalid. Don't use special characters such as $, ! or {}!"
+      );
+      res.writeHead(200, { "Content-Type": "application/json" });
 
-    if (loginUser.length) {
-      //check passwords
-      if(bcrypt.compareSync(password, loginUser[0]['password'])) {
-
-        const token = jwt.sign({
-          data: {id: loginUser[0]['_id'], email: loginUser[0]['email'], username: loginUser[0]['username']}
-        }, process.env.JWT_SECRET, {expiresIn: '1h'})
-
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({route: "/index.html", message: "Login successful!", information: token}));
-      }
-      else {
-        res.writeHead(403, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({route: "/Login.html", message: "Wrong password!"}));
-      }
-      
-    } else {
-      console.log("[user-controller] Wrong username!")
-      res.writeHead(403, { "Content-Type": "application/json" });
-     
-      res.end(JSON.stringify({route: "/Login.html", message: "Wrong username!"}));
-
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message:
+            "Username format is invalid. Don't use special characters such as $, ! or {}!",
+        })
+      );
     }
-    
+    else if(User.validatePasswordFormat(password) === null) {
+      console.log(
+        "[user-controller] Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!"
+      );
+      res.writeHead(200, { "Content-Type": "application/json" });
+
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message:
+            "Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!",
+        })
+      );
+    }
+    else {
+      const loginUser = await User.findByUsername(username);
+
+      if (loginUser.length) {
+        //check passwords
+        if (bcrypt.compareSync(password, loginUser[0]["password"])) {
+          const token = jwt.sign(
+            {
+              data: {
+                id: loginUser[0]["_id"],
+                email: loginUser[0]["email"],
+                username: loginUser[0]["username"],
+              },
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: "1h" }
+          );
+
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(
+            JSON.stringify({
+              route: "/index.html",
+              message: "Login successful!",
+              information: token,
+            })
+          );
+        } else {
+          res.writeHead(403, { "Content-Type": "application/json" });
+          res.end(
+            JSON.stringify({ route: "/Login.html", message: "Wrong password!" })
+          );
+        }
+      } else {
+        console.log("[user-controller] Wrong username!");
+        res.writeHead(403, { "Content-Type": "application/json" });
+
+        res.end(
+          JSON.stringify({ route: "/Login.html", message: "Wrong username!" })
+        );
+      }
+    }
   } catch (err) {
     console.log(err);
 
@@ -152,9 +235,9 @@ async function deleteUser(req, res, id) {
       res.writeHead(404, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ message: "User Not Found" }));
     } else {
-      await User.remove(id)
+      await User.remove(id);
       res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({message:`User ${id} removed`}));
+      res.end(JSON.stringify({ message: `User ${id} removed` }));
     }
   } catch (err) {
     console.log(err);
@@ -169,5 +252,5 @@ module.exports = {
   getUser,
   saveUser,
   loginUser,
-  deleteUser
+  deleteUser,
 };

@@ -27,9 +27,9 @@ async function loginUser(event) {
         console.log("[login]", json.information)//token...
 
         let date = new Date();
-        date.setTime(date.getTime() + (5 * 60 * 1000)); //5 min cookie
+        date.setTime(date.getTime() + (15 * 60 * 1000)); //15 min cookie
         const expires = date.toUTCString();
-        document.cookie = `jwt=${json.information}; expires=${expires}; path=/`;
+        document.cookie = `jwt=${json.information}; expires=${expires}; path=/`; 
 
         window.location.href = json.route
         window.alert(json.message)
