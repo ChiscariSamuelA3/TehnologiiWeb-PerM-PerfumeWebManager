@@ -18,8 +18,8 @@
       header: 70px, footer: 220px
      */
   min-height: calc(100vh - 70px - 220px);
-  background-image: url("images/bk4.jpg");
-  
+  background-image: url("images/perfume.jpg");
+  background-position: center;
 }
 
 .container-register .title {
@@ -155,13 +155,13 @@ div .button-register input:hover {
       header: 70px, footer: 220px
      */
   min-height: calc(100vh - 70px - 220px);
-  background-image: url("images/bk4.jpg");
- 
+  background-image: url("images/perfume.jpg");
+  background-position: center;
   
 }
 
 .container-login .title-login {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 500;
   position: relative;
 }
@@ -407,41 +407,48 @@ select {
   min-height: calc(100vh - 50px - 220px);
   display: grid;
   position:relative;
-  
+  letter-spacing: 2px;
   text-align: center;
   color: black;
-  background-image: url("images/bk4.jpg");
 }
 
 .content h1 {
   font-size: 70px;
   margin-top: 80px;
-  
+  margin-bottom: 30px;
+  color:rgb(63, 126, 105);
+  text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
 
 .content p {
-  margin: 20px auto;
-  font-size: 30px;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 35px auto;
+  font-size: 38px;
+  color: #ffffff;
   font-weight: 100;
   line-height: 25px;
+  text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+}
+
+.homepage {
+  margin-top: 150px;
 }
 
 .homepage a {
   width: 200px;
-  padding: 15px 5px;
+  font-size: 25px;
+  padding: 10px 5px;
   text-align: center;
   border-radius: 25px;
   font-weight: bold;
-  border: 2px solid #009688;
-  background: transparent;
-  color: #000;
+  border: 4px solid rgb(43, 109, 65);
+  background: rgba(43, 109, 65, 0.5);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   position:relative;
   display: block;
   text-decoration: none;
-  margin:25px auto;
-  background-color: rgba(87, 92, 89, 0.9);
+  margin:35px auto;
+  text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
 
 /* 
