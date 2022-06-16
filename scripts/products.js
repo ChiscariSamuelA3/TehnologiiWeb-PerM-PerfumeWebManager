@@ -1,3 +1,10 @@
+// function addToCartFunction(productId, userId) {
+
+//   console.log("[product] prodID: ", productId)
+//   console.log("[product] userId: ", userId)
+// }
+
+
 function insertAfter(newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling)
 }
@@ -65,6 +72,10 @@ function addProduct(product) {
   let cartButton = document.createElement("button")
   cartButton.className = "button-cart"
   cartButton.name = "addcart"
+
+  // cand este apasat butonul "Add To Cart":
+  cartButton.setAttribute("onClick", `addToCart("${product._id}")`)
+  
   cartButton.textContent = "Add To Cart"
   divButtons.appendChild(cartButton)
 
@@ -76,9 +87,7 @@ function addProduct(product) {
 
   divInfo.appendChild(divButtons)
 
-
   divCard.appendChild(divInfo)
-
 
   const currentDiv = document.getElementById("reper")
   insertAfter(divCard, currentDiv)  
