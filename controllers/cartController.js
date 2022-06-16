@@ -48,8 +48,19 @@ async function getApiCarts(req, res) {
 
       // userId-ul utilizatorului care este logat in sesiunea curenta
       const carts = await Cart.findAll(userId);
+      
+
+      // extrage din baza de date numele si imaginile produselor, pe baza id-urilor produselor din cos
+      var names = []
+      var images = []
+      for(const cart of carts) {
+        const extractProduct = await Cart.findByProdId(cart['productId'])
+        names.push(extractProduct[0]['name'])
+        images.push(extractProduct[0]['imageurl'])
+      }
+      
       res.writeHead(200, { "Content-Type": "application/json"});
-      res.end(JSON.stringify(carts));
+      res.end(JSON.stringify({carts, names, images}));
     }
   } catch (err) {
     console.log(err);
