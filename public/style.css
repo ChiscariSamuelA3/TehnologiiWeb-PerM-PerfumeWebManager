@@ -397,7 +397,7 @@ ul.dropdown li {
   background-color: rgba(12, 5, 128, 0.4);
   display: inline-flex;
   color: #ff9100;
-  font-size: 12px;
+  font-size: 13px;
   align-items: center;
   cursor: pointer;
 }
@@ -637,7 +637,7 @@ ul.dropdown li {
   list-style: none;
 }
 
-.footer-col h4 {
+.footer-col h4, h5 {
   font-size: 16px;
   color: #ffffff;
   text-transform: capitalize;

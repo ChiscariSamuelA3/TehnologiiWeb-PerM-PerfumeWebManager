@@ -19,7 +19,7 @@ async function getCarts(req, res, userId) {
 // get carts GET /get-api-carts
 async function getApiCarts(req, res) {
   try {
-    // userId sa il iau din token-ul din cookie...
+    // userId il iau din token-ul din cookie...
 
     let value = ""
     let token = ""
@@ -37,7 +37,7 @@ async function getApiCarts(req, res) {
       });
     }
     
-    if(value === "") {
+    if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
       res.end(JSON.stringify({ route: "/Login.html", message: "You must login to view the cart page!" }));
     }
@@ -95,13 +95,89 @@ async function saveCart(req, res) {
   try {
     const body = await getPostData(req);
 
-    const { userId, productId, quantity, price } = JSON.parse(body);
+    const { clickedProductId } = JSON.parse(body);
 
-    const cart = new Cart(userId, productId, quantity, price);
-    cart.save();
 
-    res.writeHead(201, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(cart));
+    let value = ""
+    let token = ""
+    const cookieHeader = req.headers?.cookie
+    
+    if(cookieHeader) {
+      cookieHeader.split(`;`).forEach(cookie => {
+        let [name, ...rest] = cookie.split(`=`)
+        if(name === "jwt") {
+          value = rest.join(`=`).trim()
+          if(value) {
+            token =  decodeURIComponent(value)
+          }
+        }
+      });
+    }
+    
+    if(value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json"});
+      res.end(JSON.stringify({ route: "/index.html", message: "You must login to add product to cart!" }));
+    }
+    else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
+      // user id care e logat
+      const userId = decodedToken['data']['id']
+
+      // cauta daca produsul exista deja in cosul userului
+      const isProductCart = await Cart.findByUserIdProductId(userId, clickedProductId)
+
+      // cauta produsul care se doreste a fi adaugat in cos
+      const productCatalog = await Cart.findCatalogProduct(clickedProductId)
+
+      // CAZUL IN CARE ACEL PRODUS NU SE MAI AFLA PE STOC (PRODUCT QUANTITY)-> NU MAI E ADAUGAT -> ALERT MESSAGE
+
+      // verifica daca produsul e deja in cos
+      if(!isProductCart.length) {
+        // produsul nu e in cos inca -> cantitate adaugata 1
+        console.log("NU EXISTA IN DB", productCatalog[0].quantity)
+
+        // verifica daca produsul mai este in stoc, pentru a putea fi adaugat in cos
+        if(productCatalog[0].quantity === 0) {
+          res.writeHead(403, { "Content-Type": "application/json"});
+          res.end(JSON.stringify({ route: "/index.html", message: "The product is no longer in stock!" }));
+        }
+        else {
+          // adauga produsul in cos
+          const cart = new Cart(userId, clickedProductId, 1, productCatalog[0].price);
+          cart.save();
+
+          // actualizeaza stocul pt acel produs din catalog cu -1
+          await Cart.updateCatalogProduct(clickedProductId, productCatalog[0].quantity - 1)
+
+          res.writeHead(201, { "Content-Type": "application/json" });
+          //res.end(JSON.stringify(cart));
+          res.end(JSON.stringify(cart));
+        }
+      }
+      else {
+        // produsul e deja in cos -> update la cantitate + 1
+        console.log("EXISTA DEJA IN DB", isProductCart[0]._id, isProductCart[0].quantity)
+
+        // verifica daca produsul mai este in stoc, pentru a putea fi adaugat in cos
+        if(productCatalog[0].quantity === 0) {
+          res.writeHead(403, { "Content-Type": "application/json"});
+          res.end(JSON.stringify({ route: "/index.html", message: "The product is no longer in stock!" }));
+        }
+        else {
+          // actualizare cantitate produs in cos
+          await Cart.updateCart(isProductCart[0]._id, isProductCart[0].quantity + 1)
+
+          // actualizeaza stocul pt acel produs din catalog cu -1
+          await Cart.updateCatalogProduct(clickedProductId, productCatalog[0].quantity - 1)
+
+          res.writeHead(201, { "Content-Type": "application/json" });
+          //res.end(JSON.stringify(cart));
+          res.end(JSON.stringify({userId, clickedProductId}));
+        }
+        
+      }
+    }
   } catch (err) {
     console.log(err);
 

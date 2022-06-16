@@ -59,7 +59,6 @@ function addProductToCart(productCart, productName, productImage) {
   
     const currentDiv = document.getElementById("cart-reper")
     insertAfter(divCard, currentDiv)  
-
 }
 
 // open html => use url
