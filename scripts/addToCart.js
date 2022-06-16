@@ -10,9 +10,20 @@ async function addToCart(clickedProductId) {
         body: JSON.stringify({
             clickedProductId
         })
-    }).then(res => {
+    }).then(response => {
         // de tratat aici ALERT in functie de status cod 401, 403
-        return res.json()
+
+        if(response.status === 401) {
+            window.location.href = "/index.html"
+            window.alert("You must login to add product to cart!")
+        }
+        else if(response.status === 403) {
+            window.location.href = "/index.html"
+            window.alert("The product is no longer in stock!")
+        }
+        else {
+            return response.json();
+        }
     }).then(json => {
 
         console.log(json)
