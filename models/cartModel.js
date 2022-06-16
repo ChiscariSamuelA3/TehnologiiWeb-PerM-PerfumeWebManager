@@ -26,6 +26,11 @@ class Cart {
         return db.collection('cart').find({userId: new mongodb.ObjectId(cartUserId), _id: new mongodb.ObjectId(id)}).toArray()
     }
 
+    static findByProdId(prodId) {
+        const db = getDb()
+        return db.collection('products').find({_id: prodId}).toArray()
+    }
+
     static remove(id) {
         const db = getDb()
 
