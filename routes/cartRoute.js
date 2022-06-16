@@ -1,4 +1,4 @@
-const {getCarts, getApiCarts, getCart, saveCart, deleteCart, updateCart} = require('../controllers/cartController')
+const {getCarts, getApiCarts, getCart, saveCart, deleteCart, deleteProductCart, updateCart} = require('../controllers/cartController')
 
 function cartRoute(req, res) {
     
@@ -27,6 +27,9 @@ function cartRoute(req, res) {
         const id = req.url.split('/')[3]
 
         deleteCart(req, res, userId, id)
+    }
+    else if(req.url === '/delete-api-cart' && req.method === 'DELETE') {
+        deleteProductCart(req, res)
     }
     else if(req.url.match(req.url.match(/\/update-cart/)) && req.method === 'PATCH') {
         const userId = req.url.split('/')[2]

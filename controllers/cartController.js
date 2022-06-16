@@ -207,6 +207,36 @@ async function deleteCart(req, res, userId, id) {
   }
 }
 
+// delete product cart DELETE /delete-api-cart
+async function deleteProductCart(req, res) {
+  
+  try {
+    const body = await getPostData(req);
+
+    const { cartId } = JSON.parse(body);
+
+    // cauta produsul din cos care se doreste a fi sters
+    const productCart = await Cart.findCartProduct(cartId)
+
+    //cauta produsul din catalog pentru a ii reactualiza stocul cu ce a fost adaugat in cos
+    const productRestock = await Cart.findProductRestock(productCart[0].productId)
+
+    // restock
+    await Cart.restockCatalogProduct(productRestock[0]._id, productRestock[0].quantity + productCart[0].quantity)
+
+    // stege din cos dupa ce a fost readaugat stocul
+    await Cart.remove(cartId)
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({message:`Cart ${cartId} removed`}));
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
 // update cart PATCH /update-cart/{userId}/{id}/{quantity}
 async function updateCart(req, res, userId, id, quantity) {
   try {
@@ -234,5 +264,6 @@ module.exports = {
   getCart,
   saveCart,
   deleteCart,
+  deleteProductCart,
   updateCart
 };

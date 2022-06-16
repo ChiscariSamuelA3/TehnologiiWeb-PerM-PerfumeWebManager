@@ -1,5 +1,3 @@
-
-
 async function addToCart(clickedProductId) {
 
     await fetch('/add-cart', {
@@ -11,7 +9,6 @@ async function addToCart(clickedProductId) {
             clickedProductId
         })
     }).then(response => {
-        // de tratat aici ALERT in functie de status cod 401, 403
 
         if(response.status === 401) {
             window.location.href = "/index.html"

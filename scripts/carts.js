@@ -54,6 +54,9 @@ function addProductToCart(productCart, productName, productImage) {
 
     let iconRemove = document.createElement("i")
     iconRemove.className = "fa fa-trash"
+    // cand este apasata iconita de stergere produs din cos
+    iconRemove.setAttribute("onClick", `removeFromCart("${productCart._id}")`)
+
     divRemove.appendChild(iconRemove)
     divCard.appendChild(divRemove)
   

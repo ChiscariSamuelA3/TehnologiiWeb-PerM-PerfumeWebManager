@@ -26,6 +26,11 @@ class Cart {
         return db.collection('cart').find({userId: new mongodb.ObjectId(cartUserId), _id: new mongodb.ObjectId(id)}).toArray()
     }
 
+    static findCartProduct(id) {
+        const db = getDb()
+        return db.collection('cart').find({_id: new mongodb.ObjectId(id)}).toArray()
+    }
+
     static findByUserIdProductId(cartUserId, prodId) {
         const db = getDb()
         return db.collection('cart').find({userId: new mongodb.ObjectId(cartUserId), productId: new mongodb.ObjectId(prodId)}).toArray()
@@ -39,6 +44,11 @@ class Cart {
     static findCatalogProduct(prodId) {
         const db = getDb()
         return db.collection('products').find({_id: new mongodb.ObjectId(prodId)}).toArray()
+    }
+
+    static findProductRestock(prodId) {
+        const db = getDb()
+        return db.collection('products').find({_id: prodId}).toArray()
     }
 
     static remove(id) {
@@ -60,6 +70,15 @@ class Cart {
         const db = getDb()
         console.log("UPDATE PRODUCT CATALOG", id, q)
         return db.collection('products').updateOne({_id: new mongodb.ObjectId(id)},
+            {
+                $set: {quantity: parseInt(q)}
+            })
+    }
+
+    static restockCatalogProduct(productId, q) {
+        const db = getDb()
+        console.log("RESTOCK PRODUCT CATALOG", productId, q)
+        return db.collection('products').updateOne({_id: productId},
             {
                 $set: {quantity: parseInt(q)}
             })
