@@ -1,10 +1,3 @@
-// function addToCartFunction(productId, userId) {
-
-//   console.log("[product] prodID: ", productId)
-//   console.log("[product] userId: ", userId)
-// }
-
-
 function insertAfter(newNode, referenceNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling)
 }
@@ -18,7 +11,7 @@ function addProduct(product) {
 
   // div content
   let a = document.createElement("a")
-  a.setAttribute("href", "product.html") // adaugare product id in url...?
+  //a.setAttribute("href", "product.html") // adaugare product id in url...?
   
   let divImage = document.createElement("div")
   divImage.className = "product-image"
@@ -29,6 +22,9 @@ function addProduct(product) {
   img.setAttribute("src", product.imageurl)
   img.setAttribute("style", "width:255px;height:250px;")
   img.setAttribute("alt", "parfum-alt")
+  // cand este apasata imaginea -> redirectionare catre pagina produsului:
+  img.setAttribute("onClick", `location.href="/product.html?id=${product._id}"`)
+  //img.setAttribute("onClick", `productPage("${product}")`)
 
   divImage.appendChild(img)
 
