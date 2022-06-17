@@ -125,14 +125,12 @@ div .button-register input {
   border: none;
   font-size: 16px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
-  padding: 5px 5px;
+  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px 5px;
   margin: 10px 0;
 }
 
 div .button-register input:hover {
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-  cursor: pointer;
+  background: linear-gradient(to left, #033d01, #00240c);  cursor: pointer;
 }
 
 /* Login */
@@ -226,13 +224,11 @@ div .button-login input {
   border: none;
   font-size: 16px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
-  padding: 5px 5px;
+  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px 5px;
 }
 
 div .button-login input:hover {
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-  cursor: pointer;
+  background: linear-gradient(to left, #033d01, #00240c);  cursor: pointer;
 }
 
 .login a,
@@ -240,21 +236,21 @@ div .button-login input:hover {
   display: block;
   text-decoration: none;
   width: 100%;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
-  padding: 5px;
+  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px;
   text-align: center;
   border-radius: 5px;
   color: white;
   font-weight: bold;
 }
 
-.login a input:hover {
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+.login a :hover {
+  background: linear-gradient(to left, #033d01, #00240c);
   cursor: pointer;
+
 }
 
-.register a input:hover {
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+.register a :hover {
+  background: linear-gradient(to left, #033d01, #00240c);
   cursor: pointer;
 }
 
@@ -449,6 +445,24 @@ select {
   text-decoration: none;
   margin:35px auto;
   text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+}
+
+div .button-submit input {
+  display: block;
+  text-align: center;
+  height: 30px;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px 5px;
+  margin: 10px 0;
+}
+
+div .button-submit input:hover {
+  background: linear-gradient(to left, #033d01, #00240c);  cursor: pointer;
 }
 
 /* 
