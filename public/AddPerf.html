@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">PARFUM.RO</a>
+      </div>
+      <!-- search-box -->
+      <input type="checkbox" id="expand" />
+      <div class="search-box">
+        <form>
+          <input type="text" placeholder="Search ..." />
+          <button type="submit" name="subject">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <!-- nav links -->
+      <ul>
+        <li id="account-x">
+          <a href="#" class="dynamic-acc">
+            Account
+            <i class="fa fa-user"></i>
+          </a>
+          <ul class="dropdown">
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Register.html">Register</a></li>
+          </ul>
+        </li>
+
+        <li class="account-y">
+          <a href="Login.html" class="text">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
+
+          <a href="Login.html" class="icon">
+            <i class="fas fa-sign-in-alt">&nbsp;IN</i>
+          </a>
+        </li>
+
+        <li class="account-y">
+          <a href="Register.html" class="text">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
+
+          <a href="Register.html" class="icon">
+            <i class="fas fa-sign-in-alt">&nbsp;UP</i>
+          </a>
+        </li>
+
+        <li>
+          <a href="favorite.html" class="text">
+            Preference
+            <i class="fa fa-star"></i>
+          </a>
+          <a href="favorite.html" class="icon">
+            <i class="fa fa-star"></i>
+          </a>
+        </li>
+
+        <li class="cart">
+          <a href="cart.html" class="text">
+            Shopping Cart
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+          <a href="cart.html" class="icon">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- expand vertical menu-->
+      <div class="menu">
+        <label for="expand">
+          <i class="fa fa-bars"></i>
+        </label>
+      </div>
+    </header>
+
+    <div class="container-perfume">
+      <div class="title">Add a perfume</div>
+      <form id="perfume-form" action="/" method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <label for="perfname" class="details">Name</label>
+            <input
+              type="text"
+              id="perfname"
+              placeholder="Add name"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="gender" class="details">Gender</label>
+            <input
+              type="text"
+              id="gender"
+              placeholder="Add gender"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="smell" class="details">Season</label>
+            <input
+              type="text"
+              id="season"
+              placeholder="Add season"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label for="smell" class="details">Smell</label>
+            <input
+              type="text"
+              id="smell"
+              placeholder="Add smell"
+              required
+            />
+          </div>
+        </div>
+        <div class="button-perfume">
+          <input type="submit" value="Add perfume" />
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="Login.html">Login</a></li>
+              <li><a href="Register.html">Register</a></li>
+              <li><a href="index.html">Catalog</a></li>
+              <li><a href="favorite.html">Favorite</a></li>
+              <li><a href="cart.html">Cart</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>About Us</h5>
+            <ul>
+              <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+     <!-- Link JavaScript file -->
+     <script src="../scripts/register.js"></script>
+  </body>
+</html>
