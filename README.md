@@ -11,3 +11,7 @@ npm install
 ```bash
 npm run dev
 ```
+# Heroku:
+```bash
+https://perfumewebmanagertw.herokuapp.com/
+```
