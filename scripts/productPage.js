@@ -22,6 +22,7 @@ function initProduct(product) {
     document.getElementById('shortDescription').innerText = product.shortdescription
     document.getElementById('longDescription').innerText = product.longdescription
 
+    document.getElementsByClassName('btn btn-icon')[0].setAttribute("onclick", `addToCart("${product._id}")`)
 }
 
 // open html => use url
