@@ -565,7 +565,7 @@ ul.dropdown li {
 .item__img img {
   width: 100%;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: context-menu;
 }
 
 .item__remove,
