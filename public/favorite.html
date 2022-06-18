@@ -19,7 +19,7 @@
         <a href="index.html">PARFUM.RO</a>
       </div>
       <!-- search-box -->
-      <input type="checkbox" id="expand" title="menu" placeholder=""/>
+      <input type="checkbox" id="expand" title="menu" placeholder="" />
       <div class="search-box">
         <form>
           <input type="text" placeholder="Search ..." />
@@ -106,30 +106,33 @@
         </div>
 
         <!--Suggested and preffered products-->
-        <div class="item item--preffered item--suggested" id="suggestion1">
-          <div class="item__type">
-            <h3>Suggestion</h3>
-          </div>
-          <div class="item__img">
-            <a href="http://google.com">
-              <img src="images/parfum3.jpg" alt="parfum-alt" />
-            </a>
-          </div>
-          <div class="item__name">
-            <h3>Perfume3</h3>
-          </div>
-          <div class="item__price">
-            <h3>60 Ron</h3>
-          </div>
-          <div class="item__add">
-            <i class="fa fa-shopping-cart"></i>
-          </div>
-          <div class="item__remove">
-            <i class="fa fa-trash"></i>
-          </div>
+        <div id="reper-fav">
+          <!-- <div class="item item--preffered item--suggested" id="suggestion1">
+            <div class="item__type">
+              <h3>Suggestion</h3>
+            </div>
+            <div class="item__img">
+              <a href="http://google.com">
+                <img src="images/parfum3.jpg" alt="parfum-alt" />
+              </a>
+            </div>
+            <div class="item__name">
+              <h3>Perfume3</h3>
+            </div>
+            <div class="item__price">
+              <h3>60 Ron</h3>
+            </div>
+            
+            <div class="item__add">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div class="item__remove">
+              <i class="fa fa-trash"></i>
+            </div>
+          </div> -->
         </div>
-
-        <div class="item item--preffered item--favorite" id="favorite1">
+        
+        <!-- <div class="item item--preffered item--favorite" id="favorite1">
           <div class="item__type">
             <h3>Favorite</h3>
           </div>
@@ -147,33 +150,12 @@
           <div class="item__add">
             <i class="fa fa-shopping-cart"></i>
           </div>
-          <div class="item__remove">
-            <i class="fa fa-trash"></i>
-          </div>
-        </div>
 
-        <div class="item item--preffered item--favorite" id="favorite2">
-          <div class="item__type">
-            <h3>Favorite</h3>
-          </div>
-          <div class="item__img">
-            <a href="http://google.com">
-              <img src="images/parfum2.jpg" alt="parfum-alt" />
-            </a>
-          </div>
-          <div class="item__name">
-            <h3>Perfume2</h3>
-          </div>
-          <div class="item__price">
-            <h3>70 Ron</h3>
-          </div>
-          <div class="item__add">
-            <i class="fa fa-shopping-cart"></i>
-          </div>
           <div class="item__remove">
             <i class="fa fa-trash"></i>
           </div>
-        </div>
+        </div> -->
+
         <br />
       </div>
     </div>
@@ -200,5 +182,10 @@
         </div>
       </div>
     </footer>
+
+    <!-- Link JavaScript file -->
+    <script src="../scripts/favorites.js"></script>
+    <script src="../scripts/addToCart.js"></script>
+    <script src="../scripts/deleteFromFav.js"></script>
   </body>
 </html>

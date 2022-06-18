@@ -1,6 +1,7 @@
 const { productsRoute } = require('./productsRoute')
 const { usersRoute } = require('./usersRoute')
 const { cartRoute } = require('./cartRoute')
+const { favRoute } = require('./favRoute')
 
 async function router(req, res) {
 
@@ -55,6 +56,30 @@ async function router(req, res) {
     else if (req.url.match(req.url.match(/\/update-cart/))) {
         console.log("[router] update-cart api")
         cartRoute(req, res)
+    } 
+    else if (req.url.match(/\/get-favorites\/([0-9a-z]+)/)) { // favorites
+        console.log("[router] get-favorites api")
+        favRoute(req, res)
+    } 
+    else if(req.url === '/get-api-favorites') {
+        console.log("[router] get-api-favorites")
+        favRoute(req, res)
+    } 
+    else if (req.url.match(/\/get-favorite\/([0-9a-z]+)\/([0-9a-z]+)/)) {
+        console.log("[router] get-favorite api")
+        favRoute(req, res)
+    } 
+    else if (req.url === '/add-fav') {
+        console.log("[router] save-fav api")
+        favRoute(req, res)
+    } 
+    else if (req.url.match(/\/delete-fav\/([0-9a-z]+)/)) {
+        console.log("[router] delete-fav api")
+        favRoute(req, res)
+    } 
+    else if(req.url === '/delete-api-fav') {
+        console.log("[router] delete-api-fav")
+        favRoute(req, res)
     } 
     else if (req.url === '/get-users') { // users
         console.log("[router] get-users api")

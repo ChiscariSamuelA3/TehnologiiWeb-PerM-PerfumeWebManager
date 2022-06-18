@@ -78,6 +78,10 @@ function addProduct(product) {
   let favoriteButton = document.createElement("button")
   favoriteButton.className = "button-favorite"
   favoriteButton.name = "addfav"
+
+    // cand este apasat butonul "Add To Favorite":
+  favoriteButton.setAttribute("onClick", `addToFavorite("${product._id}")`)
+
   favoriteButton.textContent = "Add To Favorite"
   divButtons.appendChild(favoriteButton)
 
