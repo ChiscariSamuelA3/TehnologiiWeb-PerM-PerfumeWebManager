@@ -93,7 +93,7 @@
     <div class="wrapper">
       <div class="right">
         <div class="info">
-          <h3>Information</h3>
+          <!-- <h3>Information</h3>
           <div class="info_data">
             <div class="data">
               <h4>Email</h4>
@@ -103,51 +103,53 @@
               <h4>Username</h4>
               <p>Alex Donovici</p>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="preferences">
           <h3>Preferences</h3>
-          <div class="preferences_data">
-            <div class="data">
-              <h4>Gender</h4>
-              <div class="select">
-                <select name="gender" id="gender">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Both">Both</option>
-                </select>
+          <form id="register-form" action="/" method="POST">
+            <div class="preferences_data">
+              <div class="data">
+                <h4>Gender</h4>
+                <div class="select">
+                  <select name="gender" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Both">Both</option>
+                  </select>
+                </div>
+              </div>
+              <div class="data">
+                <h4>Season</h4>
+                <div class="select">
+                  <select name="Season" id="season">
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Autumn">Autumn</option>
+                    <option value="Winter">Winter</option>
+                  </select>
+                </div>
+              </div>
+              <div class="data">
+                <h4>Smell</h4>
+                <div class="select">
+                  <select name="fruit" id="fruit">
+                    <option value="Smell1">Smell1</option>
+                    <option value="Smell2">Smell2</option>
+                    <option value="Smell3">Smell3</option>
+                    <option value="Smell4">Smell4</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="data">
-              <h4>Season</h4>
-              <div class="select">
-                <select name="Season" id="season">
-                  <option value="Spring">Spring</option>
-                  <option value="Summer">Summer</option>
-                  <option value="Autumn">Autumn</option>
-                  <option value="Winter">Winter</option>
-                </select>
-              </div>
+            <div class="button-submit">
+              <input type="submit" value="Save" />
             </div>
-            <div class="data">
-              <h4>Smell</h4>
-              <div class="select">
-                <select name="fruit" id="fruit">
-                  <option value="Smell1">Smell1</option>
-                  <option value="Smell2">Smell2</option>
-                  <option value="Smell3">Smell3</option>
-                  <option value="Smell4">Smell4</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="button-submit">
-          <input type="submit" value="Save" />
+          </form>
         </div>
       </div>
     </div>
-
+    
     <footer class="footer">
       <div class="container-footer">
         <div class="row">
@@ -170,5 +172,10 @@
         </div>
       </div>
     </footer>
+
+    <!-- Link JavaScript file -->
+    <script src="../scripts/infoProfile.js"></script>
+    <script src="../scripts/preferencesProfile.js"></script>
+    <script src="../scripts/saveUserPref.js"></script>
   </body>
 </html>
