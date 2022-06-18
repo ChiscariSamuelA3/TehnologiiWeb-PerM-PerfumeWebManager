@@ -36,9 +36,9 @@ class Favorite {
         return db.collection('favorite').find({_id: new mongodb.ObjectId(id)}).toArray()
     }
 
-    static findByUserIdProductId(favUserId, prodId) {
+    static findByUserIdProductIdType(favUserId, prodId, t) {
         const db = getDb()
-        return db.collection('favorite').find({userId: new mongodb.ObjectId(favUserId), productId: new mongodb.ObjectId(prodId)}).toArray()
+        return db.collection('favorite').find({userId: new mongodb.ObjectId(favUserId), productId: new mongodb.ObjectId(prodId), type: t}).toArray()
     }
 
     static findByProdId(prodId) {

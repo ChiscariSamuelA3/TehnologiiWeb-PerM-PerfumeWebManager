@@ -40,6 +40,29 @@
   margin-left: 35px;
 }
 
+.perfume-details .input-box input {
+  height: 30px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+textarea {
+  padding-left: 10px;
+}
+
+.perfume-details .input-box {
+  margin: 20px 10px 10px 0;
+  width: calc(100% / 2 - 10px);
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 form .user-details .input-box {
   margin: 30px 10px 10px 0;
   width: calc(100% / 2 - 10px);
@@ -252,6 +275,24 @@ div .button-login input:hover {
 @media (max-width: 1000px) {
   .container-register {
     max-width: 100%;
+  }
+
+  .container-perfume .perfume-details .input-box {
+    margin-right: 110px;
+  } 
+
+  .description {
+    margin-left: 30px;
+  }
+
+  textarea {
+    width: 100%;
+    margin-left: 35px;
+  }
+
+  .container-perfume, .container-perfume input, .container-perfume textarea  {
+    
+    text-align: center;
   }
 
   form .user-details .input-box {
@@ -603,8 +644,7 @@ div .button-address input:hover {
   background-image: url("images/perfume.jpg");
   background-position: center;
 
-  max-height: 850px;
-  overflow-y: scroll;
+
 }
 
 .container-perfume .title {
@@ -621,14 +661,12 @@ div .button-address input:hover {
 }
 
 .container-perfume form .user-details {
-  display: block;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
   margin-left: 35px;
 }
 
 form .user-details .input-box {
-  margin: 10px 10px 10px 0;
+  margin: 20px 10px 10px 0;
   width: 90%;
 }
 
@@ -636,18 +674,6 @@ form .user-details .input-box {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
-}
-
-.user-details .input-box input {
-  height: 45px;
-  width: 100%;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
 }
 
 .user-details .input-box input:focus,
