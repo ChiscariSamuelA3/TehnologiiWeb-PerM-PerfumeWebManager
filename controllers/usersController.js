@@ -38,6 +38,51 @@ async function getUser(req, res, id) {
   }
 }
 
+// get user GET /get-api-user
+async function getApiUser(req, res) {
+  try {
+    // userId il iau din token-ul din cookie...
+
+    let value = ""
+    let token = ""
+    const cookieHeader = req.headers?.cookie
+    
+    if(cookieHeader) {
+      cookieHeader.split(`;`).forEach(cookie => {
+        let [name, ...rest] = cookie.split(`=`)
+        if(name === "jwt") {
+          value = rest.join(`=`).trim()
+          if(value) {
+            token =  decodeURIComponent(value)
+          }
+        }
+      });
+    }
+    
+    if(value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json"});
+      res.end(JSON.stringify({ route: "/Login.html", message: "You must login to view Profile page!" }));
+    }
+    else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
+      const userId = decodedToken['data']['id']
+
+      // user-ul din sesiunea curenta
+      const user = await User.findById(userId);
+      
+      res.writeHead(200, { "Content-Type": "application/json"});
+      res.end(JSON.stringify(user));
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
+
 // register user POST /add-user
 async function saveUser(req, res) {
   console.log("[saveUser]");
@@ -250,6 +295,7 @@ async function deleteUser(req, res, id) {
 module.exports = {
   getUsers,
   getUser,
+  getApiUser,
   saveUser,
   loginUser,
   deleteUser,

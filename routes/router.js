@@ -2,6 +2,7 @@ const { productsRoute } = require('./productsRoute')
 const { usersRoute } = require('./usersRoute')
 const { cartRoute } = require('./cartRoute')
 const { favRoute } = require('./favRoute')
+const { preferenceRoute } = require('./preferenceRoute')
 
 async function router(req, res) {
 
@@ -89,6 +90,10 @@ async function router(req, res) {
         console.log("[router] get-user api")
         usersRoute(req, res)
     } 
+    else if(req.url === '/get-api-user') {
+        console.log("[router] get-api-user")
+        usersRoute(req, res)
+    }
     else if (req.url === '/add-user') {
         console.log("[router] save-user api")
         usersRoute(req, res)
@@ -101,6 +106,14 @@ async function router(req, res) {
         console.log("[router] delete-user api")
         usersRoute(req, res)
     } 
+    else if(req.url === '/get-api-preferences') { // preferencesProfile
+        console.log("[router] get-api-preferences")
+        preferenceRoute(req, res)
+    }
+    else if(req.url === '/add-preference') {
+        console.log("[router] add preference api")
+        preferenceRoute(req, res)
+    }
     else {
         console.log("[router] 404 error Page Not Found")
         res.writeHead(404, { 'Content-Type': 'application/json' })
