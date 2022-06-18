@@ -20,11 +20,11 @@
         <a href="index.html">PARFUM.RO</a>
       </div>
       <!-- search-box -->
-      <input type="checkbox" id="expand" />
+      <input type="checkbox" id="expand" title="menu" placeholder="" />
       <div class="search-box">
         <form>
           <input type="text" placeholder="Search ..." />
-          <button type="submit" name="subject">
+          <button type="submit" name="subject" title="search product">
             <i class="fa fa-search"></i>
           </button>
         </form>
@@ -43,7 +43,7 @@
         </li>
 
         <li class="account-y">
-          <a href="Login.html" class="text">
+          <a href="Login.html" class="text" title="acc">
             <i class="fas fa-sign-in-alt"></i>
           </a>
 
@@ -53,7 +53,7 @@
         </li>
 
         <li class="account-y">
-          <a href="Register.html" class="text">
+          <a href="Register.html" class="text" title="acc">
             <i class="fas fa-sign-in-alt"></i>
           </a>
 
@@ -67,7 +67,7 @@
             Preference
             <i class="fa fa-star"></i>
           </a>
-          <a href="favorite.html" class="icon">
+          <a href="favorite.html" class="icon" title="acc">
             <i class="fa fa-star"></i>
           </a>
         </li>
@@ -77,7 +77,7 @@
             Shopping Cart
             <i class="fa fa-shopping-cart"></i>
           </a>
-          <a href="cart.html" class="icon">
+          <a href="cart.html" class="icon" title="acc">
             <i class="fa fa-shopping-cart"></i>
           </a>
         </li>
@@ -103,63 +103,33 @@
               <div class="product-slider">
                 <div class="product-slider__main">
                   <div class="product-slider__main-item">
-                    <img src="images/parfum1.jpg" alt="product" />
                   </div>
                 </div>
               </div>
               <div class="product-info">
-                <h1>Parfum 1</h1>
-                <span class="product-stock">in stock</span>
-                <span class="product-num">ID: IN1203</span>
-                <span class="product-price"><span>75 RON</span>50 RON</span>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <h1 id="perfumeName"></h1>
+                <span class="product-price" id="perfumePrice"></span>
+                <p id="shortDescription">
                 </p>
-                <div class="contacts-info__social"></div>
+                
                 <div class="product-options">
-                  <div class="product-info__quantity">
-                    <span class="product-info__quantity-title">Quantity:</span>
-                    <div class="counter-box">
-                      <span class="counter-link counter-link__prev"
-                        ><i class="fa fa-arrow-circle-down"></i
-                      ></span>
-                      <input
-                        type="text"
-                        class="counter-input"
-                        disabled
-                        value="1"
-                      />
-                      <span class="counter-link counter-link__next"
-                        ><i class="fa fa-arrow-circle-down"></i
-                      ></span>
-                    </div>
+                </div>
+
+                <div class="button-product">
+                  <div class="btn btn-icon">
+                    <i class="fa fa-cart-plus"></i>
+                  </div>
+                  
+                  <div class="btn btn-grey btn-icon">
+                    <i class="fa fa-heart"></i>
                   </div>
                 </div>
-                <div class="product-buttons">
-                  <a href="#" class="btn btn-icon"
-                    ><i class="fa fa-cart-plus"></i>Add to cart</a
-                  >
-                  <a href="#" class="btn btn-grey btn-icon"
-                    ><i class="fa fa-heart"></i>Add to favorites</a
-                  >
-                </div>
+
               </div>
             </div>
             <div class="product-detail">
               <h2><b>Description</b></h2>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                perferendis amet ullam quisquam ad pariatur quo accusantium quos
-                dolores commodi officiis, cumque iusto adipisci quae delectus
-                temporibus et, cupiditate aliquam.
-              </h3>
-              <br />
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-                beatae provident ipsum omnis dolor sapiente maiores reiciendis
-                exercitationem earum deleniti, reprehenderit iste ipsa saepe.
-                Consectetur non et excepturi molestias esse?
+              <h3 id="longDescription">
               </h3>
 
               <div class="product-detail__items">
@@ -168,8 +138,8 @@
                   <div class="review-item__head">
                     <div class="review-item__author">
                       <img src="images/user.png" class="js-img" alt="" />
-                      <span class="review-item__name">Marabela Florin</span>
-                      <span class="review-item__date">July 23, 2020</span>
+                      <span class="review-item__name">Anonim</span>
+                      <span class="review-item__date">July 23, 2022</span>
                     </div>
                     <div class="review-item__rating">
                       <ul class="star-rating">
@@ -191,8 +161,8 @@
                   <div class="review-item__head">
                     <div class="review-item__author">
                       <img src="images/user.png" class="js-img" alt="" />
-                      <span class="review-item__name">Stefan Pricop</span>
-                      <span class="review-item__date">July 05, 2020</span>
+                      <span class="review-item__name">Anonim</span>
+                      <span class="review-item__date">July 05, 2022</span>
                     </div>
                     <div class="review-item__rating">
                       <ul class="star-rating">
@@ -209,29 +179,6 @@
                     products that I have been using for more than a year, try to
                     work at this level in the future. Thank you). I am grateful
                     to the employees of Parfum.ro for the quality products.
-                  </div>
-                </div>
-                <div class="review-item">
-                  <div class="review-item__head">
-                    <div class="review-item__author">
-                      <img src="images/user.png" class="js-img" alt="" />
-                      <span class="review-item__name">Georgeta Filamona</span>
-                      <span class="review-item__date">June 15, 2020</span>
-                    </div>
-                    <div class="review-item__rating">
-                      <ul class="star-rating">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="review-item__content">
-                    I am grateful to the employees of Parfum.ro for the quality
-                    products that I have been using for more than a year, try to
-                    work at this level in the future. Thank you)
                   </div>
                 </div>
               </div>
@@ -269,5 +216,9 @@
         </div>
       </div>
     </footer>
+
+    <!-- Link JavaScript file -->
+    <script src="../scripts/productPage.js"></script>
+    <script src="../scripts/addToCart.js"></script>
   </body>
 </html>

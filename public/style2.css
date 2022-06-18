@@ -4,7 +4,7 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 50px;
   width: 50%;
   padding: 20px 20px;
@@ -36,9 +36,7 @@
 }
 
 .container-register form .user-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
   margin-left: 35px;
 }
 
@@ -265,9 +263,8 @@ div .button-login input:hover {
     width: 100%;
   }
 
-  .container-register form .user-details {
-    max-height: 100px;
-    overflow-y: scroll;
+  #regname::placeholder, #regpass1::placeholder, #regpass2::placeholder, #regmail::placeholder {
+    font-size: 14px;
   }
 }
 
@@ -589,7 +586,7 @@ div .button-address input:hover {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
   width: 50%;
   padding: 20px 20px;
@@ -605,6 +602,9 @@ div .button-address input:hover {
   min-height: calc(100vh - 70px - 220px);
   background-image: url("images/perfume.jpg");
   background-position: center;
+
+  max-height: 650px;
+  overflow-y: scroll;
 }
 
 .container-perfume .title {
@@ -628,7 +628,7 @@ div .button-address input:hover {
 }
 
 form .user-details .input-box {
-  margin: 30px 10px 10px 0;
+  margin: 10px 10px 10px 0;
   width: 90%;
 }
 
@@ -664,8 +664,8 @@ div .button-perfume {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  top: 30px;
-  max-width: 200px;
+  top: 20px;
+  max-width: 150px;
 }
 
 div .button-perfume input {

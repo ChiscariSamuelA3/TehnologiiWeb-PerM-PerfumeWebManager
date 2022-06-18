@@ -2,11 +2,19 @@ const fs = require('fs')
 const path = require('path')
 
 async function fileHandling(req, res) {
+
+    if(req.url.match(/([0-9a-zA-Z]*.html\?id=[0-9a-z]+)/)) {
+        req.url = 'product.html'
+    }
+
     // file path
     let filePath = path.join(
         'public', 
         req.url === '/' ? 'index.html' : req.url)
 
+    
+
+    
     //file extension
     let extname = path.extname(filePath)
 
