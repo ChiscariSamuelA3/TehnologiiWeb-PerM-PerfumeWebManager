@@ -128,7 +128,7 @@ async function saveFav(req, res) {
       const userId = decodedToken['data']['id']
 
       // cauta daca produsul exista deja in lista de favorite
-      const isProductFav = await Favorite.findByUserIdProductId(userId, clickedProductId)
+      const isProductFav = await Favorite.findByUserIdProductIdType(userId, clickedProductId, 1)
 
       // cauta produsul care se doreste a fi adaugat in lista
       const productCatalog = await Favorite.findCatalogProduct(clickedProductId)
