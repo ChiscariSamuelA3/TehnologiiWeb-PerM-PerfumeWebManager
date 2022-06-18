@@ -13,7 +13,7 @@ function addProductToCart(productCart, productName, productImage) {
     divImg.className = "item__img"
 
     let a = document.createElement("a")
-    a.setAttribute("href", "#")
+    // a.setAttribute("href", "#")
 
     let img = document.createElement("img")
     img.setAttribute("src", productImage)
