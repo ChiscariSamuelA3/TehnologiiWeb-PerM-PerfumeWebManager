@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>Delete</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="script.js" defer></script>
@@ -21,9 +22,9 @@
       <!-- search-box -->
       <input type="checkbox" id="expand" title="menu" placeholder="" />
       <div class="search-box">
-        <form class="search-bar" id="search-form" action="/" method="GET">
-          <input type="text" id="search-box-id" name="p" placeholder="Search by name ..."/>
-          <button type="submit" name="" title="search product">
+        <form class="search-bar">
+          <input type="search" id="search-box" name="p" placeholder="Search ..."/>
+          <button type="submit" name="subject" title="search product">
             <i class="fa fa-search"></i>
           </button>
         </form>
@@ -37,7 +38,7 @@
           </a>
           <ul class="dropdown">
             <li><a href="Profile.html">My Profile</a></li>
-            <li><a onclick="delete_cookie('jwt', '/')" href="Homepage.html">Logout</a></li>
+            <li><a href="Homepage.html">Logout</a></li>
           </ul>
         </li>
 
@@ -56,7 +57,7 @@
             <i class="fa fa-user-times"></i>
           </a>
 
-          <a onclick="delete_cookie('jwt', '/')" href="Homepage.html" class="icon">
+          <a href="Homepage.html" class="icon">
             <i class="fa fa-user-times"></i>
           </a>
         </li>
@@ -178,8 +179,5 @@
     <script src="../scripts/products.js"></script>
     <script src="../scripts/addToCart.js"></script>
     <script src="../scripts/addToFavorite.js"></script>
-    <script src="../scripts/logout.js"></script>
-
-    <script src="../scripts/searchBar.js"></script>
   </body>
 </html>

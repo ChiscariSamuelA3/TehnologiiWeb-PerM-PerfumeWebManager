@@ -502,6 +502,35 @@ div .button-submit input:hover {
   cursor: pointer;
 }
 
+
+/*
+ ******
+ Admin
+ ******
+ */
+
+.admin {
+  margin-top: 150px;
+}
+
+.admin a {
+  width: 200px;
+  font-size: 25px;
+  padding: 10px 5px;
+  text-align: center;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 4px solid rgb(43, 109, 65);
+  background: rgba(43, 109, 65, 0.5);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  position:relative;
+  display: block;
+  text-decoration: none;
+  margin:35px auto;
+  text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+}
+
 /* 
  *******
  Payment  
@@ -594,6 +623,12 @@ div .button-address input {
   padding: 5px 5px;
 }
 
+div .admin{
+  position:relative;
+  bottom: 40px;
+  left:30px;
+}
+
 div .button-address input:hover {
   background: linear-gradient(to left, #033d01, #00240c); 
   cursor: pointer;
@@ -636,10 +671,6 @@ div .button-address input:hover {
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
-  /*
-      container < min-height -> min-height applied
-      header: 70px, footer: 220px
-     */
   min-height: calc(100vh - 70px - 220px);
   background-image: url("images/perfume.jpg");
   background-position: center;
