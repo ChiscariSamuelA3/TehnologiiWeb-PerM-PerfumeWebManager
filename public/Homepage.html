@@ -19,15 +19,15 @@
       <a href="index.html">PARFUM.RO</a>
     </div>
     <!-- search-box -->
-    <input type="checkbox" id="expand" title="menu" placeholder=""/>
-    <div class="search-box">
-      <form>
-        <input type="text" placeholder="Search ..." />
-        <button type="submit" name="subject" title="search product">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-    </div>
+    <input type="checkbox" id="expand" title="menu" placeholder="" />
+      <div class="search-box">
+        <form class="search-bar" id="search-form" action="/" method="GET">
+          <input type="text" id="search-box-id" name="p" placeholder="Search by name ..."/>
+          <button type="submit" name="" title="search product">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
     <!-- nav links -->
     <ul>
       <li id="account-x">
@@ -120,6 +120,6 @@
       </div>
     </div>
   </footer>
-  
+  <script src="../scripts/searchBar.js"></script>
 </body>
 </html>

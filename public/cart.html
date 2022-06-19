@@ -21,9 +21,9 @@
       <!-- search-box -->
       <input type="checkbox" id="expand" title="menu" placeholder="" />
       <div class="search-box">
-        <form class="search-bar">
-          <input type="search" id="search-box" name="p" placeholder="Search ..."/>
-          <button type="submit" name="subject" title="search product">
+        <form class="search-bar" id="search-form" action="/" method="GET">
+          <input type="text" id="search-box-id" name="p" placeholder="Search by name ..."/>
+          <button type="submit" name="" title="search product">
             <i class="fa fa-search"></i>
           </button>
         </form>
@@ -139,5 +139,6 @@
     <script src="../scripts/carts.js"></script>
     <script src="../scripts/deleteFromCart.js"></script>
     <script src="../scripts/logout.js"></script>
+    <script src="../scripts/searchBar.js"></script>
   </body>
 </html>
