@@ -107,37 +107,6 @@ async function getApiPreferences(req, res) {
         // cauta daca user-ul are deja adaugate niste preferinte
         const isUserPreference = await Preference.findByUserId(userId)
 
-
-
-
-
-        // preferintele utilizatorului care este logat in sesiunea curenta
-        const preferences = await Preference.findByUserId(userId);
-
-        let suggestions = []
-
-        if(String(preferences[0].gender).toLowerCase() === 'both') {
-          suggestions = await Preference.findProductsBySeasonSmell(preferences[0].season, preferences[0].smell)
-        }
-        else {
-          suggestions = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
-        }
-
-        for(const fav of suggestions) {
-          const findProd = await Favorite.findByUserIdProdId(userId, fav._id.toString())
-
-          if(!findProd.length) {
-            const prodFav = new Favorite(userId, fav._id.toString(), 2);
-            prodFav.save();
-          }
-        }
-
-        console.log("HERE PREF ARRAY", suggestions)
-
-
-
-
-  
         // verifica daca user-ul are deja adaugate niste preferinte
         if(!isUserPreference.length) {
             console.log("PREFERINTE NEEXISTENTE")
@@ -166,6 +135,30 @@ async function getApiPreferences(req, res) {
                 })
               );
         }
+
+        
+        // preferintele utilizatorului care este logat in sesiunea curenta
+        const preferences = await Preference.findByUserId(userId);
+
+        let suggestions = []
+
+        if(String(preferences[0].gender).toLowerCase() === 'both') {
+          suggestions = await Preference.findProductsBySeasonSmell(preferences[0].season, preferences[0].smell)
+        }
+        else {
+          suggestions = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
+        }
+
+        for(const fav of suggestions) {
+          const findProd = await Favorite.findByUserIdProdId(userId, fav._id.toString())
+
+          if(!findProd.length) {
+            const prodFav = new Favorite(userId, fav._id.toString(), 2);
+            prodFav.save();
+          }
+        }
+
+        console.log("HERE PREF ARRAY", suggestions)
       }
     } catch (err) {
       console.log(err);
