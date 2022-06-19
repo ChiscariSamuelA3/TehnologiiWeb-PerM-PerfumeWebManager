@@ -270,6 +270,12 @@ ul.dropdown li {
   border-radius: 15px;
 }
 
+div .admin{
+  position:relative;
+  bottom: 40px;
+  left:30px;
+}
+
 @media (max-width: 1000px) {
   .sidebar {
     opacity: 0.8;
