@@ -20,6 +20,35 @@ class Preference {
         return db.collection('preferences').find().toArray()
     }
 
+    // un parfum este recomandat daca acesta are cel putin 2 tag-uri care corespund profilului utilizatorului
+    static findProductsByPreferences(_gender, _season, _smell) {
+        const db = getDb()
+      
+        return db.collection('products')
+                 .find({ 
+                    $or: [
+                        {
+                            $and: [
+                                {gender: String(_gender).toLowerCase()}, 
+                                {season: String(_season).toLowerCase()},
+                            ]
+                        },
+                        {
+                            $and: [
+                                {gender: String(_gender).toLowerCase()}, 
+                                {smell: String(_smell).toLowerCase()}
+                            ]
+                        },
+                        {
+                            $and: [
+                                {season: String(_season).toLowerCase()},
+                                {smell: String(_smell).toLowerCase()}
+                            ]
+                        }
+                    ]
+                  }).toArray()
+    }
+
     static findById(id) {
         const db = getDb()
         return db.collection('preferences').find({ _id: new mongodb.ObjectId(id) }).toArray()
