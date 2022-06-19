@@ -36,9 +36,16 @@ async function getApiPreferences(req, res) {
         // preferintele utilizatorului care este logat in sesiunea curenta
         const preferences = await Preference.findByUserId(userId);
 
-        const p = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
+        let suggestions = []
 
-        console.log("HERE PREF ARRAY", p)
+        if(String(preferences[0].gender).toLowerCase() === 'both') {
+          suggestions = await Preference.findProductsBySeasonSmell(preferences[0].season, preferences[0].smell)
+        }
+        else {
+          suggestions = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
+        }
+
+        console.log("HERE PREF ARRAY", suggestions)
 
         if(!preferences.length) {
             res.writeHead(204, { "Content-Type": "application/json"});
