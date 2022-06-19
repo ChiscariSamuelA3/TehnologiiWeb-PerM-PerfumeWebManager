@@ -35,9 +35,19 @@ async function getApiPreferences(req, res) {
   
         // preferintele utilizatorului care este logat in sesiunea curenta
         const preferences = await Preference.findByUserId(userId);
-        
-        res.writeHead(200, { "Content-Type": "application/json"});
-        res.end(JSON.stringify(preferences));
+
+        const p = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
+
+        console.log("HERE PREF ARRAY", p)
+
+        if(!preferences.length) {
+            res.writeHead(204, { "Content-Type": "application/json"});
+            res.end(JSON.stringify({message: "No preferences selected!" }));
+        }
+        else {
+            res.writeHead(200, { "Content-Type": "application/json"});
+            res.end(JSON.stringify(preferences));
+        }
       }
     } catch (err) {
       console.log(err);

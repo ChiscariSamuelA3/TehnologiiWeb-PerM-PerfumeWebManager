@@ -25,7 +25,7 @@ async function savePref(event) {
     }).then(res => {
         return res.json()
     }).then(json => {
-        // window.location.href = json.route
+        window.location.href = json.route
         window.alert(json.message)
     })
 
