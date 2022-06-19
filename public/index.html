@@ -37,7 +37,7 @@
           </a>
           <ul class="dropdown">
             <li><a href="Profile.html">My Profile</a></li>
-            <li><a href="Homepage.html">Logout</a></li>
+            <li><a onclick="delete_cookie('jwt', '/')" href="Homepage.html">Logout</a></li>
           </ul>
         </li>
 
@@ -56,7 +56,7 @@
             <i class="fa fa-user-times"></i>
           </a>
 
-          <a href="Homepage.html" class="icon">
+          <a onclick="delete_cookie('jwt', '/')" href="Homepage.html" class="icon">
             <i class="fa fa-user-times"></i>
           </a>
         </li>
@@ -173,5 +173,6 @@
     <script src="../scripts/products.js"></script>
     <script src="../scripts/addToCart.js"></script>
     <script src="../scripts/addToFavorite.js"></script>
+    <script src="../scripts/logout.js"></script>
   </body>
 </html>

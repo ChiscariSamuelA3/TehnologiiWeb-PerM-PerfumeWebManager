@@ -211,7 +211,7 @@ ul.dropdown li {
   /*Activare Meniu vertical, odata ce butonul este checked*/
   header .menu {
     display: block;
-    margin: 5px 5px;
+    margin: 15px 15px;
   }
 
   #expand:checked ~ ul {
