@@ -62,7 +62,7 @@ class Preference {
                     ]
                   }).toArray()
     }
-
+  
     static findById(id) {
         const db = getDb()
         return db.collection('preferences').find({ _id: new mongodb.ObjectId(id) }).toArray()
