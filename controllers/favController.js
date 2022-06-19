@@ -17,7 +17,7 @@ async function getFavorites(req, res, userId) {
 }
 
 // get favs GET /get-api-favorites
-async function getApiFavorites(req, res) {
+async function getApiFavorites(req, res, type) {
   try {
     // userId il iau din token-ul din cookie...
 
@@ -47,7 +47,7 @@ async function getApiFavorites(req, res) {
       const userId = decodedToken['data']['id']
 
       // produsele favorite pt userId-ul utilizatorului care este logat in sesiunea curenta
-      const favorites = await Favorite.findAllByType(userId, 1);
+      const favorites = await Favorite.findAllByType(userId, type);
       
 
       // extrage din baza de date numele si imaginile produselor, pe baza id-urilor produselor din Fav List

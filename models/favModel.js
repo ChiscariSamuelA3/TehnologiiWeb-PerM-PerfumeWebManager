@@ -31,6 +31,11 @@ class Favorite {
         return db.collection('favorite').find({userId: new mongodb.ObjectId(favUserId), _id: new mongodb.ObjectId(id)}).toArray()
     }
 
+    static findByUserIdProdId(favUserId, favProdid) {
+        const db = getDb()
+        return db.collection('favorite').find({userId: new mongodb.ObjectId(favUserId), productId: new mongodb.ObjectId(favProdid), type: 2}).toArray()
+    }
+
     static findFavProduct(id) {
         const db = getDb()
         return db.collection('favorite').find({_id: new mongodb.ObjectId(id)}).toArray()

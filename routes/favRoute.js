@@ -9,7 +9,10 @@ function favRoute(req, res) {
         getFavorites(req, res, userId)
     }
     else if(req.url === '/get-api-favorites' && req.method === 'GET') {
-        getApiFavorites(req, res)
+        getApiFavorites(req, res, 1)
+    }
+    else if(req.url === '/get-api-suggestions' && req.method === 'GET') {
+        getApiFavorites(req, res, 2)
     }
     else if(req.url.match(/\/get-favorite\/([0-9a-z]+)\/([0-9a-z]+)/) && req.method === 'GET') {
         
