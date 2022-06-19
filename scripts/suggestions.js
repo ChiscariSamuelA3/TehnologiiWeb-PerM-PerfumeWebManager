@@ -2,18 +2,18 @@ function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling)
 }
 
-function addProductToFav(productFav, productName, productImage, productPrice) {
+function addProductToSuggestion(productFav, productName, productImage, productPrice) {
 
     // new div element
     const divCard = document.createElement("div")
-    divCard.className = "item item--preffered item--favorite"
+    divCard.className = "item item--preffered item--suggested"
 
     // div content
     let divType = document.createElement("div")
     divType.className = "item__type"
 
     let favorite = document.createElement("h3")
-    favorite.textContent = "Favorite"
+    favorite.textContent = "Suggestion"
 
     divType.appendChild(favorite)
     divCard.appendChild(divType)
@@ -74,12 +74,12 @@ function addProductToFav(productFav, productName, productImage, productPrice) {
     divCard.appendChild(divRemove)
   
 
-    const currentDiv = document.getElementById("reper-fav")
+    const currentDiv = document.getElementById("reper-sg")
     insertAfter(divCard, currentDiv)  
 }
 
 // open html => use url
-fetch("/get-api-favorites", {
+fetch("/get-api-suggestions", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -90,7 +90,7 @@ fetch("/get-api-favorites", {
     // Converting received data to JSON
     if(response.status === 401) {
         window.location.href = "/Login.html"
-        //window.alert("You must login to view the Favorite page!")
+        window.alert("You must login to view the Favorite page!")
     }
     else {
         return response.json();
@@ -104,8 +104,8 @@ fetch("/get-api-favorites", {
         var productImage = json.images[i]
         var productPrice = json.prices[i]
 
-        console.log("data1:", productFav, productName, productImage, productPrice)
-        addProductToFav(productFav, productName, productImage, productPrice)
+        console.log("data2:", productFav, productName, productImage, productPrice)
+        addProductToSuggestion(productFav, productName, productImage, productPrice)
     }
   })
   .catch((err) => {

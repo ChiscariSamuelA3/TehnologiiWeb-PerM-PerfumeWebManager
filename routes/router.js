@@ -66,6 +66,10 @@ async function router(req, res) {
         console.log("[router] get-api-favorites")
         favRoute(req, res)
     } 
+    else if(req.url === '/get-api-suggestions') {
+        console.log("[router] get-api-suggestions")
+        favRoute(req, res)
+    }
     else if (req.url.match(/\/get-favorite\/([0-9a-z]+)\/([0-9a-z]+)/)) {
         console.log("[router] get-favorite api")
         favRoute(req, res)
