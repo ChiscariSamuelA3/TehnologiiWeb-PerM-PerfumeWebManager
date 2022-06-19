@@ -19,10 +19,10 @@
         <a href="index.html">PARFUM.RO</a>
       </div>
       <!-- search-box -->
-      <input type="checkbox" id="expand" title="menu" placeholder=""/>
+      <input type="checkbox" id="expand" title="menu" placeholder="" />
       <div class="search-box">
-        <form>
-          <input type="text" placeholder="Search ..." />
+        <form class="search-bar">
+          <input type="search" id="search-box" name="p" placeholder="Search ..."/>
           <button type="submit" name="subject" title="search product">
             <i class="fa fa-search"></i>
           </button>
@@ -37,7 +37,7 @@
           </a>
           <ul class="dropdown">
             <li><a href="Profile.html">My Profile</a></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a onclick="delete_cookie('jwt', '/')" href="Homepage.html">Logout</a></li>
           </ul>
         </li>
 
@@ -52,11 +52,11 @@
         </li>
 
         <li class="account-y">
-          <a href="index.html" class="text">
+          <a href="Homepage.html" class="text">
             <i class="fa fa-user-times"></i>
           </a>
 
-          <a href="index.html" class="icon">
+          <a onclick="delete_cookie('jwt', '/')" href="Homepage.html" class="icon">
             <i class="fa fa-user-times"></i>
           </a>
         </li>
@@ -138,5 +138,6 @@
     <!-- Link JavaScript file -->
     <script src="../scripts/carts.js"></script>
     <script src="../scripts/deleteFromCart.js"></script>
+    <script src="../scripts/logout.js"></script>
   </body>
 </html>
