@@ -1,537 +1,596 @@
 /*Register*/
+
 .container-register {
-  display: flex;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  width: 50%;
-  padding: 20px 20px;
-  background: #fff;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 5px;
-  /*
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 20px 20px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    /*
       container < min-height -> min-height applied
       header: 70px, footer: 220px
      */
-  min-height: calc(100vh - 70px - 220px);
-  background-image: url("images/perfume.jpg");
-  background-position: center;
+    min-height: calc(100vh - 70px - 220px);
+    background-image: url("images/perfume.jpg");
+    background-position: center;
 }
 
 .container-register .title {
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
 }
 
 .container-register .title::before {
-  content: "";
-  position: absolute;
-  height: 3px;
-  width: 30px;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 30px;
 }
 
 .container-register form .user-details {
-  display: grid;
-  margin-left: 35px;
+    display: grid;
+    margin-left: 35px;
 }
 
 .perfume-details .input-box input {
-  height: 30px;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
 }
 
 textarea {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .perfume-details .input-box {
-  margin: 20px 10px 10px 0;
-  width: calc(100% / 2 - 10px);
-  display: grid;
-  margin-left: auto;
-  margin-right: auto;
+    margin: 20px 10px 10px 0;
+    width: calc(100% / 2 - 10px);
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form .user-details .input-box {
-  margin: 30px 10px 10px 0;
-  width: calc(100% / 2 - 10px);
+    margin: 30px 10px 10px 0;
+    width: calc(100% / 2 - 10px);
 }
 
 .user-details .input-box .details {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .user-details .input-box input {
-  height: 45px;
-  width: 100%;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
 }
 
 .user-details .input-box input:focus,
 .user-details .input-box input:valid {
-  border-color: #033d01;
+    border-color: #033d01;
 }
 
+
+/*
+Confirm delivery
+*/
+
+.perfume-details .select-box select {
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+textarea {
+    padding-left: 10px;
+}
+
+.perfume-details .select-box {
+    margin: 20px 10px 10px 0;
+    width: calc(100% / 2 - 10px);
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form .user-details .select-box {
+    margin: 30px 10px 10px 0;
+    width: calc(100% / 2 - 10px);
+}
+
+.user-details .select-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details .select-box select {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+
+/*
+
+*/
+
 form .gender-details .gender-title {
-  font-size: 20px;
-  font-weight: 500;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 form .gender-details .category {
-  display: flex;
-  width: 80%;
-  margin: 14px 0;
-  justify-content: space-between;
+    display: flex;
+    width: 80%;
+    margin: 14px 0;
+    justify-content: space-between;
 }
 
 .gender-details .category label {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .gender-details .category .dot {
-  height: 16px;
-  width: 16px;
-  background: #d9d9d9;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 5px solid transparent;
+    height: 16px;
+    width: 16px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 5px solid transparent;
 }
 
 #dot-1:checked~.category .one,
 #dot-2:checked~.category .two,
 #dot-3:checked~.category .three {
-  border-color: #d9d9d9;
-  background-color: #033d01;
+    border-color: #d9d9d9;
+    background-color: #033d01;
 }
 
 form input[type="radio"] {
-  display: none;
+    display: none;
 }
 
 div .button-register {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 200px;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
 }
 
 div .button-register input {
-  display: block;
-  text-align: center;
-  height: 30px;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px 5px;
-  margin: 10px 0;
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px 5px;
+    margin: 10px 0;
 }
 
 div .button-register input:hover {
-  background: linear-gradient(to left, #033d01, #00240c);  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
+
 /* Login */
+
 .container-login {
-  display: flex;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 50%;
-  padding: 20px 20px;
-  background: #fff;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 5px;
-  min-height: calc(100vh - 70px - 220px);
-  background-image: url("images/perfume.jpg");
-  background-position: center;
-  
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 20px 20px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    min-height: calc(100vh - 70px - 220px);
+    background-image: url("images/perfume.jpg");
+    background-position: center;
 }
 
 .container-login .title-login {
-  font-size: 30px;
-  font-weight: 500;
-  position: relative;
+    font-size: 30px;
+    font-weight: 500;
+    position: relative;
 }
 
 .container-login .title-login::before {
-  content: "";
-  position: absolute;
-  height: 3px;
-  width: 30px;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 30px;
 }
 
 .container-login form .user-details-login {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 form .user-details-login .input-box-login {
-  display: block;
-  width: 100%;
-  margin: 10px;
+    display: block;
+    width: 100%;
+    margin: 10px;
 }
 
 .user-details-login .input-box-login .details {
-  display: block;
-  position: relative;
-  left: 100px;
-  font-weight: 500;
-  margin-bottom: 5px;
+    display: block;
+    position: relative;
+    left: 100px;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .user-details-login .input-box-login input {
-  height: 45px;
-  width: 100%;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
 }
 
 .user-details-login .input-box-login input:focus,
 .user-details-login .input-box-login input:valid {
-  border-color: #033d01;
-} 
-
+    border-color: #033d01;
+}
 
 div .button-login {
-  position: relative;
-  display: block;
-  margin: 20px 60px;
+    position: relative;
+    display: block;
+    margin: 20px 60px;
 }
 
 div .button-login input {
-  display: block;
-  text-align: center;
-  height: 30px;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px 5px;
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px 5px;
 }
 
 div .button-login input:hover {
-  background: linear-gradient(to left, #033d01, #00240c);  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
 .login a,
 .register a {
-  display: block;
-  text-decoration: none;
-  width: 100%;
-  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px;
-  text-align: center;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
 }
 
 .login a :hover {
-  background: linear-gradient(to left, #033d01, #00240c);
-  cursor: pointer;
-
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
 .register a :hover {
-  background: linear-gradient(to left, #033d01, #00240c);
-  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
 @media (max-width: 1000px) {
-  .container-register {
-    max-width: 100%;
-  }
-
-  .select-form {
-    margin-left: 30px;
-  }
-
-  .container-perfume .perfume-details .input-box {
-    margin-right: 110px;
-  } 
-
-  .description {
-    margin-left: 30px;
-  }
-
-  textarea {
-    width: 100%;
-    margin-left: 35px;
-  }
-
-  .container-perfume, .container-perfume input, .container-perfume textarea  {
-    
-    text-align: center;
-  }
-
-  form .user-details .input-box {
-    margin-bottom: 15px;
-    width: 100%;
-  }
-
-  form .gender-details .category {
-    width: 100%;
-  }
-
-  #regname::placeholder, #regpass1::placeholder, #regpass2::placeholder, #regmail::placeholder {
-    font-size: 14px;
-  }
+    .container-register {
+        max-width: 100%;
+    }
+    .select-form {
+        margin-left: 30px;
+    }
+    .container-perfume .perfume-details .input-box {
+        margin-right: 110px;
+    }
+    .description {
+        margin-left: 30px;
+    }
+    textarea {
+        width: 100%;
+        margin-left: 35px;
+    }
+    .container-perfume,
+    .container-perfume input,
+    .container-perfume textarea {
+        text-align: center;
+    }
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    form .gender-details .category {
+        width: 100%;
+    }
+    #regname::placeholder,
+    #regpass1::placeholder,
+    #regpass2::placeholder,
+    #regmail::placeholder {
+        font-size: 14px;
+    }
 }
 
+
 /*Profile*/
+
 .wrapper {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin: 40px 40px;
-  /*
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 40px 40px;
+    /*
       container < min-height -> min-height applied
       header: 70px, footer: 220px
      */
-  min-height: calc(100vh - 70px - 220px);
+    min-height: calc(100vh - 70px - 220px);
 }
 
 .wrapper .right {
-  background: #fff;
-  padding: 30px 80px;
-  display: grid;
-  justify-content: center;
+    background: #fff;
+    padding: 30px 80px;
+    display: grid;
+    justify-content: center;
 }
 
 .wrapper .right .info,
 .wrapper .right .preferences {
-  margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .wrapper .right .info h3,
 .wrapper .right .preferences h3 {
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #e0e0e0;
-  color: #353c4e;
-  text-transform: uppercase;
-  letter-spacing: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 .wrapper .right .info_data,
 .wrapper .right .preferences_data {
-  display: block;
-  justify-content: space-between;
+    display: block;
+    justify-content: space-between;
 }
 
 .wrapper .right .info_data .data,
 .wrapper .right .preferences_data .data {
-  width: 45%;
+    width: 45%;
 }
 
 .wrapper .right .info_data .data h4,
 .wrapper .right .preferences_data .data h4 {
-  color: #353c4e;
-  margin-bottom: 5px;
+    color: #353c4e;
+    margin-bottom: 5px;
 }
 
 .wrapper .right .info_data .data p,
 .wrapper .right .preferences_data .data p {
-  font-size: 13px;
-  margin-bottom: 10px;
-  color: #919aa3;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #919aa3;
 }
 
 .wrapper .social_media ul {
-  display: flex;
+    display: flex;
 }
 
 .wrapper .social_media ul li {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(to right, #033d01, #00240c);
-  margin-right: 10px;
-  border-radius: 5px;
-  text-align: center;
-  line-height: 45px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to right, #033d01, #00240c);
+    margin-right: 10px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 45px;
 }
 
 .wrapper .social_media ul li a {
-  color: #fff;
-  display: block;
-  font-size: 18px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
 }
 
 select {
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  background: #fff;
-  background-image: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    background: #fff;
+    background-image: none;
 }
 
 .select {
-  position: relative;
-  display: flex;
-  width: 240px;
-  height: 40px;
-  line-height: 3;
-  background: #5c6664;
-  overflow: hidden;
-  border-radius: 0.25em;
+    position: relative;
+    display: flex;
+    width: 240px;
+    height: 40px;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: 0.25em;
 }
 
 .select-form {
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: 40px;
-  line-height: 3;
-  background: #5c6664;
-  overflow: hidden;
-  border-radius: 0.25em;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: 0.25em;
 }
 
-
 select {
-  flex: 1;
-  padding: 0 0.5em;
-  color: #000;
-  font: bold;
-  cursor: pointer;
+    flex: 1;
+    padding: 0 0.5em;
+    color: #000;
+    font: bold;
+    cursor: pointer;
 }
 
 .select::after {
-  content: "\25BC";
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  background: #033d01;
-  cursor: pointer;
-  pointer-events: none;
-  transition: all 0.25s ease;
+    content: "\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #033d01;
+    cursor: pointer;
+    pointer-events: none;
+    transition: all 0.25s ease;
 }
 
 .select-form::after {
-  content: "\25BC";
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  background: #033d01;
-  cursor: pointer;
-  pointer-events: none;
-  transition: all 0.25s ease;
+    content: "\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #033d01;
+    cursor: pointer;
+    pointer-events: none;
+    transition: all 0.25s ease;
 }
 
 .select-form:hover::after {
-  color: #fff;
+    color: #fff;
 }
 
 .select:hover::after {
-  color: #fff;
+    color: #fff;
 }
+
 
 /* Homepage */
 
 .content {
-  width: 100%;
-  min-height: calc(100vh - 50px - 220px);
-  display: grid;
-  position:relative;
-  letter-spacing: 2px;
-  text-align: center;
-  color: black;
+    width: 100%;
+    min-height: calc(100vh - 50px - 220px);
+    display: grid;
+    position: relative;
+    letter-spacing: 2px;
+    text-align: center;
+    color: black;
 }
 
 .content h1 {
-  font-size: 70px;
-  margin-top: 80px;
-  margin-bottom: 30px;
-  color:rgb(63, 126, 105);
-  text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+    font-size: 70px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    color: rgb(63, 126, 105);
+    text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
 
 .content p {
-  margin: 35px auto;
-  font-size: 38px;
-  color: #ffffff;
-  font-weight: 100;
-  line-height: 25px;
-  text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+    margin: 35px auto;
+    font-size: 38px;
+    color: #ffffff;
+    font-weight: 100;
+    line-height: 25px;
+    text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
 
 .homepage {
-  margin-top: 150px;
+    margin-top: 150px;
 }
 
 .homepage a {
-  width: 200px;
-  font-size: 25px;
-  padding: 10px 5px;
-  text-align: center;
-  border-radius: 25px;
-  font-weight: bold;
-  border: 4px solid rgb(43, 109, 65);
-  background: rgba(43, 109, 65, 0.5);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  position:relative;
-  display: block;
-  text-decoration: none;
-  margin:35px auto;
-  text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+    width: 200px;
+    font-size: 25px;
+    padding: 10px 5px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 4px solid rgb(43, 109, 65);
+    background: rgba(43, 109, 65, 0.5);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    margin: 35px auto;
+    text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
 
 div .button-submit input {
-  display: block;
-  text-align: center;
-  height: 30px;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #033d01, #00240c); 
-  padding: 5px 5px;
-  margin: 10px 0;
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px 5px;
+    margin: 10px 0;
 }
 
 div .button-submit input:hover {
-  background: linear-gradient(to left, #033d01, #00240c);  
-  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
 
@@ -542,240 +601,244 @@ div .button-submit input:hover {
  */
 
 .admin {
-  margin-top: 150px;
+    margin-top: 150px;
 }
 
 .admin a {
-  width: 200px;
-  font-size: 25px;
-  padding: 10px 5px;
-  text-align: center;
-  border-radius: 25px;
-  font-weight: bold;
-  border: 4px solid rgb(43, 109, 65);
-  background: rgba(43, 109, 65, 0.5);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  position:relative;
-  display: block;
-  text-decoration: none;
-  margin:35px auto;
-  text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
+    width: 200px;
+    font-size: 25px;
+    padding: 10px 5px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 4px solid rgb(43, 109, 65);
+    background: rgba(43, 109, 65, 0.5);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    margin: 35px auto;
+    text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
+
 
 /* 
  *******
  Payment  
  *******
  */
+
 .container-address {
-  display: flex;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 50%;
-  padding: 20px 20px;
-  background: #fff;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 5px;
-  min-height: calc(100vh - 70px - 220px);
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 20px 20px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    min-height: calc(100vh - 70px - 220px);
 }
 
 .container-address .title-address {
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
 }
 
 .container-address .title-address::before {
-  content: "";
-  position: absolute;
-  height: 3px;
-  width: 30px;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 30px;
 }
 
 .container-address form .user-details-address {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 form .user-details-address .input-box-address {
-  display: block;
-  width: 100%;
-  margin: 10px;
+    display: block;
+    width: 100%;
+    margin: 10px;
 }
 
 .user-details-address .input-box-address .details {
-  display: block;
-  position: relative;
-  left: 100px;
-  font-weight: 500;
-  margin-bottom: 5px;
+    display: block;
+    position: relative;
+    left: 100px;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .user-details-address .input-box-address input {
-  height: 45px;
-  width: 100%;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
 }
 
 .user-details-address .input-box-address input:focus,
 .user-details-address .input-box-address input:valid {
-  border-color: #033d01;
+    border-color: #033d01;
 }
 
 div .button-address {
-  position: relative;
-  display: block;
-  margin: 20px 60px;
+    position: relative;
+    display: block;
+    margin: 20px 60px;
 }
 
 div .button-address input {
-  display: block;
-  text-align: center;
-  height: 30px;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #033d01, #00240c); 
-  padding: 5px 5px;
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px 5px;
 }
 
-div .admin{
-  position:relative;
-  bottom: 40px;
-  left:30px;
+div .admin {
+    position: relative;
+    bottom: 40px;
+    left: 30px;
 }
 
 div .button-address input:hover {
-  background: linear-gradient(to left, #033d01, #00240c); 
-  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
 .go-to-cart a {
-  display: block;
-  text-decoration: none;
-  width: 100%;
-  background: linear-gradient(to right, #033d01, #00240c); 
-  padding: 5px;
-  text-align: center;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
 }
 
 .go-to-cart p {
-  position:relative;
-  margin-left: 120px;
+    position: relative;
+    margin-left: 120px;
 }
+
 .go-to-cart a input:hover {
-  background: linear-gradient(to left, #033d01, #00240c); 
-  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
+
 
 /* Adaugare parfum */
 
 .container-perfume {
-  display: flex;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  width: 50%;
-  padding: 20px 20px;
-  background: #fff;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 5px;
-  min-height: calc(100vh - 70px - 220px);
-  background-image: url("images/perfume.jpg");
-  background-position: center;
-
-
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 50%;
+    padding: 20px 20px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    min-height: calc(100vh - 70px - 220px);
+    background-image: url("images/perfume.jpg");
+    background-position: center;
 }
 
 .container-perfume .title {
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
 }
 
 .container-perfume .title::before {
-  content: "";
-  position: absolute;
-  height: 3px;
-  width: 30px;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 30px;
 }
 
 .container-perfume form .user-details {
-  display: grid;
-  margin-left: 35px;
+    display: grid;
+    margin-left: 35px;
 }
 
 form .user-details .input-box {
-  margin: 20px 10px 10px 0;
-  width: 90%;
+    margin: 20px 10px 10px 0;
+    width: 90%;
 }
 
 .user-details .input-box .details {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .user-details .input-box input:focus,
 .user-details .input-box input:valid {
-  border-color: #033d01;
+    border-color: #033d01;
 }
 
 form input[type="radio"] {
-  display: none;
+    display: none;
 }
 
 div .button-perfume {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  top: 20px;
-  max-width: 150px;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20px;
+    max-width: 150px;
 }
 
 div .button-perfume input {
-  display: block;
-  text-align: center;
-  height: 30px;
-  width: 100%;
-  outline: none;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #033d01, #00240c);  padding: 5px 5px;
-  margin: 10px 0;
+    display: block;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #033d01, #00240c);
+    padding: 5px 5px;
+    margin: 10px 0;
 }
 
 div .button-perfume input:hover {
-  background: linear-gradient(to left, #033d01, #00240c);  cursor: pointer;
+    background: linear-gradient(to left, #033d01, #00240c);
+    cursor: pointer;
 }
 
-div #LDesc{
-      height:100px;
-     font-size:14pt;
+div #LDesc {
+    height: 100px;
+    font-size: 14pt;
 }
