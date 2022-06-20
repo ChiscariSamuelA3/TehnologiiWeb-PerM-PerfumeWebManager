@@ -3,7 +3,7 @@ const ObjectId = mongodb.ObjectId
 const getDb = require('../utils/database').getDb
 
 class Product {
-    constructor(name, gender, season, smell, price, longdescription, shortdescription, imageurl, quantity) {
+    constructor(name, gender, season, smell, price, longdescription, shortdescription, imageurl, quantity, category) {
         this.name = name
         this.gender = gender
         this.season = season
@@ -13,6 +13,7 @@ class Product {
         this.shortdescription = shortdescription
         this.imageurl = imageurl
         this.quantity = quantity
+        this.category = category
     }
 
     save() {

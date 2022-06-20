@@ -21,8 +21,11 @@ function initProduct(product) {
 
     const nume = document.getElementById('perfumeName')
     const eticheta = document.createElement('h2')
-    eticheta.textContent = product.gender + ' ' + product.season + ' ' + product.smell
+    eticheta.textContent = product.gender + '-' + product.season + '-' + product.smell
     nume.appendChild(eticheta)
+    const categorie = document.createElement('h2')
+    categorie.textContent = product.category
+    nume.appendChild(categorie)
 
 
     document.getElementById('perfumePrice').innerText = product.price + ' RON'
