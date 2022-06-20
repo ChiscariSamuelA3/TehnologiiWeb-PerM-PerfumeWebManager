@@ -276,6 +276,12 @@ div .admin{
   left:30px;
 }
 
+div .admin-button{
+  position:absolute;
+  margin-top: 40px;
+  left: 0;
+}
+
 @media (max-width: 1000px) {
   .sidebar {
     opacity: 0.8;
@@ -415,6 +421,16 @@ div .admin{
 
   .products-title h2:last-of-type {
     display: block;
+  }
+}
+
+@media (max-width: 610px) {
+  .products {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .products-container .products-title h2 {
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 
