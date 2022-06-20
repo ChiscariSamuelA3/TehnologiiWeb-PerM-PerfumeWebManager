@@ -623,13 +623,13 @@ div .admin-button{
   background-color: #ff5959;
 }
 
-div .input-box .description{
+div .input-box .description-rew{
   display: block;
   margin: 20px 10px 10px 0;
   font-size: 25px;
 }
 
-div .input-box #LDesc{
+div .input-box #review-id{
   width: 50%;
   height: 150px;
 }
