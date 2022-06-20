@@ -1,7 +1,8 @@
 const { fileHandling } = require('../controllers/fileController')
+var sanitize = require('mongo-sanitize')
 
 async function fileRouter(req, res) {
-    req.url = req.url.split("/").pop()
+    req.url = sanitize(req.url.split("/").pop())
     
     if(!req.url) {
         req.url = "Homepage.html"
