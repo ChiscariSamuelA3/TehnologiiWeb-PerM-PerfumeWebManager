@@ -1,4 +1,4 @@
-const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct} = require('../controllers/productsController')
+const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct, getFilters} = require('../controllers/productsController')
 const { fileRouter } = require('./filesRoute')
 
 function productsRoute(req, res) {
@@ -11,6 +11,14 @@ function productsRoute(req, res) {
         const id = req.url.split('/')[2]
 
         getProduct(req, res, id)
+    }
+    else if(req.url.match(/\/get-filters\/(true|false)\/(true|false)\/(true|false)/) && req.method === 'GET') {
+        
+        const floral = req.url.split('/')[2]
+        const oriental = req.url.split('/')[3]
+        const lemnos = req.url.split('/')[4]
+
+        getFilters(req, res, floral, oriental, lemnos)
     }
     else if(req.url === '/add-product' && req.method === 'POST') {
         saveProduct(req, res)
@@ -27,7 +35,7 @@ function productsRoute(req, res) {
 
         updateProduct(req, res, id, quantity)
     }
-    else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.html?id=[0-9a-z]*)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/) && req.method === 'GET') {
+    else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) ||  req.url.match(/([0-9a-zA-Z]*.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/([0-9a-zA-Z]*.html\?id=[0-9a-z]*)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/) && req.method === 'GET') {
         fileRouter(req, res)
     }
     else {

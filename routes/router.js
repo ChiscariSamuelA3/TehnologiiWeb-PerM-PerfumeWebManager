@@ -14,6 +14,10 @@ async function router(req, res) {
         console.log("[router] get-product api")
         productsRoute(req, res)
     } 
+    else if(req.url.match(/\/get-filters\/(true|false)\/(true|false)\/(true|false)/)) {
+        console.log("[router] get-filters")
+        productsRoute(req, res)
+    }
     else if (req.url === '/add-product') {
         console.log("[router] save-product api")
         productsRoute(req, res)
@@ -26,7 +30,7 @@ async function router(req, res) {
         console.log("[router] update-product api")
         productsRoute(req, res)
     } 
-    else if (req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.html?id=[0-9a-z]*)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)) {
+    else if (req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/([0-9a-zA-Z]*.html\?id=[0-9a-z]*)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)) {
         console.log("[router] public route", req.url)
         productsRoute(req, res)
     } 

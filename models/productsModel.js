@@ -26,6 +26,69 @@ class Product {
         return db.collection('products').find().toArray()
     }
 
+    static findAllByFilters(floral, oriental, lemnos) {
+        const db = getDb()
+        if(floral === 'true') {
+            if(oriental === 'true') {
+                if(lemnos === 'true') {
+                    return db.collection('products').find({ 
+                        $or: 
+                        [
+                            {category: 'floral'},
+                            {category: 'oriental'},
+                            {category: 'lemnos'}
+                        ]
+                      }).toArray()
+                }
+                else {
+                    return db.collection('products').find({ 
+                        $or: 
+                        [
+                            {category: 'floral'},
+                            {category: 'oriental'},
+                        ]
+                      }).toArray()
+                }
+            }
+            else if(lemnos === 'true') {
+                return db.collection('products').find({ 
+                    $or: 
+                    [
+                        {category: 'floral'},
+                        {category: 'lemnos'}
+                    ]
+                  }).toArray()
+            }
+            else {
+                return db.collection('products').find({category: 'floral'}).toArray()
+            }
+        }
+        else if(oriental === 'true') {
+            if(lemnos === 'true') {
+                return db.collection('products').find({ 
+                    $or: 
+                    [
+                        {category: 'oriental'},
+                        {category: 'lemnos'}
+                    ]
+                    }).toArray()
+            }
+            else {
+                return db.collection('products').find({
+                    category: 'oriental'
+                }).toArray()
+            }
+        }
+        else if(lemnos === 'true') {
+            return db.collection('products').find({
+                category: 'lemnos'
+            }).toArray()
+        }
+        else {
+            return []
+        }
+    }
+
     static findById(id) {
         const db = getDb()
         return db.collection('products').find({_id: new mongodb.ObjectId(id)}).toArray()

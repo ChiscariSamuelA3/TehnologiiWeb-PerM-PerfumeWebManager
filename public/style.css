@@ -440,6 +440,11 @@ div .admin-button{
   color: rgb(197, 196, 196);
 }
 
+.product-info h3 {
+  font-size: 15px;
+  color: rgb(206, 11, 11);
+}
+
 .product-info p {
   font-size: 20px;
   color: white;

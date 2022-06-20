@@ -6,13 +6,15 @@ async function fileHandling(req, res) {
     if(req.url.match(/([0-9a-zA-Z]*.html\?id=[0-9a-z]+)/)) {
         req.url = 'product.html'
     }
+    
+    if(req.url.match(/([0-9a-zA-Z]*.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/)) {
+        req.url = 'filter.html'
+    }
 
     // file path
     let filePath = path.join(
         'public', 
         req.url === '/' ? 'index.html' : req.url)
-
-    
 
     
     //file extension

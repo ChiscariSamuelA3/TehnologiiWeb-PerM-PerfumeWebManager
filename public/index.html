@@ -22,7 +22,12 @@
       <input type="checkbox" id="expand" title="menu" placeholder="" />
       <div class="search-box">
         <form class="search-bar" id="search-form" action="/" method="GET">
-          <input type="text" id="search-box-id" name="p" placeholder="Search by name ..."/>
+          <input
+            type="text"
+            id="search-box-id"
+            name="p"
+            placeholder="Search by name ..."
+          />
           <button type="submit" name="" title="search product">
             <i class="fa fa-search"></i>
           </button>
@@ -37,7 +42,11 @@
           </a>
           <ul class="dropdown">
             <li><a href="Profile.html">My Profile</a></li>
-            <li><a onclick="delete_cookie('jwt', '/')" href="Homepage.html">Logout</a></li>
+            <li>
+              <a onclick="delete_cookie('jwt', '/')" href="Homepage.html"
+                >Logout</a
+              >
+            </li>
           </ul>
         </li>
 
@@ -56,7 +65,11 @@
             <i class="fa fa-user-times"></i>
           </a>
 
-          <a onclick="delete_cookie('jwt', '/')" href="Homepage.html" class="icon">
+          <a
+            onclick="delete_cookie('jwt', '/')"
+            href="Homepage.html"
+            class="icon"
+          >
             <i class="fa fa-user-times"></i>
           </a>
         </li>
@@ -94,26 +107,51 @@
       <aside class="sidebar">
         <h2>Filters</h2>
         <div class="filters">
-          <button class="filter">Brand</button>
-          <ul class="panel-filter">
-            <li>
-              <input type="checkbox" id="chanel" title="filter" placeholder=""/>
-              <p class="filter-newline">Chanel<br /></p>
-              <label for="chanel" class="filter-label">Chanel</label>
-            </li>
-            <li>
-              <input type="checkbox" id="sauvage" title="filter" placeholder=""/>
-              <p class="filter-newline">Sauvage<br /></p>
-              <label for="sauvage" class="filter-label">Sauvage</label>
-            </li>
-            <li>
-              <input type="checkbox" id="prada" title="filter" placeholder=""/>
-              <p class="filter-newline">Prada<br /></p>
-              <label for="prada" class="filter-label">Prada</label>
-            </li>
-          </ul>
-
-          <button class="filter">Price</button>
+          <button class="filter">Category</button>
+          <form id="filters-form" action="/" method="GET">
+            <ul class="panel-filter">
+              <li>
+                <input
+                  type="checkbox"
+                  id="chanel"
+                  title="filter"
+                  placeholder=""
+                  name="floral"
+                  value="floral"
+                />
+                <!-- <p class="filter-newline">Floral<br /></p> -->
+                <label for="chanel" class="filter-label">Floral</label>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  id="sauvage"
+                  title="filter"
+                  placeholder=""
+                  name="oriental"
+                  value="oriental"
+                />
+                <!-- <p class="filter-newline">Oriental<br /></p> -->
+                <label for="sauvage" class="filter-label">Oriental</label>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  id="prada"
+                  title="filter"
+                  placeholder=""
+                  name="lemnos"
+                  value="lemnos"
+                />
+                <!-- <p class="filter-newline">Lemnos<br /></p> -->
+                <label for="prada" class="filter-label">Lemnos</label>
+              </li>
+            </ul>
+            <button type="submit" name="p" title="filter-products">
+              <i class="fa fa-filter"></i>
+            </button>
+          </form>
+          <!-- <button class="filter">Price</button>
           <ul class="panel-filter">
             <li>
               <input type="checkbox" id="price1" title="price" placeholder=""/>
@@ -130,18 +168,16 @@
               <p class="filter-newline">300 - 500</p>
               <label for="price3" class="filter-label">300 - 500</label>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="admin-button">
-          <button onclick="window.location.href='Admin.html'">Go to admin panel</button>
+          <button onclick="window.location.href='Admin.html'">
+            Go to admin panel
+          </button>
         </div>
       </aside>
-      
     </div>
-    
-    
 
-    
     <!--product catalog-->
     <div class="products-container">
       <div class="products-title">
@@ -183,5 +219,6 @@
     <script src="../scripts/logout.js"></script>
 
     <script src="../scripts/searchBar.js"></script>
+    <script src="../scripts/filters.js"></script>
   </body>
 </html>

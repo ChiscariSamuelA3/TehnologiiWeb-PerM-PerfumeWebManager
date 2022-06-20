@@ -55,6 +55,10 @@ function addProduct(product) {
   pName.textContent = product.name
   divInfo.appendChild(pName)
 
+  let categorie = document.createElement("h3") 
+    categorie.textContent = '#' + product.category
+    divInfo.appendChild(categorie)
+
   let pPrice = document.createElement("p")
   let spanPrice = document.createTextNode("span")
   spanPrice.textContent = `${product.price} RON`
