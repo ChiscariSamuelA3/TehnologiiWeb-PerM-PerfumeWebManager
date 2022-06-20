@@ -38,6 +38,20 @@ async function getProduct(req, res, id) {
   }
 }
 
+// get filters GET /get-filters/{floral}/{oriental}/{lemnos}
+async function getFilters(req, res, floral, oriental, lemnos) {
+  try {
+    const products = await Product.findAllByFilters(floral, oriental, lemnos);
+    res.writeHead(200, { "Content-Type": "application/json"});
+    res.end(JSON.stringify(products));
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
 // create product POST /add-product
 async function saveProduct(req, res) {
   try {
@@ -105,5 +119,6 @@ module.exports = {
   getProduct,
   saveProduct,
   deleteProduct,
-  updateProduct
+  updateProduct,
+  getFilters
 };
