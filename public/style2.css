@@ -277,6 +277,10 @@ div .button-login input:hover {
     max-width: 100%;
   }
 
+  .select-form {
+    margin-left: 30px;
+  }
+
   .container-perfume .perfume-details .input-box {
     margin-right: 110px;
   } 
@@ -399,13 +403,25 @@ select {
 .select {
   position: relative;
   display: flex;
-  width: 20em;
-  height: 3em;
+  width: 240px;
+  height: 40px;
   line-height: 3;
   background: #5c6664;
   overflow: hidden;
   border-radius: 0.25em;
 }
+
+.select-form {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 3;
+  background: #5c6664;
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+
 
 select {
   flex: 1;
@@ -425,6 +441,22 @@ select {
   cursor: pointer;
   pointer-events: none;
   transition: all 0.25s ease;
+}
+
+.select-form::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #033d01;
+  cursor: pointer;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.select-form:hover::after {
+  color: #fff;
 }
 
 .select:hover::after {
