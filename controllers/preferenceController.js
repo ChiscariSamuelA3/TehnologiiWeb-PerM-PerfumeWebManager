@@ -138,15 +138,16 @@ async function getApiPreferences(req, res) {
 
         
         // preferintele utilizatorului care este logat in sesiunea curenta
-        const preferences = await Preference.findByUserId(userId);
+        // const preferences = await Preference.findByUserId(userId);
 
         let suggestions = []
 
-        if(String(preferences[0].gender).toLowerCase() === 'both') {
-          suggestions = await Preference.findProductsBySeasonSmell(preferences[0].season, preferences[0].smell)
+
+        if(String(gender).toLowerCase() === 'both') {
+          suggestions = await Preference.findProductsBySeasonSmell(season, smell)
         }
         else {
-          suggestions = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
+          suggestions = await Preference.findProductsByPreferences(gender, season, smell)
         }
 
         for(const fav of suggestions) {
@@ -157,6 +158,22 @@ async function getApiPreferences(req, res) {
             prodFav.save();
           }
         }
+
+        // if(String(preferences[0].gender).toLowerCase() === 'both') {
+        //   suggestions = await Preference.findProductsBySeasonSmell(preferences[0].season, preferences[0].smell)
+        // }
+        // else {
+        //   suggestions = await Preference.findProductsByPreferences(preferences[0].gender, preferences[0].season, preferences[0].smell)
+        // }
+
+        // for(const fav of suggestions) {
+        //   const findProd = await Favorite.findByUserIdProdId(userId, fav._id.toString())
+
+        //   if(!findProd.length) {
+        //     const prodFav = new Favorite(userId, fav._id.toString(), 2);
+        //     prodFav.save();
+        //   }
+        // }
 
         console.log("HERE PREF ARRAY", suggestions)
       }
