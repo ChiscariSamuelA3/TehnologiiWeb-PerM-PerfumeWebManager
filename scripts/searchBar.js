@@ -25,7 +25,7 @@ async function searchParam(event) {
         window.alert('Name too long!')
       } 
       else if(!param.match(/^[a-zA-Z0-9_.-]*$/)) {
-        window.alert('Invalid characters $[]() etc.!')
+        window.alert('Invalid characters $[]()<> etc.!')
       }
       else {
         let isParamName = false;
