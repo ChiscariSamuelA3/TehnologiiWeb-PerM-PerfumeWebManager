@@ -88,7 +88,7 @@
 
     <div class="container-register">
         <div class="title">Confirm your Delivery Address</div>
-        <form id="register-form" action="/" method="POST">
+        <form id="address-form" action="/" method="GET">
             <div class="user-details">
                 <div class="select-box">
                     <label for="regname" class="details">Country</label>
@@ -147,7 +147,7 @@
                             <option value="CH">Switzerland</option>
                             <option value="UA">Ukraine</option>
                             <option value="GB">United Kingdom</option>
-                        </select>
+                    </select>
 
 
                 </div>
@@ -184,8 +184,8 @@
 
                 </div>
             </div>
-            <div class="button-register">
-                <button onclick="alert('Order Confirmed!')" class="purchase">Confirm Order</button>
+            <div>
+                <button class="confirm-order">Confirm Order</button>
             </div>
         </form>
 
@@ -216,7 +216,7 @@
     </footer>
 
     <!-- Link JavaScript file -->
-    <script src="../scripts/register.js"></script>
+    <script src="../scripts/handlePurchase.js"></script>
 </body>
 
 </html>
