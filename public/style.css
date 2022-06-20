@@ -299,10 +299,6 @@ div .admin-button{
     padding: 5px;
   }
 
-  .filter-label {
-    display: none;
-  }
-
   .filter-newline {
     display: block;
   }
@@ -619,6 +615,23 @@ div .admin-button{
 }
 
 .purchase:hover {
+  background-color: #ff5959;
+}
+
+.confirm-order {
+  margin-top: 10px;
+  margin-left: 80px;
+
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  padding: 4px 4px;
+  cursor: pointer;
+  background-color: #ff9100;
+}
+
+.confirm-order:hover {
   background-color: #ff5959;
 }
 
