@@ -623,6 +623,52 @@ div .admin-button{
   background-color: #ff5959;
 }
 
+div .input-box .description{
+  display: block;
+  margin: 20px 10px 10px 0;
+  font-size: 25px;
+}
+
+div .input-box #LDesc{
+  width: 50%;
+  height: 150px;
+}
+
+div .input-box #rating{
+  position: flex;
+  display:block;
+  top: 0;
+}
+
+
+.input-box #rating{
+  border-radius:36px;
+  display:inline-block;
+  overflow:hidden;
+  width:50px;
+  height:40px;
+  border:0px;
+  text-align: center;
+  outline:none;
+}
+.input-box #rating:hover {
+  border: 1px solid #999;
+}
+
+.input-box .button-review{
+  position:relative;
+  left:40%;
+  width:10%;
+  height:40px;
+  bottom: 40px;
+  border:0px;
+  text-align: center;
+  outline:none;
+}
+.input-box .button-review input{
+  background: linear-gradient(to right, #033d01, #00240c);
+}
+
 .confirm-order {
   margin-top: 10px;
   margin-left: 80px;
@@ -635,6 +681,7 @@ div .admin-button{
   cursor: pointer;
   background-color: #ff9100;
 }
+
 
 .confirm-order:hover {
   background-color: #ff5959;

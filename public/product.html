@@ -132,6 +132,22 @@
               <h3 id="longDescription">
               </h3>
 
+              <form id="review-form" action="/" method="POST">
+              <div class="input-box">
+                <label for="LDesc" class="description">Add a review</label>
+                <textarea type="text" style="resize:none " id="LDesc" name="description" rows="4" cols="50" required  placeholder=""></textarea>
+                <h3>Leave a rating</h3>
+                <select name="rating" id="rating">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                  <input  class ="button-review" type="submit" value="Submit Review"/>
+              </div>
+              </form>
+
               <div class="product-detail__items">
                 <h2><br /><b>Reviews</b></h2>
                 <div class="review-item">
