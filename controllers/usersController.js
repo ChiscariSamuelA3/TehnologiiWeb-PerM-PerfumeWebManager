@@ -94,7 +94,7 @@ async function saveUser(req, res) {
 
     if (User.validateUsernameFormat(username) === null) {
       console.log(
-        "[user-controller] Username format is invalid. Don't use special characters such as $, ! or {}!"
+        "[user-controller] Username format is invalid. Don't use special characters such as $, <>, ! or {}!"
       );
       res.writeHead(200, { "Content-Type": "application/json" });
 
@@ -196,7 +196,7 @@ async function loginUser(req, res) {
 
     if (User.validateUsernameFormat(username) === null) {
       console.log(
-        "[user-controller] Username format is invalid. Don't use special characters such as $, ! or {}!"
+        "[user-controller] Username format is invalid. Don't use special characters such as $, <>, ! or {}!"
       );
       res.writeHead(200, { "Content-Type": "application/json" });
 
@@ -204,7 +204,7 @@ async function loginUser(req, res) {
         JSON.stringify({
           route: "/Login.html",
           message:
-            "Username format is invalid. Don't use special characters such as $, ! or {}!",
+            "Username format is invalid. Don't use special characters such as $, <>, ! or {}!",
         })
       );
     }
