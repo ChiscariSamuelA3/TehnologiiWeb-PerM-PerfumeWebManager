@@ -43,9 +43,9 @@ async function saveProduct(req, res) {
   try {
     const body = await getPostData(req);
 
-    const { name, gender, season, smell, price, longdescription, shortdescription, imageurl, quantity } = JSON.parse(body);
+    const { name, gender, season, smell, price, longdescription, shortdescription, imageurl, quantity, category } = JSON.parse(body);
 
-    const product = new Product(name, gender, season, smell, price, longdescription, shortdescription, imageurl, quantity);
+    const product = new Product(name, gender, season, smell, price, longdescription, shortdescription, imageurl, quantity, category);
     product.save();
 
     res.writeHead(201, { "Content-Type": "application/json" });
