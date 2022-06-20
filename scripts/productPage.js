@@ -9,7 +9,7 @@ function initProduct(product) {
     let productImage = `
     <img
     src="${product.imageurl}"
-    style="width:500px; height: 500px"
+    style="width:400px; height: 400px"
     alt="product"
     />
     `
@@ -18,6 +18,13 @@ function initProduct(product) {
     .innerHTML = productImage   
     
     document.getElementById('perfumeName').innerText = product.name
+
+    const nume = document.getElementById('perfumeName')
+    const eticheta = document.createElement('h2')
+    eticheta.textContent = product.gender + ' ' + product.season + ' ' + product.smell
+    nume.appendChild(eticheta)
+
+
     document.getElementById('perfumePrice').innerText = product.price + ' RON'
     document.getElementById('shortDescription').innerText = product.shortdescription
     document.getElementById('longDescription').innerText = product.longdescription
