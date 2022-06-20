@@ -1,5 +1,6 @@
 const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct, getFilters} = require('../controllers/productsController')
 const { fileRouter } = require('./filesRoute')
+var sanitize = require('mongo-sanitize')
 
 function productsRoute(req, res) {
     
@@ -8,15 +9,15 @@ function productsRoute(req, res) {
     }
     else if(req.url.match(/\/get-product\/([0-9a-z]+)/) && req.method === 'GET') {
         
-        const id = req.url.split('/')[2]
+        const id = sanitize(req.url.split('/')[2])
 
         getProduct(req, res, id)
     }
     else if(req.url.match(/\/get-filters\/(true|false)\/(true|false)\/(true|false)/) && req.method === 'GET') {
         
-        const floral = req.url.split('/')[2]
-        const oriental = req.url.split('/')[3]
-        const lemnos = req.url.split('/')[4]
+        const floral = sanitize(req.url.split('/')[2])
+        const oriental = sanitize(req.url.split('/')[3])
+        const lemnos = sanitize(req.url.split('/')[4])
 
         getFilters(req, res, floral, oriental, lemnos)
     }
@@ -25,13 +26,13 @@ function productsRoute(req, res) {
     }
     else if(req.url.match(/\/delete-product\/([0-9a-z]+)/) && req.method === 'DELETE') {
         
-        const id = req.url.split('/')[2]
+        const id = sanitize(req.url.split('/')[2])
 
         deleteProduct(req, res, id)
     }
     else if(req.url.match(req.url.match(/\/update-product/)) && req.method === 'PATCH') {
-        const id = req.url.split('/')[2]
-        const quantity = req.url.split('/')[3]
+        const id = sanitize(req.url.split('/')[2])
+        const quantity = sanitize(req.url.split('/')[3])
 
         updateProduct(req, res, id, quantity)
     }

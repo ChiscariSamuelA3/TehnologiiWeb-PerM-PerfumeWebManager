@@ -1,10 +1,11 @@
 const {getFavorites, getApiFavorites, getFavorite, saveFav, deleteFav, deleteProductFav} = require('../controllers/favController')
+var sanitize = require('mongo-sanitize')
 
 function favRoute(req, res) {
     
     if(req.url.match(/\/get-favorites\/([0-9a-z]+)/) && req.method === 'GET') {
 
-        const userId = req.url.split('/')[2]
+        const userId = sanitize(req.url.split('/')[2])
 
         getFavorites(req, res, userId)
     }
@@ -16,8 +17,8 @@ function favRoute(req, res) {
     }
     else if(req.url.match(/\/get-favorite\/([0-9a-z]+)\/([0-9a-z]+)/) && req.method === 'GET') {
         
-        const userId = req.url.split('/')[2]
-        const id = req.url.split('/')[3]
+        const userId = sanitize(req.url.split('/')[2])
+        const id = sanitize(req.url.split('/')[3])
 
         getFavorite(req, res, userId, id)
     }
@@ -26,8 +27,8 @@ function favRoute(req, res) {
     }
     else if(req.url.match(/\/delete-fav\/([0-9a-z]+)/) && req.method === 'DELETE') {
 
-        const userId = req.url.split('/')[2]
-        const id = req.url.split('/')[3]
+        const userId = sanitize(req.url.split('/')[2])
+        const id = sanitize(req.url.split('/')[3])
 
         deleteFav(req, res, userId, id)
     }
