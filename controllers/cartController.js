@@ -70,6 +70,53 @@ async function getApiCarts(req, res) {
   }
 }
 
+// get carts GET /confirm-order
+async function confirmOrder(req, res) {
+  try {
+    // userId il iau din token-ul din cookie...
+
+    let value = ""
+    let token = ""
+    const cookieHeader = req.headers?.cookie
+    
+    if(cookieHeader) {
+      cookieHeader.split(`;`).forEach(cookie => {
+        let [name, ...rest] = cookie.split(`=`)
+        if(name === "jwt") {
+          value = rest.join(`=`).trim()
+          if(value) {
+            token =  decodeURIComponent(value)
+          }
+        }
+      });
+    }
+    
+    if(value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json"});
+      res.end(JSON.stringify({ route: "/Login.html", message: "You must login to Confirm a Order!" }));
+    }
+    else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
+      const userId = decodedToken['data']['id']
+
+      // userId-ul utilizatorului care este logat in sesiunea curenta
+      const carts = await Cart.findAll(userId);
+  
+      for(const cart of carts) {
+        await Cart.remove(cart['_id'])
+      }
+      res.writeHead(201, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({carts}));
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
 // get cart GET /get-cart/{userId}/{id}
 async function getCart(req, res, userId, id) {
   try {
@@ -265,5 +312,6 @@ module.exports = {
   saveCart,
   deleteCart,
   deleteProductCart,
-  updateCart
+  updateCart,
+  confirmOrder
 };

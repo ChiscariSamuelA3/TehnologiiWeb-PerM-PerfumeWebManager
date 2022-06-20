@@ -50,6 +50,10 @@ async function router(req, res) {
         console.log("[router] save-cart api")
         cartRoute(req, res)
     } 
+    else if(req.url === '/confirm-order') {
+        console.log("[router] confirm-order api")
+        cartRoute(req, res)
+    }
     else if (req.url.match(/\/delete-cart\/([0-9a-z]+)/)) {
         console.log("[router] delete-cart api")
         cartRoute(req, res)

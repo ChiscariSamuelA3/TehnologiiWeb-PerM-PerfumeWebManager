@@ -1,4 +1,4 @@
-const {getCarts, getApiCarts, getCart, saveCart, deleteCart, deleteProductCart, updateCart} = require('../controllers/cartController')
+const {getCarts, getApiCarts, getCart, saveCart, deleteCart, deleteProductCart, updateCart, confirmOrder} = require('../controllers/cartController')
 
 function cartRoute(req, res) {
     
@@ -20,6 +20,9 @@ function cartRoute(req, res) {
     }
     else if(req.url === '/add-cart' && req.method === 'POST') {
         saveCart(req, res)
+    }
+    else if(req.url === '/confirm-order' && req.method === 'GET') {
+        confirmOrder(req, res)
     }
     else if(req.url.match(/\/delete-cart\/([0-9a-z]+)/) && req.method === 'DELETE') {
 
