@@ -1,4 +1,4 @@
-const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct, getFilters, getStats} = require('../controllers/productsController')
+const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct, getFilters, getHTMLstats, getJSONstats} = require('../controllers/productsController')
 const { fileRouter } = require('./filesRoute')
 var sanitize = require('mongo-sanitize')
 
@@ -6,6 +6,12 @@ function productsRoute(req, res) {
     
     if(req.url === '/get-products' && req.method === 'GET') {
         getProducts(req, res)
+    }
+    else if(req.url === '/api/stats/html' && req.method === 'GET') { // stats
+        getHTMLstats(req, res)
+    }
+    else if(req.url === '/api/stats/json' && req.method === 'GET') {
+        getJSONstats(req, res)
     }
     else if(req.url.match(/^\/get-product\/([0-9a-z]{24})$/) && req.method === 'GET') {
         
@@ -38,9 +44,6 @@ function productsRoute(req, res) {
     }
     else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg))/) && req.method === 'GET') {
         fileRouter(req, res)
-    }
-    else if(req.url === '/get-api-stats' && req.method === 'GET') { // stats
-        getStats(req, res)
     }
     else {
         res.writeHead(404, {'Content-Type': 'text/html'})
