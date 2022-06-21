@@ -92,7 +92,7 @@ async function saveUser(req, res) {
     const { username, password1, email, password2 } = JSON.parse(body);
     console.log("[user-controller]", username, password1, email, password2);
 
-    if (User.validateUsernameFormat(username) === null) {
+    if (User.validateUsernameFormat(username) === null || username === undefined || username === '') {
       console.log(
         "[user-controller] Username format is invalid. Don't use special characters such as $, <>, ! or {}!"
       );
@@ -109,7 +109,7 @@ async function saveUser(req, res) {
       const findUser = await User.findByUsername(username);
 
       if (!findUser.length) {
-        if (User.validateEmailFormat(email) === null) {
+        if (User.validateEmailFormat(email) === null || email === undefined || email === '') {
           console.log(
             "[user-controller] Email must not contain special characters such as $, ! or {}!"
           );
@@ -122,7 +122,7 @@ async function saveUser(req, res) {
                 "Email must not contain special characters such as $, ! or { }",
             })
           );
-        } else if (User.validatePasswordFormat(password1) === null) {
+        } else if (User.validatePasswordFormat(password1) === null || password1 === undefined || password1 === '') {
           console.log(
             "[user-controller] Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!"
           );
@@ -194,7 +194,7 @@ async function loginUser(req, res) {
 
     const { username, password } = JSON.parse(body);
 
-    if (User.validateUsernameFormat(username) === null) {
+    if (User.validateUsernameFormat(username) === null || username === undefined || username === '') {
       console.log(
         "[user-controller] Username format is invalid. Don't use special characters such as $, <>, ! or {}!"
       );
@@ -208,7 +208,7 @@ async function loginUser(req, res) {
         })
       );
     }
-    else if(User.validatePasswordFormat(password) === null) {
+    else if(User.validatePasswordFormat(password) === null || password === undefined || password === '') {
       console.log(
         "[user-controller] Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!"
       );
