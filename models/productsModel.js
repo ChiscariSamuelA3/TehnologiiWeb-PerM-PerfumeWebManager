@@ -117,6 +117,11 @@ class Product {
         }
     }
 
+    static findReviews(prodId) {
+        const db = getDb()
+        return db.collection('reviews').find({productId: prodId}).toArray()
+    }
+
     static findById(id) {
         const db = getDb()
         return db.collection('products').find({_id: new mongodb.ObjectId(id)}).toArray()

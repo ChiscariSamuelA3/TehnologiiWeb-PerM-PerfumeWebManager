@@ -52,6 +52,93 @@ async function getFilters(req, res, floral, oriental, lemnos) {
   }
 }
 
+//get stats GET /get-api-stats
+async function getStats(req, res) {
+  try {
+
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to view the STATS!",
+        })
+      );
+    } else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+
+      // pun in token si isAdmin 0/1 si verific
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // e admin
+        
+        const products = await Product.findAll();
+
+        var avgReviews = []
+  
+        // pentru fiecare produs, calculez media recenziilor
+        for(const product of products) {
+          console.log("PROD ID", product._id)
+          let avg = 0
+          let sum = 0
+          let len = 0
+          const productReviews = await Product.findReviews(product._id)
+          for(const review of productReviews) {
+            len++
+            sum += review.grade
+          }
+          if(len === 0) {
+            avg = 0
+          }
+          else {
+            avg = (sum / len).toFixed(2)
+          }
+          avgReviews.push(avg)
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({products, avgReviews}));
+      }
+      else {
+        // nu e admin
+
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
 // create product POST /add-product
 async function saveProduct(req, res) {
   try {
@@ -282,4 +369,5 @@ module.exports = {
   deleteProduct,
   updateProduct,
   getFilters,
+  getStats
 };
