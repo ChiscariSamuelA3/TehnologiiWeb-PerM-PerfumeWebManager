@@ -3,6 +3,7 @@ const { usersRoute } = require('./usersRoute')
 const { cartRoute } = require('./cartRoute')
 const { favRoute } = require('./favRoute')
 const { preferenceRoute } = require('./preferenceRoute')
+const { reviewRoute } = require('./reviewRoute')
 
 async function router(req, res) {
 
@@ -126,8 +127,9 @@ async function router(req, res) {
         console.log("[router] add preference api")
         preferenceRoute(req, res)
     }
-    else if(req.url.match(/^\/get-api-reviews\/([0-9a-z]+)$/)) { // reviews
+    else if(req.url.match(/^\/get-api-reviews\/([0-9a-z]{24})$/)) { // reviews
         console.log("[router] get-api-reviews")
+        reviewRoute(req, res)
     }
     else {
         console.log("[router] 404 error Page Not Found")

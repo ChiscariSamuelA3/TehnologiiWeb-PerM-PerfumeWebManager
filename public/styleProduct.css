@@ -129,6 +129,10 @@ h3 {
   justify-content: space-between;
 }
 
+#perfumeName h2 {
+  color: #000425;
+}
+
 .product-stock {
   display: block;
   margin-top: 15px;
@@ -218,6 +222,7 @@ h3 {
   background-color: rgb(71, 71, 71);
   padding: 40px 38px 34px;
   padding-bottom: 39px;
+  width: 85%;
 }
 
 .review-item__head {
