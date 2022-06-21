@@ -370,6 +370,14 @@ div .button-login input:hover {
     }
 }
 
+/*HTML table*/
+table, th, td {
+    border:1px solid black;
+}
+  
+th,td .init-quantity{
+    size:30px;
+}
 
 /*Profile*/
 
