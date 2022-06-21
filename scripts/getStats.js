@@ -126,7 +126,6 @@ fetch("/get-api-stats", {
                 if(totalSum > maxSum)
                     maxSum = totalSum
             }
-            
 
             for(var i = json.products.length - 1; i >= 0; i--) {
                 var product = json.products[i]

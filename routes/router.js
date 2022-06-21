@@ -136,7 +136,7 @@ async function router(req, res) {
         reviewRoute(req, res)
     }
     else if(req.url === '/get-api-stats') {
-        console.log("[router] get-api-stats")
+        console.log("[router] stats")
         productsRoute(req, res)
     }
     else {

@@ -39,7 +39,7 @@ function productsRoute(req, res) {
     else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg))/) && req.method === 'GET') {
         fileRouter(req, res)
     }
-    else if(req.url === '/get-api-stats' && req.method === 'GET') {
+    else if(req.url === '/get-api-stats' && req.method === 'GET') { // stats
         getStats(req, res)
     }
     else {

@@ -85,7 +85,6 @@ async function getStats(req, res) {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
       //const userId = decodedToken['data']['id']
 
-      // pun in token si isAdmin 0/1 si verific
       const loginUser = await Product.findByUserId(decodedToken['data']['id']);
 
       if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
@@ -93,11 +92,10 @@ async function getStats(req, res) {
         
         const products = await Product.findAll();
 
-        var avgReviews = []
+        let avgReviews = []
   
         // pentru fiecare produs, calculez media recenziilor
         for(const product of products) {
-          console.log("PROD ID", product._id)
           let avg = 0
           let sum = 0
           let len = 0
@@ -106,13 +104,16 @@ async function getStats(req, res) {
             len++
             sum += review.grade
           }
+
           if(len === 0) {
             avg = 0
           }
           else {
             avg = (sum / len).toFixed(2)
           }
+
           avgReviews.push(avg)
+
         }
 
         res.writeHead(200, { "Content-Type": "application/json" });
@@ -369,5 +370,5 @@ module.exports = {
   deleteProduct,
   updateProduct,
   getFilters,
-  getStats
+  getStats,
 };
