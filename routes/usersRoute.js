@@ -4,7 +4,7 @@ function usersRoute(req, res) {
     if(req.url === '/get-users' && req.method === 'GET') {
         getUsers(req, res)
     }
-    else if(req.url.match(/\/get-user\/([0-9a-z]+)/) && req.method === 'GET') {
+    else if(req.url.match(/^\/get-user\/([0-9a-z]{24})$/) && req.method === 'GET') {
         
         const id = req.url.split('/')[2]
 
@@ -19,7 +19,7 @@ function usersRoute(req, res) {
     else if(req.url === '/login-user' && req.method === 'POST') {
         loginUser(req, res)
     }
-    else if(req.url.match(/\/delete-user\/([0-9a-z]+)/) && req.method === 'DELETE') {
+    else if(req.url.match(/^\/delete-user\/([0-9a-z]{24})$/) && req.method === 'DELETE') {
         
         const id = req.url.split('/')[2]
 
