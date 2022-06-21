@@ -8,13 +8,35 @@ class Product {
         this.gender = gender
         this.season = season
         this.smell = smell
-        this.price = price      
+        this.price = parseInt(price)      
         this.longdescription = longdescription
         this.shortdescription = shortdescription
         this.imageurl = imageurl
-        this.quantity = quantity
+        this.quantity = parseInt(quantity)
         this.category = category
-        this.initialstock = initialstock
+        this.initialstock = parseInt(initialstock)
+    }
+
+    // sanitizare
+    static validateImageUrl(img) {
+        return String(img).toLowerCase().match(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#${}?]+)+\.(?:jpe?g|gif|png)$/)
+    }
+
+    static validateNumber(nr) {
+        return nr.match(/^[1-9]\d*$/)
+    }
+
+    static validateLength(text) {
+        return text.length <= 35
+    }
+
+    static validateFormat(text) {
+        return String(text).toLowerCase().match(/^(([^$!{}<>()[\]\\.,;:@"]+(\.[^<>()[\]\\.,;:@"]+)*)|(".+"))$/)
+    }
+
+    static findByName(_name) {
+        const db = getDb()
+        return db.collection('products').find({ name: _name }).toArray()
     }
 
     save() {
@@ -25,6 +47,11 @@ class Product {
     static findAll() {
         const db = getDb()
         return db.collection('products').find().toArray()
+    }
+
+    static findByUserId(userId) {
+        const db = getDb()
+        return db.collection('users').find({ _id: new mongodb.ObjectId(userId)}).toArray()
     }
 
     static findAllByFilters(floral, oriental, lemnos) {
