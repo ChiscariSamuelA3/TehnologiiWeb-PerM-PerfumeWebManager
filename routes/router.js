@@ -131,6 +131,10 @@ async function router(req, res) {
         console.log("[router] get-api-reviews")
         reviewRoute(req, res)
     }
+    else if(req.url === '/add-review') {
+        console.log("[router] add review api")
+        reviewRoute(req, res)
+    }
     else {
         console.log("[router] 404 error Page Not Found")
         res.writeHead(404, { 'Content-Type': 'application/json' })

@@ -5,13 +5,13 @@ const getDb = require('../utils/database').getDb
 class Review {
     constructor(comment, grade, productId, username) {
         this.comment = comment
-        this.grade = grade
+        this.grade = parseInt(grade)
         this.productId = ObjectId(productId)
         this.username = username
     }
 
     static validateLength(text) {
-        return text.length <= 35
+        return text.length <= 45
     }
 
     static validateFormat(text) {
