@@ -88,7 +88,7 @@ function addHtmlStat(product, avg, numSales, totalSum) {
 }
 
 // open html => use url
-fetch("/get-api-stats", {
+fetch('/api/stats/html', {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

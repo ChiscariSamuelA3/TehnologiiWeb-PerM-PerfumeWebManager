@@ -52,8 +52,8 @@ async function getFilters(req, res, floral, oriental, lemnos) {
   }
 }
 
-//get stats GET /get-api-stats
-async function getStats(req, res) {
+//get HTML stats GET /api/stats/html
+async function getHTMLstats(req, res) {
   try {
 
     let value = "";
@@ -363,6 +363,107 @@ async function updateProduct(req, res, id, quantity) {
   }
 }
 
+//get json stats GET /api/stats/json
+async function getJSONstats(req, res) {
+  try {
+
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to view the STATS!",
+        })
+      );
+    } else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // e admin
+        
+        const products = await Product.findAll();
+
+        let JSONstats = []
+  
+        // pentru fiecare produs, calculez media recenziilor
+        for(const product of products) {
+          let avg = 0
+          let sum = 0
+          let len = 0
+          const productReviews = await Product.findReviews(product._id)
+          for(const review of productReviews) {
+            len++
+            sum += review.grade
+          }
+
+          if(len === 0) {
+            avg = 0
+          }
+          else {
+            avg = (sum / len).toFixed(2)
+          }
+    
+          const name = product.name
+          const category = product.category
+          const season = product.season
+          const gender = product.gender
+          const smell = product.smell
+          const initStock = product.initialstock
+          const currStock = product.quantity
+          const avgReview = avg
+          const price = product.price
+          const nrSales = initStock - currStock
+          const totalSum = price * nrSales
+
+          JSONstats.push(
+             { name, category, season, gender, smell, initStock, currStock, avgReview, price, nrSales, totalSum, }
+            )
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(JSONstats));
+      }
+      else {
+        // nu e admin
+
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
 module.exports = {
   getProducts,
   getProduct,
@@ -370,5 +471,6 @@ module.exports = {
   deleteProduct,
   updateProduct,
   getFilters,
-  getStats,
+  getHTMLstats,
+  getJSONstats
 };

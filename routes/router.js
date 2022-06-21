@@ -11,6 +11,14 @@ async function router(req, res) {
         console.log("[router] get-products api")
         productsRoute(req, res)
     } 
+    else if(req.url === '/api/stats/html') { //stats
+        console.log("[router] html stats")
+        productsRoute(req, res)
+    }
+    else if(req.url === '/api/stats/json') { // stats
+        console.log("[router] json stats")
+        productsRoute(req, res)
+    }
     else if (req.url.match(/^\/get-product\/([0-9a-z]{24})$/)) {
         console.log("[router] get-product api")
         productsRoute(req, res)
@@ -134,10 +142,6 @@ async function router(req, res) {
     else if(req.url === '/add-review') {
         console.log("[router] add review api")
         reviewRoute(req, res)
-    }
-    else if(req.url === '/get-api-stats') {
-        console.log("[router] stats")
-        productsRoute(req, res)
     }
     else {
         console.log("[router] 404 error Page Not Found")
