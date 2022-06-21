@@ -379,6 +379,16 @@ th,td .init-quantity{
     size:30px;
 }
 
+.max-val {
+    color: red;
+    background-color: rgba(229, 219, 35, 0.593);
+    font-weight: bold;
+}
+
+.stat-table {
+    width: 100%;
+}
+
 /*Profile*/
 
 .wrapper {
