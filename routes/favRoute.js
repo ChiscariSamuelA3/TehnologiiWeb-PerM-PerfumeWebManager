@@ -3,7 +3,7 @@ var sanitize = require('mongo-sanitize')
 
 function favRoute(req, res) {
     
-    if(req.url.match(/\/get-favorites\/([0-9a-z]+)/) && req.method === 'GET') {
+    if(req.url.match(/^\/get-favorites\/([0-9a-z]{24})$/) && req.method === 'GET') {
 
         const userId = sanitize(req.url.split('/')[2])
 
@@ -15,7 +15,7 @@ function favRoute(req, res) {
     else if(req.url === '/get-api-suggestions' && req.method === 'GET') {
         getApiFavorites(req, res, 2)
     }
-    else if(req.url.match(/\/get-favorite\/([0-9a-z]+)\/([0-9a-z]+)/) && req.method === 'GET') {
+    else if(req.url.match(/^\/get-favorite\/([0-9a-z]{24})\/([0-9a-z]{24})$/) && req.method === 'GET') {
         
         const userId = sanitize(req.url.split('/')[2])
         const id = sanitize(req.url.split('/')[3])
@@ -25,7 +25,7 @@ function favRoute(req, res) {
     else if(req.url === '/add-fav' && req.method === 'POST') {
         saveFav(req, res)
     }
-    else if(req.url.match(/\/delete-fav\/([0-9a-z]+)/) && req.method === 'DELETE') {
+    else if(req.url.match(/^\/delete-fav\/([0-9a-z]{24})\/([0-9a-z]{24})$/) && req.method === 'DELETE') {
 
         const userId = sanitize(req.url.split('/')[2])
         const id = sanitize(req.url.split('/')[3])

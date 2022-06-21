@@ -10,11 +10,11 @@ async function router(req, res) {
         console.log("[router] get-products api")
         productsRoute(req, res)
     } 
-    else if (req.url.match(/\/get-product\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/get-product\/([0-9a-z]{24})$/)) {
         console.log("[router] get-product api")
         productsRoute(req, res)
     } 
-    else if(req.url.match(/\/get-filters\/(true|false)\/(true|false)\/(true|false)/)) {
+    else if(req.url.match(/^\/get-filters\/(true|false)\/(true|false)\/(true|false)$/)) {
         console.log("[router] get-filters")
         productsRoute(req, res)
     }
@@ -22,19 +22,19 @@ async function router(req, res) {
         console.log("[router] save-product api")
         productsRoute(req, res)
     } 
-    else if (req.url.match(/\/delete-product\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/delete-product\/([0-9a-z]{24})$/)) {
         console.log("[router] delete-product api")
         productsRoute(req, res)
     } 
-    else if (req.url.match(req.url.match(/\/update-product/))) {
+    else if (req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d+)$/)) {
         console.log("[router] update-product api")
         productsRoute(req, res)
     } 
-    else if (req.url === '/' || req.url.match(/([0-9a-zA-Z]*.html)/) || req.url.match(/([0-9a-zA-Z]*.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/([0-9a-zA-Z]*.html\?id=[0-9a-z]*)/) || req.url.match(/([0-9a-zA-Z]*.css)/) || req.url.match(/([0-9a-zA-Z]*.js)/) || req.url.match(/([0-9a-zA-Z]*.jpg)/) || req.url.match(/([0-9a-zA-Z]*.png)/)) {
+    else if (req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg))/)) {
         console.log("[router] public route", req.url)
         productsRoute(req, res)
     } 
-    else if (req.url.match(/\/get-carts\/([0-9a-z]+)/)) { // carts
+    else if (req.url.match(/^\/get-carts\/([0-9a-z]{24})$/)) { // carts
         console.log("[router] get-carts api")
         cartRoute(req, res)
     } 
@@ -42,7 +42,7 @@ async function router(req, res) {
         console.log("[router] get-api-carts")
         cartRoute(req, res)
     } 
-    else if (req.url.match(/\/get-cart\/([0-9a-z]+)\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/get-cart\/([0-9a-z]{24})\/([0-9a-z]{24})$/)) {
         console.log("[router] get-cart api")
         cartRoute(req, res)
     } 
@@ -54,7 +54,7 @@ async function router(req, res) {
         console.log("[router] confirm-order api")
         cartRoute(req, res)
     }
-    else if (req.url.match(/\/delete-cart\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/delete-cart\/([0-9a-z]{24})$/)) {
         console.log("[router] delete-cart api")
         cartRoute(req, res)
     } 
@@ -62,11 +62,11 @@ async function router(req, res) {
         console.log("[router] delete-api-cart")
         cartRoute(req, res)
     } 
-    else if (req.url.match(req.url.match(/\/update-cart/))) {
+    else if (req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d+)$/)) {
         console.log("[router] update-cart api")
         cartRoute(req, res)
     } 
-    else if (req.url.match(/\/get-favorites\/([0-9a-z]+)/)) { // favorites
+    else if (req.url.match(/^\/get-favorites\/([0-9a-z]{24})$/)) { // favorites
         console.log("[router] get-favorites api")
         favRoute(req, res)
     } 
@@ -78,7 +78,7 @@ async function router(req, res) {
         console.log("[router] get-api-suggestions")
         favRoute(req, res)
     }
-    else if (req.url.match(/\/get-favorite\/([0-9a-z]+)\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/get-favorite\/([0-9a-z]{24})\/([0-9a-z]{24})$/)) {
         console.log("[router] get-favorite api")
         favRoute(req, res)
     } 
@@ -86,7 +86,7 @@ async function router(req, res) {
         console.log("[router] save-fav api")
         favRoute(req, res)
     } 
-    else if (req.url.match(/\/delete-fav\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/delete-fav\/([0-9a-z]{24})\/([0-9a-z]{24})$/)) {
         console.log("[router] delete-fav api")
         favRoute(req, res)
     } 
@@ -98,7 +98,7 @@ async function router(req, res) {
         console.log("[router] get-users api")
         usersRoute(req, res)
     } 
-    else if (req.url.match(/\/get-user\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/get-user\/([0-9a-z]{24})$/)) {
         console.log("[router] get-user api")
         usersRoute(req, res)
     } 
@@ -114,7 +114,7 @@ async function router(req, res) {
         console.log("[router] login-user api")
         usersRoute(req, res)
     } 
-    else if (req.url.match(/\/delete-user\/([0-9a-z]+)/)) {
+    else if (req.url.match(/^\/delete-user\/([0-9a-z]{24})$/)) {
         console.log("[router] delete-user api")
         usersRoute(req, res)
     } 
@@ -125,6 +125,9 @@ async function router(req, res) {
     else if(req.url === '/add-preference') {
         console.log("[router] add preference api")
         preferenceRoute(req, res)
+    }
+    else if(req.url.match(/^\/get-api-reviews\/([0-9a-z]+)$/)) { // reviews
+        console.log("[router] get-api-reviews")
     }
     else {
         console.log("[router] 404 error Page Not Found")

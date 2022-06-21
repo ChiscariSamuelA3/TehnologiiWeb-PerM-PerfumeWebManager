@@ -3,7 +3,7 @@ var sanitize = require('mongo-sanitize')
 
 function cartRoute(req, res) {
     
-    if(req.url.match(/\/get-carts\/([0-9a-z]+)/) && req.method === 'GET') {
+    if(req.url.match(/^\/get-carts\/([0-9a-z]{24})$/) && req.method === 'GET') {
 
         const userId = sanitize(req.url.split('/')[2])
 
@@ -12,7 +12,7 @@ function cartRoute(req, res) {
     else if(req.url === '/get-api-carts' && req.method === 'GET') {
         getApiCarts(req, res)
     }
-    else if(req.url.match(/\/get-cart\/([0-9a-z]+)\/([0-9a-z]+)/) && req.method === 'GET') {
+    else if(req.url.match(/^\/get-cart\/([0-9a-z]{24})\/([0-9a-z]{24})$/) && req.method === 'GET') {
         
         const userId = sanitize(req.url.split('/')[2])
         const id = sanitize(req.url.split('/')[3])
@@ -25,7 +25,7 @@ function cartRoute(req, res) {
     else if(req.url === '/confirm-order' && req.method === 'GET') {
         confirmOrder(req, res)
     }
-    else if(req.url.match(/\/delete-cart\/([0-9a-z]+)/) && req.method === 'DELETE') {
+    else if(req.url.match(/^\/delete-cart\/([0-9a-z]{24})$/) && req.method === 'DELETE') {
 
         const userId = sanitize(req.url.split('/')[2])
         const id = sanitize(req.url.split('/')[3])
@@ -35,7 +35,7 @@ function cartRoute(req, res) {
     else if(req.url === '/delete-api-cart' && req.method === 'DELETE') {
         deleteProductCart(req, res)
     }
-    else if(req.url.match(req.url.match(/\/update-cart/)) && req.method === 'PATCH') {
+    else if(req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d+)$/) && req.method === 'PATCH') {
         const userId = sanitize(req.url.split('/')[2])
         const id = sanitize(req.url.split('/')[3])
         const quantity = sanitize(req.url.split('/')[4])
