@@ -1,4 +1,4 @@
-const { getApiReviews } = require('../controllers/reviewController')
+const { getApiReviews, addNewReview } = require('../controllers/reviewController')
 var sanitize = require('mongo-sanitize')
 
 function reviewRoute(req, res) {
@@ -6,6 +6,9 @@ function reviewRoute(req, res) {
         const prodId = sanitize(req.url.split('/')[2])
 
         getApiReviews(req, res, prodId)
+    }
+    else if(req.url === '/add-review' && req.method === 'POST') { 
+        addNewReview(req, res)
     }
     else {
         res.writeHead(404, {'Content-Type': 'text/html'})

@@ -51,10 +51,6 @@ function addReview(review) {
   } 
   divRating.appendChild(ulRating)
 
-  let spanRate = document.createElement("span")
-  spanRate.textContent = review.grade
-  divRating.appendChild(spanRate)
-
   divHead.appendChild(divRating)
   divCard.appendChild(divHead)
 
