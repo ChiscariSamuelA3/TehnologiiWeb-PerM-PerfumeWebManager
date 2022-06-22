@@ -640,6 +640,16 @@ div .input-box #rating{
   top: 0;
 }
 
+div .admin-button button{
+background-color: rgb(49, 80, 70);
+color:white;
+padding: 5px 10px;
+}
+
+div .admin-button button:hover{
+  background-color: #fff;
+  color:#000;
+}
 
 .input-box #rating{
   border-radius:36px;
