@@ -1,50 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" type="text/css" />
     <script src="script.js" defer></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>PerM</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--navbar-->
     <header>
-      <div class="logo">
-        <a href="Homepage.html">PARFUM.RO</a>
-      </div>
-      <!-- search-box -->
-      <input type="checkbox" id="expand" title="menu" placeholder="" />
-      <div class="search-box">
-        <form class="search-bar" id="search-form" action="/" method="GET">
-          <input
-            type="text"
-            id="search-box-id"
-            name="p"
-            placeholder="Search by name ..."
-          />
-          <button type="submit" name="" title="search product">
+        <div class="logo">
+            <a href="Homepage.html">PARFUM.RO</a>
+        </div>
+        <!-- search-box -->
+        <input type="checkbox" id="expand" title="menu" placeholder="" />
+        <div class="search-box">
+            <form class="search-bar" id="search-form" action="/" method="GET">
+                <input type="text" id="search-box-id" name="p" placeholder="Search by name ..." />
+                <button type="submit" name="" title="search product">
             <i class="fa fa-search"></i>
           </button>
-        </form>
-      </div>
-      <!-- nav links -->
-      <ul>
-        <li id="account-x">
-          <a href="#" class="dynamic-acc">
+            </form>
+        </div>
+        <!-- nav links -->
+        <ul>
+            <li id="account-x">
+                <a href="#" class="dynamic-acc">
             Account
             <i class="fa fa-user"></i>
           </a>
-          <ul class="dropdown">
-            <li><a href="Profile.html">My Profile</a></li>
-            <li>
-              <a onclick="delete_cookie('jwt', '/')" href="Homepage.html"
-                >Logout</a
+                <ul class="dropdown">
+                    <li><a href="Profile.html">My Profile</a></li>
+                    <li>
+                        <a onclick="delete_cookie('jwt', '/')" href="Homepage.html">Logout</a
               >
             </li>
           </ul>
@@ -55,103 +47,78 @@
             <i class="fa fa-user-cog"></i>
           </a>
 
-          <a href="Profile.html" class="icon">
-            <i class="fa fa-user-cog"></i>
-          </a>
-        </li>
+                        <a href="Profile.html" class="icon">
+                            <i class="fa fa-user-cog"></i>
+                        </a>
+                    </li>
 
-        <li class="account-y">
-          <a href="Homepage.html" class="text">
-            <i class="fa fa-user-times"></i>
-          </a>
+                    <li class="account-y">
+                        <a href="Homepage.html" class="text">
+                            <i class="fa fa-user-times"></i>
+                        </a>
 
-          <a
-            onclick="delete_cookie('jwt', '/')"
-            href="Homepage.html"
-            class="icon"
-          >
-            <i class="fa fa-user-times"></i>
-          </a>
-        </li>
+                        <a onclick="delete_cookie('jwt', '/')" href="Homepage.html" class="icon">
+                            <i class="fa fa-user-times"></i>
+                        </a>
+                    </li>
 
-        <li>
-          <a href="favorite.html" class="text">
+                    <li>
+                        <a href="favorite.html" class="text">
             Preference
             <i class="fa fa-star"></i>
           </a>
-          <a href="favorite.html" class="icon" title="acc">
-            <i class="fa fa-star"></i>
-          </a>
-        </li>
+                        <a href="favorite.html" class="icon" title="acc">
+                            <i class="fa fa-star"></i>
+                        </a>
+                    </li>
 
-        <li class="cart">
-          <a href="cart.html" class="text">
+                    <li class="cart">
+                        <a href="cart.html" class="text">
             Shopping Cart
             <i class="fa fa-shopping-cart"></i>
           </a>
-          <a href="cart.html" class="icon" title="acc">
-            <i class="fa fa-shopping-cart"></i>
-          </a>
-        </li>
-      </ul>
-      <!-- expand vertical menu-->
-      <div class="menu">
-        <label for="expand">
+                        <a href="cart.html" class="icon" title="acc">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- expand vertical menu-->
+                <div class="menu">
+                    <label for="expand">
           <i class="fa fa-bars"></i>
         </label>
-      </div>
+                </div>
     </header>
 
     <!-- filters sidebar wrapper -->
     <div class="sidebar-container">
-      <aside class="sidebar">
-        <h2>Filters</h2>
-        <div class="filters">
-          <button class="filter">Category</button>
-          <form id="filters-form" action="/" method="GET">
-            <ul class="panel-filter">
-              <li>
-                <input
-                  type="checkbox"
-                  id="chanel"
-                  title="filter"
-                  placeholder=""
-                  name="floral"
-                  value="floral"
-                />
-                <!-- <p class="filter-newline">Floral<br /></p> -->
-                <label for="chanel" class="filter-label">Floral</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  id="sauvage"
-                  title="filter"
-                  placeholder=""
-                  name="oriental"
-                  value="oriental"
-                />
-                <!-- <p class="filter-newline">Oriental<br /></p> -->
-                <label for="sauvage" class="filter-label">Oriental</label>
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  id="prada"
-                  title="filter"
-                  placeholder=""
-                  name="lemnos"
-                  value="lemnos"
-                />
-                <!-- <p class="filter-newline">Lemnos<br /></p> -->
-                <label for="prada" class="filter-label">Lemnos</label>
-              </li>
-            </ul>
-            <button type="submit" name="p" title="filter-products">
+        <aside class="sidebar">
+            <h2>Filters</h2>
+            <div class="filters">
+                <button class="filter">Category</button>
+                <form id="filters-form" action="/" method="GET">
+                    <ul class="panel-filter">
+                        <li>
+                            <input type="checkbox" id="chanel" title="filter" placeholder="" name="floral" value="floral" />
+                            <!-- <p class="filter-newline">Floral<br /></p> -->
+                            <label for="chanel" class="filter-label">Floral</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="sauvage" title="filter" placeholder="" name="oriental" value="oriental" />
+                            <!-- <p class="filter-newline">Oriental<br /></p> -->
+                            <label for="sauvage" class="filter-label">Oriental</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="prada" title="filter" placeholder="" name="lemnos" value="lemnos" />
+                            <!-- <p class="filter-newline">Lemnos<br /></p> -->
+                            <label for="prada" class="filter-label">Lemnos</label>
+                        </li>
+                    </ul>
+                    <button type="submit" name="p" title="filter-products">
               <i class="fa fa-filter"></i>
             </button>
-          </form>
-          <!-- <button class="filter">Price</button>
+                </form>
+                <!-- <button class="filter">Price</button>
           <ul class="panel-filter">
             <li>
               <input type="checkbox" id="price1" title="price" placeholder=""/>
@@ -169,47 +136,47 @@
               <label for="price3" class="filter-label">300 - 500</label>
             </li>
           </ul> -->
-        </div>
-        <div class="admin-button">
-          <button onclick="window.location.href='Admin.html'">
+            </div>
+            <div class="admin-button">
+                <button onclick="window.location.href='Admin.html'">
             Go to admin panel
           </button>
-        </div>
-      </aside>
+            </div>
+        </aside>
     </div>
 
     <!--product catalog-->
     <div class="products-container">
-      <div class="products-title">
-        <h2>Perfume Catalog</h2>
-        <h2>Perfumes</h2>
-      </div>
-      <div class="products" id="all-products">
-        <div id="reper"></div>
-      </div>
+        <div class="products-title">
+            <h2>Perfume Catalog</h2>
+            <h2>Perfumes</h2>
+        </div>
+        <div class="products" id="all-products">
+            <div id="reper"></div>
+        </div>
     </div>
 
     <footer class="footer">
-      <div class="container-footer">
-        <div class="row">
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="Login.html">Login</a></li>
-              <li><a href="Register.html">Register</a></li>
-              <li><a href="index.html">Catalog</a></li>
-              <li><a href="favorite.html">Favorite</a></li>
-              <li><a href="cart.html">Cart</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>About Us</h5>
-            <ul>
-              <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
-            </ul>
-          </div>
+        <div class="container-footer">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="Login.html">Login</a></li>
+                        <li><a href="Register.html">Register</a></li>
+                        <li><a href="index.html">Catalog</a></li>
+                        <li><a href="favorite.html">Favorite</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>About Us</h5>
+                    <ul>
+                        <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
     <!-- Link JavaScript file -->
@@ -220,5 +187,6 @@
 
     <script src="../scripts/searchBar.js"></script>
     <script src="../scripts/filters.js"></script>
-  </body>
+</body>
+
 </html>
