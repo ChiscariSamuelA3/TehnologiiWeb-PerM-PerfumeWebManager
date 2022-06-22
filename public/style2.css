@@ -41,7 +41,7 @@
     margin-left: 35px;
 }
 
-.perfume-details .input-box input {
+.perfume-details .input-box input, .perfume-update .input-box input {
     height: 30px;
     outline: none;
     border-radius: 5px;
@@ -63,6 +63,15 @@ textarea {
     margin-left: auto;
     margin-right: auto;
 }
+
+.perfume-update .input-box {
+    margin: 20px 10px 10px 0;
+    width: 100%;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 form .user-details .input-box {
     margin: 30px 10px 10px 0;
