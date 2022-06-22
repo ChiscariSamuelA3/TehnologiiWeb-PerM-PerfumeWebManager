@@ -45,6 +45,9 @@ async function fileHandling(req, res) {
             filePath = path.join('public', 'images', req.url)
             contentType = 'image/jpg'
             break
+        case '.pdf':
+            contentType = 'application/pdf'
+            break
     }
     
     // read file

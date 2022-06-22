@@ -25,6 +25,7 @@
     "bcrypt": "^5.0.1",
     "cookies": "^0.8.0",
     "dotenv": "^16.0.1",
+    "html-pdf": "^3.0.1",
     "http": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mongo-sanitize": "^1.1.0",
