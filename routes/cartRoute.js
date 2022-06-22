@@ -35,7 +35,7 @@ function cartRoute(req, res) {
     else if(req.url === '/delete-api-cart' && req.method === 'DELETE') {
         deleteProductCart(req, res)
     }
-    else if(req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d+)$/) && req.method === 'PATCH') {
+    else if(req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d*)$/) && req.method === 'PATCH') {
         const userId = sanitize(req.url.split('/')[2])
         const id = sanitize(req.url.split('/')[3])
         const quantity = sanitize(req.url.split('/')[4])

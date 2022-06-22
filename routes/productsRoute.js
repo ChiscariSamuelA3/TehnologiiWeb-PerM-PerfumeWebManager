@@ -39,7 +39,7 @@ function productsRoute(req, res) {
 
         deleteProduct(req, res, id)
     }
-    else if(req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d+)$/) && req.method === 'PATCH') {
+    else if(req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d*)$/) && req.method === 'PATCH') {
         const id = sanitize(req.url.split('/')[2])
         const quantity = sanitize(req.url.split('/')[3])
 

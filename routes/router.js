@@ -39,7 +39,7 @@ async function router(req, res) {
         console.log("[router] delete-product api")
         productsRoute(req, res)
     } 
-    else if (req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d+)$/)) {
+    else if (req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d*)$/)) {
         console.log("[router] update-product api")
         productsRoute(req, res)
     } 
@@ -75,7 +75,7 @@ async function router(req, res) {
         console.log("[router] delete-api-cart")
         cartRoute(req, res)
     } 
-    else if (req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d+)$/)) {
+    else if (req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d*)$/)) {
         console.log("[router] update-cart api")
         cartRoute(req, res)
     } 
