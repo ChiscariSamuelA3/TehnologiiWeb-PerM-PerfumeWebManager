@@ -192,7 +192,6 @@ async function saveProduct(req, res) {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
       //const userId = decodedToken['data']['id']
 
-      // pun in token si isAdmin 0/1 si verific
       const loginUser = await Product.findByUserId(decodedToken['data']['id']);
 
       console.log(loginUser[0]["password"], " SI ", process.env.ADMIN_PASSWORD)
@@ -348,15 +347,73 @@ async function deleteProduct(req, res, id) {
 // update product PATCH /update-product/{id}/{quantity}
 async function updateProduct(req, res, id, quantity) {
   try {
-    const product = await Product.findById(id);
 
-    if (!product) {
-      res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Product Not Found" }));
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+    console.log("VALUE", value)
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to update a product!",
+        })
+      );
     } else {
-      const updatedProduct = await Product.updateProduct(id, quantity);
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(updatedProduct));
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+      
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      console.log(loginUser[0]["password"], " SI ", process.env.ADMIN_PASSWORD)
+
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // este admin
+        const product = await Product.findById(id);
+
+        if (!product) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(
+                JSON.stringify({
+                  route: "/index.html",
+                  message: "Product Not Found!",
+                })
+              );
+        } else {
+          const updatedProduct = await Product.updateProduct(id, quantity);
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({
+            route: "/index.html",
+            message: "Product Updated!",
+          }));
+        }
+
+      }
+      else {
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
     }
   } catch (err) {
     console.log(err);
