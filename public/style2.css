@@ -41,7 +41,7 @@
     margin-left: 35px;
 }
 
-.perfume-details .input-box input {
+.perfume-details .input-box input, .perfume-update .input-box input {
     height: 30px;
     outline: none;
     border-radius: 5px;
@@ -63,6 +63,15 @@ textarea {
     margin-left: auto;
     margin-right: auto;
 }
+
+.perfume-update .input-box {
+    margin: 20px 10px 10px 0;
+    width: 100%;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 form .user-details .input-box {
     margin: 30px 10px 10px 0;
@@ -370,6 +379,24 @@ div .button-login input:hover {
     }
 }
 
+/*HTML table*/
+table, th, td {
+    border:1px solid black;
+}
+  
+th,td .init-quantity{
+    size:30px;
+}
+
+.max-val {
+    color: red;
+    background-color: rgba(229, 219, 35, 0.593);
+    font-weight: bold;
+}
+
+.stat-table {
+    width: 100%;
+}
 
 /*Profile*/
 
@@ -601,10 +628,10 @@ div .button-submit input:hover {
  */
 
 .admin {
-    margin-top: 100px;
+    margin-top:50px;
 }
 
-.admin a {
+.admin a, .admin button {
     width: 200px;
     font-size: 25px;
     padding: 10px 5px;
@@ -621,6 +648,12 @@ div .button-submit input:hover {
     margin: 35px auto;
     text-shadow: 1px 0 rgb(0, 0, 0), -2px 0 black, 0 2px black, 0 -2px black, 1px 1px black, -1px -1px black, -1px 1px black, 1px -1px black;
 }
+
+.admin a:hover, .admin button:hover {
+    color: rgb(240, 129, 26);
+}
+
+
 /* 
  *******
  Payment  

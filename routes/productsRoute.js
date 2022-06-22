@@ -1,4 +1,4 @@
-const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct, getFilters} = require('../controllers/productsController')
+const {getProducts, getProduct, saveProduct, deleteProduct, updateProduct, getFilters, getHTMLstats, getJSONstats, getPDFstats } = require('../controllers/productsController')
 const { fileRouter } = require('./filesRoute')
 var sanitize = require('mongo-sanitize')
 
@@ -6,6 +6,15 @@ function productsRoute(req, res) {
     
     if(req.url === '/get-products' && req.method === 'GET') {
         getProducts(req, res)
+    }
+    else if(req.url === '/api/stats/html' && req.method === 'GET') { // stats
+        getHTMLstats(req, res)
+    }
+    else if(req.url === '/api/stats/json' && req.method === 'GET') {
+        getJSONstats(req, res)
+    }
+    else if(req.url === '/api/stats/pdf' && req.method === 'GET') {
+        getPDFstats(req, res)
     }
     else if(req.url.match(/^\/get-product\/([0-9a-z]{24})$/) && req.method === 'GET') {
         
@@ -30,13 +39,13 @@ function productsRoute(req, res) {
 
         deleteProduct(req, res, id)
     }
-    else if(req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d+)$/) && req.method === 'PATCH') {
+    else if(req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d*)$/) && req.method === 'PATCH') {
         const id = sanitize(req.url.split('/')[2])
         const quantity = sanitize(req.url.split('/')[3])
 
         updateProduct(req, res, id, quantity)
     }
-    else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg))/) && req.method === 'GET') {
+    else if(req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg|pdf))/) && req.method === 'GET') {
         fileRouter(req, res)
     }
     else {

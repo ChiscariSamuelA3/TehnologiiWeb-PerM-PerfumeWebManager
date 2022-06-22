@@ -1,6 +1,9 @@
 const Product = require("../models/productsModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const pdf = require('html-pdf');
+const fs = require('fs')
+
 
 const { getPostData } = require("../utils/utils");
 
@@ -44,6 +47,94 @@ async function getFilters(req, res, floral, oriental, lemnos) {
     const products = await Product.findAllByFilters(floral, oriental, lemnos);
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(products));
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
+//get HTML stats GET /api/stats/html
+async function getHTMLstats(req, res) {
+  try {
+
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to view the STATS!",
+        })
+      );
+    } else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // e admin
+        
+        const products = await Product.findAll();
+
+        let avgReviews = []
+  
+        // pentru fiecare produs, calculez media recenziilor
+        for(const product of products) {
+          let avg = 0
+          let sum = 0
+          let len = 0
+          const productReviews = await Product.findReviews(product._id)
+          for(const review of productReviews) {
+            len++
+            sum += review.grade
+          }
+
+          if(len === 0) {
+            avg = 0
+          }
+          else {
+            avg = (sum / len).toFixed(2)
+          }
+
+          avgReviews.push(avg)
+
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({products, avgReviews}));
+      }
+      else {
+        // nu e admin
+
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
+    }
   } catch (err) {
     console.log(err);
 
@@ -101,7 +192,6 @@ async function saveProduct(req, res) {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
       //const userId = decodedToken['data']['id']
 
-      // pun in token si isAdmin 0/1 si verific
       const loginUser = await Product.findByUserId(decodedToken['data']['id']);
 
       console.log(loginUser[0]["password"], " SI ", process.env.ADMIN_PASSWORD)
@@ -257,15 +347,338 @@ async function deleteProduct(req, res, id) {
 // update product PATCH /update-product/{id}/{quantity}
 async function updateProduct(req, res, id, quantity) {
   try {
-    const product = await Product.findById(id);
 
-    if (!product) {
-      res.writeHead(404, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Product Not Found" }));
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+    console.log("VALUE", value)
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to update a product!",
+        })
+      );
     } else {
-      const updatedProduct = await Product.updateProduct(id, quantity);
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(updatedProduct));
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+      
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      console.log(loginUser[0]["password"], " SI ", process.env.ADMIN_PASSWORD)
+
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // este admin
+        const product = await Product.findById(id);
+
+        if (!product) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(
+                JSON.stringify({
+                  route: "/index.html",
+                  message: "Product Not Found!",
+                })
+              );
+        } else {
+          const updatedProduct = await Product.updateProduct(id, quantity);
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({
+            route: "/index.html",
+            message: "Product Updated!",
+          }));
+        }
+
+      }
+      else {
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
+//get json stats GET /api/stats/json
+async function getJSONstats(req, res) {
+  try {
+
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to view the STATS!",
+        })
+      );
+    } else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // e admin
+        
+        const products = await Product.findAll();
+
+        let JSONstats = []
+  
+        // pentru fiecare produs, calculez media recenziilor
+        for(const product of products) {
+          let avg = 0
+          let sum = 0
+          let len = 0
+          const productReviews = await Product.findReviews(product._id)
+          for(const review of productReviews) {
+            len++
+            sum += review.grade
+          }
+
+          if(len === 0) {
+            avg = 0
+          }
+          else {
+            avg = (sum / len).toFixed(2)
+          }
+    
+          const name = product.name
+          const category = product.category
+          const season = product.season
+          const gender = product.gender
+          const smell = product.smell
+          const initStock = product.initialstock
+          const currStock = product.quantity
+          const avgReview = avg
+          const price = product.price
+          const nrSales = initStock - currStock
+          const totalSum = price * nrSales
+
+          JSONstats.push(
+             { name, category, season, gender, smell, initStock, currStock, avgReview, price, nrSales, totalSum, }
+            )
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(JSONstats));
+      }
+      else {
+        // nu e admin
+
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
+    }
+  } catch (err) {
+    console.log(err);
+
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify(err));
+  }
+}
+
+
+//get pdf stats GET /api/stats/pdf
+async function getPDFstats(req, res) {
+  try {
+
+    let value = "";
+    let token = "";
+    const cookieHeader = req.headers?.cookie;
+
+    if (cookieHeader) {
+      cookieHeader.split(`;`).forEach((cookie) => {
+        let [name, ...rest] = cookie.split(`=`);
+        if (name === "jwt") {
+          value = rest.join(`=`).trim();
+          if (value) {
+            token = decodeURIComponent(value);
+          }
+        }
+      });
+    }
+
+    if (value === "" || value === "undefined") {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({
+          route: "/Login.html",
+          message: "You must login as an ADMIN to view the STATS!",
+        })
+      );
+    } else {
+      // decodificare token preluat din cookie
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      //const userId = decodedToken['data']['id']
+
+      const loginUser = await Product.findByUserId(decodedToken['data']['id']);
+
+      if (bcrypt.compareSync(process.env.ADMIN_PASSWORD, loginUser[0]["password"])) {
+        // e admin
+        const products = await Product.findAll();
+
+        let myStats = `
+        <!DOCTYPE html>
+        <html>
+        <style>
+            table, th, td {
+            border:1px solid black;
+          }
+          th,td .init-quantity{
+            size:30px;
+          }
+          </style>
+        <body>
+        <h2>PDF Perfume Table</h2>
+        <table style="width:100%" class="stat-table">
+        <tr>
+          <th class="name">Name</th>
+          <th class="category">Category</th>
+          <th class="season">Season</th> 
+          <th class="gender">Gender</th>
+          <th class="smell">Smell</th>
+          <th class="init-quantity">I. Quantity</th>
+          <th class="cur-quantity">C. Quantity</th>
+          <th class="review">Avg. review</th>
+          <th class="price">Price</th>
+          <th class="num-sales">Sales</th>
+          <th class="total-sum">Total</th>
+        </tr>
+        `
+        // pentru fiecare produs, calculez media recenziilor
+        for(const product of products) {
+          let avg = 0
+          let sum = 0
+          let len = 0
+          const productReviews = await Product.findReviews(product._id)
+          for(const review of productReviews) {
+            len++
+            sum += review.grade
+          }
+
+          if(len === 0) {
+            avg = 0
+          }
+          else {
+            avg = (sum / len).toFixed(2)
+          }
+    
+          const name = product.name
+          const cat = product.category
+          const season = product.season
+          const gender = product.gender
+          const smell = product.smell
+          const initStock = product.initialstock
+          const currStock = product.quantity
+          const revAvg = avg
+          const price = product.price
+          const sales = initStock - currStock
+          const total = price * sales
+
+          myStats += `
+          <tr>
+            <td class="name">${name}</td>
+            <td class="category">${cat}</td>
+            <td class="season">${season}</td>
+            <td class="gender">${gender}</td>
+            <td class="smell">${smell}</td>
+            <td class="init-quantity">${initStock}</td>
+            <td class="cur-quantity">${currStock}</td>
+            <td class="review">${revAvg}</td>
+            <td class="price">${price}</td>
+            <td class="num-sales">${sales}</td>
+            <td class="total-sum">${total}</td>
+          </tr>`
+        }
+        
+        myStats += `
+          </table>
+          </body>
+          </html>`
+
+        pdf.create(myStats, { format: 'Letter' }).toFile('.\\public\\generated.pdf', (err, rest) => {
+          if (err) {
+            console.log(err);
+
+            console.log(err);
+
+            res.writeHead(500, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(err));
+          }
+          else {
+            console.log(rest);
+          
+            res.writeHead(201, { "Content-Type": "application/json" });
+            res.end(
+                JSON.stringify({
+                  route: '.\\public\\generated.pdf',
+                  message: "PDF stats!",
+                })
+              );
+          }
+        });
+
+        
+      }
+      else {
+        // nu e admin
+
+        console.log("[product-controller] You are not an admin!");
+        res.writeHead(409, { "Content-Type": "application/json" });
+        res.end(
+              JSON.stringify({
+                route: "/index.html",
+                message: "You are not an ADMIN!",
+              })
+            );
+      }
     }
   } catch (err) {
     console.log(err);
@@ -282,4 +695,7 @@ module.exports = {
   deleteProduct,
   updateProduct,
   getFilters,
+  getHTMLstats,
+  getJSONstats,
+  getPDFstats
 };

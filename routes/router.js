@@ -11,6 +11,18 @@ async function router(req, res) {
         console.log("[router] get-products api")
         productsRoute(req, res)
     } 
+    else if(req.url === '/api/stats/html') { //stats
+        console.log("[router] html stats")
+        productsRoute(req, res)
+    }
+    else if(req.url === '/api/stats/json') { // stats
+        console.log("[router] json stats")
+        productsRoute(req, res)
+    }
+    else if(req.url === '/api/stats/pdf') { // stats
+        console.log("[router] pdf stats")
+        productsRoute(req, res)
+    }
     else if (req.url.match(/^\/get-product\/([0-9a-z]{24})$/)) {
         console.log("[router] get-product api")
         productsRoute(req, res)
@@ -27,11 +39,11 @@ async function router(req, res) {
         console.log("[router] delete-product api")
         productsRoute(req, res)
     } 
-    else if (req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d+)$/)) {
+    else if (req.url.match(/^\/update-product\/([0-9a-z]{24})\/(0|[1-9]\d*)$/)) {
         console.log("[router] update-product api")
         productsRoute(req, res)
     } 
-    else if (req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg))/)) {
+    else if (req.url === '/' || req.url.match(/([0-9a-zA-Z]+.html)/) || req.url.match(/([0-9a-zA-Z]+.html\?floral=(true|false)&oriental=(true|false)&lemnos=(true|false))/) || req.url.match(/^(\/[0-9a-zA-Z]+.html\?id=[0-9a-z]{24})$/) || req.url.match(/([0-9a-zA-Z]+.(css|js|png|jpg|pdf))/)) {
         console.log("[router] public route", req.url)
         productsRoute(req, res)
     } 
@@ -63,7 +75,7 @@ async function router(req, res) {
         console.log("[router] delete-api-cart")
         cartRoute(req, res)
     } 
-    else if (req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d+)$/)) {
+    else if (req.url.match(/^\/update-cart\/([0-9a-z]{24})\/([0-9a-z]{24})\/(0|[1-9]\d*)$/)) {
         console.log("[router] update-cart api")
         cartRoute(req, res)
     } 

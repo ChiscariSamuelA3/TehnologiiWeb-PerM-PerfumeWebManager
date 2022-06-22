@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style2.css" type="text/css" />
@@ -11,122 +10,132 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
     <title>Homepage</title>
-</head>
-<body>
-  <!--navbar-->
-  <header>
-    <div class="logo">
-      <a href="index.html">PARFUM.RO</a>
-    </div>
-    <!-- search-box -->
-    <input type="checkbox" id="expand" title="menu" placeholder="" />
-    <div class="search-box">
-      <form class="search-bar" id="search-form" action="/" method="GET">
-        <input type="text" id="search-box-id" name="p" placeholder="Search by name ..."/>
-        <button type="submit" name="" title="search product">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-    </div>
-    <!-- nav links -->
-    <ul>
-      <li id="account-x">
-        <a href="#" class="dynamic-acc">
-          Account
-          <i class="fa fa-user"></i>
-        </a>
-        <ul class="dropdown">
-          <li><a href="Profile.html">My Profile</a></li>
-          <li><a onclick="delete_cookie('jwt', '/')" href="Homepage.html">Logout</a></li>
-        </ul>
-      </li>
-
-      <li class="account-y">
-        <a href="Profile.html" class="text">
-          <i class="fa fa-user-cog"></i>
-        </a>
-
-        <a href="Profile.html" class="icon">
-          <i class="fa fa-user-cog"></i>
-        </a>
-      </li>
-
-      <li class="account-y">
-        <a href="Homepage.html" class="text">
-          <i class="fa fa-user-times"></i>
-        </a>
-
-        <a onclick="delete_cookie('jwt', '/')" href="Homepage.html" class="icon">
-          <i class="fa fa-user-times"></i>
-        </a>
-      </li>
-
-      <li>
-        <a href="favorite.html" class="text">
-          Preference
-          <i class="fa fa-star"></i>
-        </a>
-        <a href="favorite.html" class="icon" title="acc">
-          <i class="fa fa-star"></i>
-        </a>
-      </li>
-
-      <li class="cart">
-        <a href="cart.html" class="text">
-          Shopping Cart
-          <i class="fa fa-shopping-cart"></i>
-        </a>
-        <a href="cart.html" class="icon" title="acc">
-          <i class="fa fa-shopping-cart"></i>
-        </a>
-      </li>
-    </ul>
-    <!-- expand vertical menu-->
-    <div class="menu">
-      <label for="expand">
-        <i class="fa fa-bars"></i>
-      </label>
-    </div>
-  </header>
-
-
-      <div class="admin">
-        <a href="Add.html">Add</a>
-        <a href="Update.html">Update</a>
-        <a href="Delete.html">Delete</a>
-
-        <a href="#">HTML stats</a>
-        <a href="#">JSON stats</a>
-        <a href="#">PDF stats</a>
-        <a onclick="exportPerfumes()" download="filename.csv">CSV file</a>
+  </head>
+  <body>
+    <!--navbar-->
+    <header>
+      <div class="logo">
+        <a href="index.html">PARFUM.RO</a>
       </div>
-
-
-
-
-  <footer class="footer">
-    <div class="container-footer">
-      <div class="row">
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="Login.html">Login</a></li>
-            <li><a href="Register.html">Register</a></li>
-            <li><a href="index.html">Catalog</a></li>
-            <li><a href="favorite.html">Favorite</a></li>
-            <li><a href="cart.html">Cart</a></li>
+      <!-- search-box -->
+      <input type="checkbox" id="expand" title="menu" placeholder="" />
+      <div class="search-box">
+        <form class="search-bar" id="search-form" action="/" method="GET">
+          <input
+            type="text"
+            id="search-box-id"
+            name="p"
+            placeholder="Search by name ..."
+          />
+          <button type="submit" name="" title="search product">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <!-- nav links -->
+      <ul>
+        <li id="account-x">
+          <a href="#" title="profile" class="dynamic-acc">
+            Account
+            <i class="fa fa-user"></i>
+          </a>
+          <ul class="dropdown">
+            <li><a title="profile" href="Profile.html">My Profile</a></li>
+            <li>
+              <a onclick="delete_cookie('jwt', '/')" href="Homepage.html"
+                >Logout</a
+              >
+            </li>
           </ul>
-        </div>
-        <div class="footer-col">
-          <h5>About Us</h5>
-          <ul>
-            <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
-          </ul>
+        </li>
+
+        <li class="account-y">
+          <a href="Profile.html" class="text">
+            <i class="fa fa-user-cog"></i>
+          </a>
+
+          <a href="Profile.html" class="icon">
+            <i class="fa fa-user-cog"></i>
+          </a>
+        </li>
+
+        <li class="account-y">
+          <a href="Homepage.html" class="text">
+            <i class="fa fa-user-times"></i>
+          </a>
+
+          <a
+            onclick="delete_cookie('jwt', '/')"
+            href="Homepage.html"
+            class="icon"
+          >
+            <i class="fa fa-user-times"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="favorite.html" class="text">
+            Preference
+            <i class="fa fa-star"></i>
+          </a>
+          <a href="favorite.html" class="icon" title="acc">
+            <i class="fa fa-star"></i>
+          </a>
+        </li>
+
+        <li class="cart">
+          <a href="cart.html" class="text">
+            Shopping Cart
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+          <a href="cart.html" class="icon" title="acc">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+      <!-- expand vertical menu-->
+      <div class="menu">
+        <label for="expand">
+          <i class="fa fa-bars"></i>
+        </label>
+      </div>
+    </header>
+
+    <div class="admin">
+      <a href="Add.html">Add</a>
+      <a href="Update.html">Update</a>
+      <a href="Delete.html">Delete</a>
+
+      <a href="table.html">HTML stats</a>
+      <a href="/api/stats/json">JSON stats</a>
+      <button name="pdf" title="get pdf" onclick="getPdf()">PDF stats</button>
+      <a onclick="exportPerfumes()" download="filename.csv">CSV file</a>
+    </div>
+
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="Login.html">Login</a></li>
+              <li><a href="Register.html">Register</a></li>
+              <li><a href="index.html">Catalog</a></li>
+              <li><a href="favorite.html">Favorite</a></li>
+              <li><a href="cart.html">Cart</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>About Us</h5>
+            <ul>
+              <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <script src="../scripts/searchBar.js"></script>
-  <script src="../scripts/exportCSV.js"></script>
-</body>
+    </footer>
+    <script src="../scripts/searchBar.js"></script>
+    <script src="../scripts/exportCSV.js"></script>
+    <script src="../scripts/getPDF.js"></script>
+  </body>
 </html>
