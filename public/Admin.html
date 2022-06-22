@@ -35,12 +35,12 @@
       <!-- nav links -->
       <ul>
         <li id="account-x">
-          <a href="#" class="dynamic-acc">
+          <a href="#" title="profile" class="dynamic-acc">
             Account
             <i class="fa fa-user"></i>
           </a>
           <ul class="dropdown">
-            <li><a href="Profile.html">My Profile</a></li>
+            <li><a title="profile" href="Profile.html">My Profile</a></li>
             <li>
               <a onclick="delete_cookie('jwt', '/')" href="Homepage.html"
                 >Logout</a
@@ -108,7 +108,7 @@
 
       <a href="table.html">HTML stats</a>
       <a href="/api/stats/json">JSON stats</a>
-      <a href="#">PDF stats</a>
+      <button name="pdf" title="get pdf" onclick="getPdf()">PDF stats</button>
       <a onclick="exportPerfumes()" download="filename.csv">CSV file</a>
     </div>
 
@@ -136,5 +136,6 @@
     </footer>
     <script src="../scripts/searchBar.js"></script>
     <script src="../scripts/exportCSV.js"></script>
+    <script src="../scripts/getPDF.js"></script>
   </body>
 </html>
