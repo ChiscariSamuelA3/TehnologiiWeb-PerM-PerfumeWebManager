@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Help</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleFAQ.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">PARFUM.RO</a>
+        </div>
+        <!-- search-box -->
+        <input type="checkbox" id="expand" title="menu" placeholder="" />
+        <div class="search-box">
+            <form class="search-bar" id="search-form" action="/" method="GET">
+                <input type="text" id="search-box-id" name="p" placeholder="Search by
+            name ..." />
+                <button type="submit" name="" title="search product">
+            <i class="fa fa-search"></i>
+          </button>
+            </form>
+        </div>
+        <!-- nav links -->
+        <ul>
+            <li id="account-x">
+                <a href="#" class="dynamic-acc">
+            Account
+            <i class="fa fa-user"></i>
+          </a>
+                <ul class="dropdown">
+                    <li><a href="Login.html">Login</a></li>
+                    <li><a href="Register.html">Register</a></li>
+                </ul>
+            </li>
+
+            <li class="account-y">
+                <a href="Login.html" class="text" title="acc">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+
+                <a href="Login.html" class="icon">
+                    <i class="fas fa-sign-in-alt">&nbsp;IN</i>
+                </a>
+            </li>
+
+            <li class="account-y">
+                <a href="Register.html" class="text" title="acc">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+
+                <a href="Register.html" class="icon">
+                    <i class="fas fa-sign-in-alt">&nbsp;UP</i>
+                </a>
+            </li>
+
+            <li>
+                <a href="favorite.html" class="text">
+            Preference
+            <i class="fa fa-star"></i>
+          </a>
+                <a href="favorite.html" class="icon" title="acc">
+                    <i class="fa fa-star"></i>
+                </a>
+            </li>
+
+            <li class="cart">
+                <a href="cart.html" class="text">
+            Shopping Cart
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+                <a href="cart.html" class="icon" title="acc">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- expand vertical menu-->
+        <div class="menu">
+            <label for="expand">
+          <i class="fa fa-bars"></i>
+        </label>
+        </div>
+    </header>
+
+    <div class="container-register">
+        <div class="title">FAQ
+            <button type="button" class="collapsible">Cum creez un cont?</button>
+            <div class="content">
+                <div class="title">Intrati pe pagina Register si introduceti datele necesare.
+                </div>
+            </div>
+            <button type="button" class="collapsible">Cum ma conectez?</button>
+            <div class="content">
+                <div class="title">Intrati pe pagina Login si introduceti datele utilizate la Register.
+                </div>
+            </div><button type="button" class="collapsible">Cum adaug un produs la favorite?</button>
+            <div class="content">
+                <div class="title">Atat pe pagina produsului, cat si pe homepage, se regaseste in dreptul pozei reprezentative un buton cu textul "Add to favorite" sau cu o inimioara. Apasati pentru a salva produsul la favorite.
+                </div>
+            </div><button type="button" class="collapsible">Cum adaug un produs in cosul de cumparaturi?</button>
+            <div class="content">
+                <div class="title">Atat pe pagina produsului, cat si pe homepage, se regaseste in dreptul pozei reprezentative un buton cu textul "Add to Cart" sau cu un cos de cumparaturi. Apasati pentru a adauga produsul in cosul de cumparaturi.
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
+    </div>
+
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="Login.html">Login</a></li>
+                        <li><a href="Register.html">Register</a></li>
+                        <li><a href="index.html">Catalog</a></li>
+                        <li><a href="favorite.html">Favorite</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>About Us</h5>
+                    <ul>
+                        <li><a href="/Scholary%20HTML/index.html">Scholary Html</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link JavaScript file -->
+    <script src="../scripts/register.js"></script>
+    <script src="../scripts/searchBar.js"></script>
+</body>
+
+</html>
