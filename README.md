@@ -15,3 +15,7 @@ npm run dev
 ```bash
 https://perfumewebmanagertw.herokuapp.com/
 ```
+# PerM 
+* Sa se conceapa o aplicatie Web de management al resurselor dintr-o parfumerie care ofera utilizatorilor diverse (tipuri de) parfumuri, in functie de profilul unei persoane si vizand o anumita ocazie, un anotimp etc. Fiecarui produs i se vor atasa proprietati specifice, inclusiv ingrediente, pret, comentarii, tag-uri asociate, relatii cu alte parfumuri inrudite.
+
+* De asemenea, se va simula expedierea parfumurilor achizitionate la o adresa stabilita, eventual in regim de cadou. Administratorul sistemului va avea posibilitatea sa consulte rapoarte – generate in formatele HTML, JSON si PDF – privind stocurile existente si situatia vanzarilor in functie de categoria de parfumuri, profilul utilizatorilor, o anumita perioada de timp etc.
